@@ -36,7 +36,5 @@ namespace Squares.Controllers
         {
             return View();
         }
-
-
     }
 }

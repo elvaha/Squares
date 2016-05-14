@@ -216,10 +216,24 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\about-image.png" />
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\imageBlank.jpg" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\menu-sprite-r.png" />
+    <Content Include="Content\images\menu-sprite.png" />
+    <Content Include="Content\images\search-ico.png" />
+    <Content Include="Content\images\social-medias.png" />
+    <Content Include="Content\images\star.png" />
+    <Content Include="Content\styles.css">
+      <DependentUpon>styles.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\styles.min.css">
+      <DependentUpon>styles.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -230,9 +244,21 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\styles.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="fonts\LatoRegular.ttf" />
+    <Content Include="fonts\LatoRegular.woff" />
+    <Content Include="fonts\LatoRegular.woff2" />
+    <Content Include="fonts\SimplySquare.ttf" />
+    <Content Include="fonts\SimplySquare.woff2" />
+    <Content Include="fonts\SimplySquareJL.woff" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\CustomJQ.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -287,6 +313,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\squares\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

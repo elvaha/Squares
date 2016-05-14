@@ -11,12 +11,15 @@ namespace Squares.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Class = "index";
+
             return View();
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
+            ViewBag.Class = "about";
 
             return View();
         }
@@ -30,14 +33,18 @@ namespace Squares.Controllers
 
         public ActionResult Gallery()
         {
+            ViewBag.Class = "gallery";
+            /*
             Gallery gal = new Gallery();
             List<Set> gallery = gal.Sets();
-
-            return View(gallery);
+            */
+            return View();
         }
 
         public ActionResult Designer(String SetId)
         {
+            ViewBag.Class = "gallery";
+
             DataClassesSquaresDataContext db = new DataClassesSquaresDataContext();
             Set set = db.Sets.Single(x => x.SetId == SetId);
             

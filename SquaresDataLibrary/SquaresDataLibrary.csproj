@@ -50,10 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Artist.cs" />
-    <Compile Include="ArtistSet.cs" />
-    <Compile Include="Piece.cs" />
-    <Compile Include="User.cs" />
     <Compile Include="DataClassesSquares.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

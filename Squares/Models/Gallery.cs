@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-
+using SquaresDataLibrary;
 
 namespace Squares.Models
 {
-    [Table("dbo.AspNetUsers")]
-    public class User
-    {
+    public class Gallery
+    { 
 
-
+        public List<Set> Sets { get; set; }
 
     }
 }

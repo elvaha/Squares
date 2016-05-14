@@ -30,12 +30,18 @@ namespace Squares.Controllers
 
         public ActionResult Gallery()
         {
-            return View();
+            Gallery gal = new Gallery();
+            List<Set> gallery = gal.Sets();
+
+            return View(gallery);
         }
 
-        public ActionResult Designer()
+        public ActionResult Designer(String SetId)
         {
-            return View();
+            DataClassesSquaresDataContext db = new DataClassesSquaresDataContext();
+            Set set = db.Sets.Single(x => x.SetId == SetId);
+
+            return View(set);
         }
     }
 }

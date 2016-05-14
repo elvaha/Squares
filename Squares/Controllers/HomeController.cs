@@ -40,7 +40,7 @@ namespace Squares.Controllers
         {
             DataClassesSquaresDataContext db = new DataClassesSquaresDataContext();
             Set set = db.Sets.Single(x => x.SetId == SetId);
-
+            
             return View(set);
         }
     }

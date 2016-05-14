@@ -220,6 +220,27 @@ namespace SquaresDataLibrary
 				return this.GetTable<Zipcode>();
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DeleteSet")]
+		public int DeleteSet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SetId", DbType="NVarChar(128)")] string setId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), setId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NewSet")]
+		public int NewSet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SetId", DbType="NVarChar(128)")] string setId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Title", DbType="NVarChar(MAX)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="NVarChar(128)")] string userId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), setId, title, description, userId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateSet")]
+		public int UpdateSet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SetId", DbType="NVarChar(128)")] string setId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Title", DbType="NVarChar(MAX)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), setId, title, description);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[__MigrationHistory]")]

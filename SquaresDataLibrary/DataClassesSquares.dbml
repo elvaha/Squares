@@ -157,4 +157,21 @@
       <Association Name="Zipcode_AspNetUser" Member="AspNetUsers" ThisKey="ZipcodeId" OtherKey="ZipcodeId" Type="AspNetUser" />
     </Type>
   </Table>
+  <Function Name="dbo.DeleteSet" Method="DeleteSet">
+    <Parameter Name="SetId" Parameter="setId" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NewSet" Method="NewSet">
+    <Parameter Name="SetId" Parameter="setId" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateSet" Method="UpdateSet">
+    <Parameter Name="SetId" Parameter="setId" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

@@ -387,8 +387,7 @@ namespace Squares.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
@@ -402,6 +401,30 @@ namespace Squares.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult AccountManagement()
+        {
+            try
+            {
+                var user = UserManager.FindById(User.Identity.GetUserId());
+                if(user == null)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
+                
+            }
+            catch
+            {
+                
+            }
+
+            return View();
+        }
+
+
+
 
         protected override void Dispose(bool disposing)
         {
@@ -422,6 +445,7 @@ namespace Squares.Controllers
 
             base.Dispose(disposing);
         }
+
 
         #region Helpers
         // Used for XSRF protection when adding external logins

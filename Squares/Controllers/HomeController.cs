@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SquaresDataLibrary;
+using Squares.Models;
 
 namespace Squares.Controllers
 {
@@ -12,6 +12,7 @@ namespace Squares.Controllers
         public ActionResult Index()
         {
             ViewBag.Class = "index";
+            
 
             return View();
         }
@@ -33,19 +34,18 @@ namespace Squares.Controllers
 
         public ActionResult Gallery()
         {
-            ViewBag.Class = "gallery";
-            /*
-            Gallery gal = new Gallery();
-            List<Set> gallery = gal.Sets();
-            */
+            //ViewBag.Class = "gallery";
+            
+            //Gallery gal = new Gallery();
+            //List<Set> gallery = gal.Sets();
+            
             return View();
         }
 
         public ActionResult Designer(String SetId)
         {
-            ViewBag.Class = "gallery";
+            SquaresDataContext db = new SquaresDataContext();
 
-            DataClassesSquaresDataContext db = new DataClassesSquaresDataContext();
             Set set = db.Sets.Single(x => x.SetId == SetId);
             
             return View(set);

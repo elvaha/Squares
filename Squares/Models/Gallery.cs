@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using SquaresDataLibrary;
 
 namespace Squares.Models
 {
@@ -18,7 +17,7 @@ namespace Squares.Models
         // ordered by Rating as default, can be sorted afterwards
         public List<Set> Sets()
         {
-            DataClassesSquaresDataContext db = new DataClassesSquaresDataContext();
+            SquaresDataContext db = new SquaresDataContext();
             List<Set> sets = db.Sets.OrderBy(x => x.Rating).ToList();
 
             return sets;

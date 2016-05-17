@@ -21,7 +21,7 @@ namespace Squares.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SquaresConnectionString", throwIfV1Schema: false)
         {
         }
 

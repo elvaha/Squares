@@ -17,8 +17,17 @@
                 <li class="gallery"><a href="/Home/Gallery"></a></li>
                 <li class="search"><a href="#"></a></li>
                 <li class="about"><a href="/Home/About"></a></li>
-                <li class="user"><a href="#"></a></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="profile"><a href="/account/profile"></a></li>
+                    <li class="logoff"><a href="/account/logoff"></a></li>
+                }
+                else
+                {
+                    <li class="user"><a></a></li>
+                }
             </ul>
+            <p>@User.Identity.Name</p>
         </nav>
         <div class="inner-wrapper">
 

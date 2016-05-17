@@ -2,8 +2,6 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    background: url(images/bg.jpg) no-repeat center center fixed; 
-    background-size: cover;
 }
 
 .fold--collapse {
@@ -15,12 +13,13 @@
 
     .fold__content {
         position: absolute;
-        top: 50%;
+        top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
     .fold__header {
+        max-width: 700px;
         text-align: center;
     }
 

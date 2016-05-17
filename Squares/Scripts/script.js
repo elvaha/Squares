@@ -78,8 +78,6 @@ var flag1 = false;
 var distance = $('#search-widget').offset().top,
     $window = $(window);
 
-/*
-
 $window.scroll(function () {
 
     if ($window.scrollTop() >= distance - 10) {
@@ -90,10 +88,7 @@ $window.scroll(function () {
         if (flag1) {
             console.log('DOWN');
 
-            var size = $window.width() - ($('.main-navigation').width() + 20) + 'px';
-            console.log(size);
-
-            $('#search-widget').css('width', size);
+            $('#search-widget').css('position', 'fixed').css('top', '10px');
 
             $('#search-widget').addClass('search--pin');
             $('.main-navigation').removeClass('rotate').addClass('rotate-reverse');
@@ -125,18 +120,11 @@ $window.scroll(function () {
 
 });
 
- */
-
 function stuffAboveOnce() {
 
     if ($window.scrollTop() >= distance - 10) {
 
-            console.log('DOWN');
-
-            var size = $window.width() - ($('.main-navigation').width() + 20) + 'px';
-            console.log(size);
-
-            $('#search-widget').css('width', size);
+            $('#search-widget').css('position', 'fixed').css('top', '10px');
 
             $('#search-widget').addClass('search--pin');
             $('.main-navigation').removeClass('rotate').addClass('rotate-reverse');
@@ -147,3 +135,5 @@ function stuffAboveOnce() {
     }
 
 }
+
+stuffAboveOnce();

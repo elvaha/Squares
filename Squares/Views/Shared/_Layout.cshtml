@@ -8,6 +8,64 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
+
+@*
+
+        <<<<<<< HEAD
+    <body class=@ViewBag.Class>
+
+        <div class="wrapper">
+            <nav>
+                <ul>
+                    <li class="logo"><a href="/Home/Index"><img src="~/Content/images/logo.png"></a></li>
+                    <li class="gallery"><a href="/Home/Gallery"></a></li>
+                    <li class="search"><a href="#"></a></li>
+                    <li class="about"><a href="/Home/About"></a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="profile"><a href="/account/profile"></a></li>
+                        <li class="logoff"><a href="/account/logoff"></a></li>
+                    }
+                    else
+                    {
+                        <li class="user"><a></a></li>
+                    }
+                </ul>
+                <p>@User.Identity.Name</p>
+            </nav>
+            <div class="inner-wrapper">
+
+                @RenderBody()
+
+                <footer>
+                    <ul>
+                        <li>
+                            <ul class="social-media">
+                                <li class="social-fb"><a href="#"></a></li>
+                                <li class="social-tw"><a href="#"></a></li>
+                                <li class="social-gplus"><a href="#"></a></li>
+                                <li class="social-instagr"><a href="#"></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="footer-nav">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Gallery</a></li>
+                                <li><a href="#">About Us</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>&copy; Copyright 2016</span>
+                        </li>
+                    </ul>
+                </footer>
+            </div>
+        </div>
+
+
+        =======
+
+*@
 <body>
 
     <nav>
@@ -23,37 +81,37 @@
             }
             else
             {
-                <li class="main-navigation__item"><a href="#"><img src="~/Content/images/login.png"></a></li>
+                <li class="user"><a></a></li>
             }
         </ul>
         <div id="search-widget" class="search bring-to-front">
 
-                <form class="search__form">
+            <form class="search__form">
 
-                    <div class="search__type hidden-sm-down bring-to-front">
-                        <p class="search__type-text">ARTIST</p>
-                    </div>
-                    <div class="search__searchbar-wrapper">
-                        <input class="search__searchbar" placeholder="Search our collection" type="text" />
-                    </div>
-                    <img class="search__submit" src="~/Content/images/search-ico.png" />
-                    <div class="container-fluid hidden-sm-down search__sort">
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 remove-gutter">
-                                <p class="search__sort-item">TOP RATED</p>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 remove-gutter">
-                                <p class="search__sort-item">MOST VIEWED</p>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 remove-gutter">
-                                <p class="search__sort-item">NEWEST</p>
-                            </div>
+                <div class="search__type hidden-sm-down bring-to-front">
+                    <p class="search__type-text">ARTIST</p>
+                </div>
+                <div class="search__searchbar-wrapper">
+                    <input class="search__searchbar" placeholder="Search our collection" type="text" />
+                </div>
+                <img class="search__submit" src="~/Content/images/search-ico.png" />
+                <div class="container-fluid hidden-sm-down search__sort">
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4 remove-gutter">
+                            <p class="search__sort-item">TOP RATED</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 remove-gutter">
+                            <p class="search__sort-item">MOST VIEWED</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 remove-gutter">
+                            <p class="search__sort-item">NEWEST</p>
                         </div>
                     </div>
+                </div>
 
-                </form>
-                    
-            </div>
+            </form>
+
+        </div>
 
     </nav>
 
@@ -64,6 +122,7 @@
     <button class="f">F</button>
 
     <footer class="footer"></footer>
+    >>>>>>> refs/remotes/origin/rogue
 
 
     @Scripts.Render("~/bundles/jquery")

@@ -295,13 +295,11 @@
     <Content Include="fonts\SimplySquare.ttf" />
     <Content Include="fonts\SimplySquare.woff2" />
     <Content Include="fonts\SimplySquareJL.woff" />
-<<<<<<< HEAD
     <Content Include="Models\Squares.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Squares.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-=======
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\styles.scss" />
@@ -313,7 +311,6 @@
     <Content Include="Content\_search.scss" />
     <Content Include="Content\_footer.scss" />
     <Content Include="Content\_set.scss" />
->>>>>>> refs/remotes/origin/rogue
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

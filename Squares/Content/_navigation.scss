@@ -1,0 +1,118 @@
+﻿.main-navigation {
+    position: fixed;
+    width: 100%;
+    z-index: 2000;
+    background-color: $primary-color;
+}
+
+    .main-navigation__item {
+        display: inline-block;
+        max-width: 50px;
+        max-height: 50px;
+        margin: 10px;
+
+        cursor: pointer;
+        vertical-align: bottom;
+
+        img {
+            max-width: 50px;
+            max-height: 50px;
+        }
+
+    }
+
+    .main-navigation__item:nth-of-type(3), .main-navigation__item:nth-of-type(4) {
+
+        border: 3px solid $secondary-color;
+        background-color: $primary-color;
+
+        img {
+            max-width: 44px;
+            max-height: 44px;
+        }
+
+    }
+
+    .main-navigation__item:nth-of-type(2):hover {
+        content: url('/Content/images/gallery-hover.png');
+    }
+    .main-navigation__item:nth-of-type(3):hover {
+        content: url('/Content/images/about-hover.png');
+        background-color: $complementary-color;
+    }
+    .main-navigation__item:nth-of-type(4):hover {
+        content: url('/Content/images/login-hover.png');
+        background-color: $complementary-color;
+    }
+
+    .v {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 5000;
+    }
+
+    .h {
+        position: fixed;
+        bottom: 50px;
+        right: 20px;
+        z-index: 5000;
+    }
+
+    .f {
+        position: fixed;
+        right: 50px;
+        bottom: 20px;
+        z-index: 5000;
+    }
+
+.rotate {
+    transform: rotate(90deg);
+    transform-origin: 35px 50%;
+    transition: transform 1s;
+}
+
+.rotate-reverse {
+    transform: rotate(0deg);
+    transform-origin: 35px 50%;
+    transition: transform 1s;
+}
+
+.rotate1 {
+    transform: rotate(-90deg);
+    transition: transform 1s;
+}
+
+.rotate1-reverse {
+    transform: rotate(0deg);
+    transition: transform 1s;
+}
+
+@media (min-width: $sm-grid) {
+
+}
+
+@media (min-width: $md-grid) {
+
+}
+
+@media (min-width: $lg-grid) {
+
+    .main-navigation__item:nth-of-type(3), .main-navigation__item:nth-of-type(4) {
+        border: none;
+        
+        img {
+            max-width: 50px;
+            max-height: 50px;
+        }
+
+    }
+
+    .main-navigation {
+        display: inline-block;
+        width: auto;
+
+        background-color: transparent;
+    }
+
+}

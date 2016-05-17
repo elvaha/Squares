@@ -1,0 +1,62 @@
+﻿.set__wrapper {
+    padding: 20px;
+}
+
+.set {
+    padding: 20px;
+
+    background-color: #F8F8F8;
+    border: 2px solid #CCC;
+}
+
+    .set__title {
+        padding-top: 10px;
+        margin-bottom: 5px;
+
+        font-family: 'SS';
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .set__author {
+        margin-bottom: 10px;
+
+        font-family: 'Lato';
+        font-size: 1.25rem;
+        font-style: italic;
+    }
+
+    .set__description {
+        margin-bottom: 50px;
+
+        font-family: 'Lato';
+    }
+
+    .set__piece {
+        width: 100%;
+        height: auto;
+        border: 1px solid $primary-color;
+    }
+
+    .set__btn {
+        width: 100%;
+        margin-top: 20px;
+        padding: 15px 30px;
+
+        font-family: 'SS';
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+
+        color: $secondary-color;
+        background-color: $primary-color;
+
+        border: none;
+        outline: none;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    }
+
+    .set__btn:hover {
+        background-color: $complementary-color;
+    }

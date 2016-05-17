@@ -22,9 +22,12 @@ namespace Squares
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
-                      "~/Scripts/CustomJQ.js"));
+                      "~/Scripts/CustomJQ.js",
+                      "~/Scripts/script.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/animate.css",
+                      "~/Content/bootstrap.min.css",
                       "~/Content/styles.css"));
         }
     }

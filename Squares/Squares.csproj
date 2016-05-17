@@ -218,19 +218,63 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\about-hover.png" />
     <Content Include="Content\images\about-image.png" />
+    <Content Include="Content\images\about.png" />
     <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\gallery-hover.png" />
+    <Content Include="Content\images\gallery.png" />
     <Content Include="Content\images\imageBlank.jpg" />
+    <Content Include="Content\images\login-hover.png" />
+    <Content Include="Content\images\login.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\menu-sprite-r.png" />
     <Content Include="Content\images\menu-sprite.png" />
     <Content Include="Content\images\search-ico.png" />
     <Content Include="Content\images\social-medias.png" />
+    <Content Include="Content\images\squares\1.jpg" />
+    <Content Include="Content\images\squares\10.jpg" />
+    <Content Include="Content\images\squares\11.jpg" />
+    <Content Include="Content\images\squares\12.jpg" />
+    <Content Include="Content\images\squares\13.jpg" />
+    <Content Include="Content\images\squares\14.jpg" />
+    <Content Include="Content\images\squares\15.jpg" />
+    <Content Include="Content\images\squares\16.jpg" />
+    <Content Include="Content\images\squares\17.jpg" />
+    <Content Include="Content\images\squares\18.jpg" />
+    <Content Include="Content\images\squares\19.jpg" />
+    <Content Include="Content\images\squares\2.jpg" />
+    <Content Include="Content\images\squares\20.jpg" />
+    <Content Include="Content\images\squares\21.jpg" />
+    <Content Include="Content\images\squares\22.jpg" />
+    <Content Include="Content\images\squares\23.jpg" />
+    <Content Include="Content\images\squares\24.jpg" />
+    <Content Include="Content\images\squares\25.jpg" />
+    <Content Include="Content\images\squares\26.jpg" />
+    <Content Include="Content\images\squares\27.jpg" />
+    <Content Include="Content\images\squares\28.jpg" />
+    <Content Include="Content\images\squares\29.jpg" />
+    <Content Include="Content\images\squares\3.jpg" />
+    <Content Include="Content\images\squares\30.jpg" />
+    <Content Include="Content\images\squares\31.jpg" />
+    <Content Include="Content\images\squares\32.jpg" />
+    <Content Include="Content\images\squares\33.jpg" />
+    <Content Include="Content\images\squares\34.jpg" />
+    <Content Include="Content\images\squares\35.jpg" />
+    <Content Include="Content\images\squares\36.jpg" />
+    <Content Include="Content\images\squares\37.jpg" />
+    <Content Include="Content\images\squares\38.jpg" />
+    <Content Include="Content\images\squares\4.jpg" />
+    <Content Include="Content\images\squares\5.jpg" />
+    <Content Include="Content\images\squares\6.jpg" />
+    <Content Include="Content\images\squares\7.jpg" />
+    <Content Include="Content\images\squares\8.jpg" />
+    <Content Include="Content\images\squares\9.jpg" />
     <Content Include="Content\images\star.png" />
+    <Content Include="Content\images\videoLoop.mp4" />
     <Content Include="Content\styles.css">
       <DependentUpon>styles.scss</DependentUpon>
     </Content>
@@ -238,19 +282,9 @@
       <DependentUpon>styles.css</DependentUpon>
     </Content>
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\styles.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -261,11 +295,25 @@
     <Content Include="fonts\SimplySquare.ttf" />
     <Content Include="fonts\SimplySquare.woff2" />
     <Content Include="fonts\SimplySquareJL.woff" />
+<<<<<<< HEAD
     <Content Include="Models\Squares.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Squares.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+=======
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\styles.scss" />
+    <Content Include="Content\_navigation.scss" />
+    <Content Include="Content\_normalize.scss" />
+    <Content Include="Content\_global.scss" />
+    <Content Include="Content\_fold.scss" />
+    <Content Include="Content\_gallery.scss" />
+    <Content Include="Content\_search.scss" />
+    <Content Include="Content\_footer.scss" />
+    <Content Include="Content\_set.scss" />
+>>>>>>> refs/remotes/origin/rogue
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -282,6 +330,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -324,7 +373,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\squares\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

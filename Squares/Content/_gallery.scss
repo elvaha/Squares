@@ -1,0 +1,36 @@
+﻿.gallery {
+
+    padding: 0 200px 100px;
+
+    background: url(images/bg.jpg) no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+    .gallery__header {
+        padding: 16px 0;
+        text-align: center;
+        background-color: $primary-color;
+
+        h1 {
+            font-family: 'SS';
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: $secondary-color;
+        }
+    }
+
+    .gallery__item {
+        padding: 20px;
+        cursor: pointer;
+    }
+
+    .gallery__image {
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+
+        vertical-align: middle;
+    }

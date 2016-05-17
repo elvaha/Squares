@@ -1,0 +1,48 @@
+﻿$sm-grid: 768px;
+$md-grid: 992px;
+$lg-grid: 1200px;
+
+$primary-color: #222;
+$secondary-color: #FFF;
+$complementary-color: #ff6a00;
+
+@font-face {
+  font-family: 'SS';
+  src: url("/fonts/SimplySquare.ttf");
+  /* IE9 Compat Modes */
+  src: url("/fonts/SimplySquare.woff2") format("woff2"), url("/fonts/SimplySquare.woff") format("woff"), url("/fonts/SimplySquare.ttf") format("truetype");
+  /* Safari, Android, iOS */ }
+
+@font-face {
+  font-family: 'Lato';
+  src: url("/fonts/LatoRegular.ttf");
+  /* IE9 Compat Modes */
+  src: url("/fonts/LatoRegular.woff2") format("woff2"), url("/fonts/LatoRegular.woff") format("woff"), url("/fonts/LatoRegular.ttf") format("truetype");
+  /* Safari, Android, iOS */ }
+
+body {
+    position: relative;
+    min-height: 100vh;
+
+    font-family: Lato;
+}
+
+a:visited {
+    color: $secondary-color;
+}
+
+input {
+    outline: none;
+}
+
+.remove-gutter {
+    padding: 0;
+}
+
+.bring-to-front {
+    z-index: 2000;
+}
+
+.send-to-back {
+    z-index: -2000;
+}

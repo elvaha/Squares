@@ -90,7 +90,10 @@ input, select {
   height: 50px;
   margin: 10px;
   cursor: pointer;
-  vertical-align: top; }
+  vertical-align: top;
+  background-color: #363636; }
+  .main-navigation__item:hover {
+    background-color: #ff740b; }
   .main-navigation__item a, .main-navigation__item img {
     display: inline-block;
     width: 50px;
@@ -98,7 +101,8 @@ input, select {
 
 .main-navigation__item--logo {
   width: 100px;
-  height: 100px; }
+  height: 100px;
+  background-color: transparent; }
   .main-navigation__item--logo a, .main-navigation__item--logo img {
     width: 100px;
     height: 100px; }

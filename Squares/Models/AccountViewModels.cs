@@ -87,15 +87,6 @@ namespace Squares.Models
         [Required]
         [Display(Name = "Last name")]
         public string LastName { get; set; }
-
-        [Display(Name = "Alias")]
-        public string Alias { get; set; }
-                
-        [Display(Name = "Description")]
-        public string Description { get; set; }
-
-        [Display(Name = "Is author")]
-        public bool isAuthor { get; set; }
     }
 
     public class ResetPasswordViewModel

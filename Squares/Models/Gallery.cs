@@ -15,10 +15,10 @@ namespace Squares.Models
         }
 
         // ordered by Rating as default, can be sorted afterwards
-        public List<Set> Sets()
+        public List<ArtistSet> Sets()
         {
             SquaresDataContext db = new SquaresDataContext();
-            List<Set> sets = db.Sets.OrderBy(x => x.Rating).ToList();
+            List<ArtistSet> sets = db.Sets.OrderBy(x => x.Rating).ToList();
 
             return sets;
         }

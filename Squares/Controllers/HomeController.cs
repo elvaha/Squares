@@ -48,7 +48,7 @@ namespace Squares.Controllers
         {
             SquaresDataContext db = new SquaresDataContext();
 
-            Set set = db.Sets.Single(x => x.SetId == SetId);
+            ArtistSet set = db.Sets.Single(x => x.SetId == SetId);
             
             return View(set);
         }

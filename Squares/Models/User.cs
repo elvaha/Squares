@@ -21,7 +21,7 @@ namespace Squares.Models
         }
 
 
-        public User GetArtist(String UserId)
+        public User GetUser(String UserId)
         {
             SquaresDataContext db = new SquaresDataContext();
 

@@ -1,11 +1,700 @@
-﻿@import '_normalize';
+﻿@font-face {
+  font-family: 'SimplySquare';
+  src: url('../fonts/SimplySquare.ttf'); /* IE9 Compat Modes */
+  src: url('../fonts/SimplySquare.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/SimplySquare.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/SimplySquare.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: 'LatoRegular';
+    src: url("../fonts/LatoRegular.ttf"); /* IE9 Compat Modes */
+    src: url('../fonts/LatoRegular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/LatoRegular.woff') format('woff'), /* Pretty Modern Browsers */
+         url('../fonts/LatoRegular.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+/* SASS START*/
+
+$font-lato: 'LatoRegular', Fallback, sans-serif;
+$font-square: 'SimplySquare', Fallback, sans-serif;
+$color-orange: #ff740b;
+$color-white: #fff;
+
+/* SASS END */
+
+/* CSS Reset START */
+
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    list-style-type: none;
+}
+
+body {
+    line-height:1;
+    background: url(/Content/images/bg.jpg) no-repeat;
+    font-family: $font-square;
+    color: #363636;
+    font-weight: 100;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    color: inherit;
+}
+
+input, select {
+    vertical-align: middle;
+}
+/* CSS Reset END */
+
+/*Navigation start*/
+
 @import '_global';
 @import '_navigation';
-@import '_fold';
-@import '_gallery';
+
+/*Navigation end*/
+
+/*Search start*/
+
 @import '_search';
-@import '_footer';
-@import '_set';
+
+/*Search end*/
+
+/* Index page START */
+
+/* Index page header START */
+
+.inner-wrapper {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.index-slogan {
+    float: left;
+    width: 100%;
+    height: 100vh;
+}
+ 
+h1 {
+    margin-top: 20vh; 
+    text-align: center;
+    font-size: 128px;
+    font-weight: 100;
+    line-height: 98px;
+    font-variant: small-caps;
+} 
+.index-slogan p {
+    margin: 20px auto;
+    padding: 20px 0 0 0;
+    width: 65%;
+    text-align: center;
+    font-family: $font-lato;
+    font-size: 22px;
+    line-height: 27px;
+    border-top: 5px #363636 solid;
+}
+.index-slogan span {
+    display: block;
+    margin: 0 auto;
+    width: 65%;
+    text-align: center;
+    font-family: 'LatoRegular', Fallback, sans-serif;
+    font-size: 22px;
+}
+
+.index-slogan span a:hover {
+    color: $color-orange;
+    -webkit-transition: ease 0.3s;
+	-moz-transition: ease 0.3s;
+	-o-transition: ease 0.3s;
+}
+/* Index page header END */
+
+/* Index - Most popular START */
+
+.index .content-container {
+    float: left;
+    margin-top: -100px;
+    width: 100%;
+}
+
+h2 {
+    padding: 16px 0;
+    font-size: 68px;
+    font-weight: 100;
+    color: $color-white;
+    text-align: center;
+    background-color: #363636;
+}
+.content-container section {
+    float: left;
+    padding: 30px;
+    background: $color-white;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+.content-container section ul li.set-item {
+    float: left;
+    margin-bottom: 60px;
+    width: 48%;
+}
+.content-container section ul li.set-item:nth-child(odd) {
+    margin-right: 4%;   
+}
+.content-container section h3 {
+    font-size: 48px;
+    font-weight: 100;
+}
+.content-container section span {
+    font-size: 30px;
+    font-weight: 100;
+}
+.content-container section p {
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: 100;
+}
+.content-container section span,
+.content-container section p {
+    font-family: 'LatoRegular';
+}
+.content-container section dl {
+    float: left;
+    margin-bottom: 10px;
+}
+.content-container section dl dt {
+    float: left;
+    width: 23px;
+    height: 22px;
+    margin-right: 0;
+}
+.content-container section dl dt.rating-on {
+    background: 0 0 url('/Content/images/star.png') no-repeat;
+}
+.content-container section dl dt.rating-off {
+    background: 0 -28px url('/Content/images/star.png') no-repeat;
+}
+.content-container section ol.set-preview {
+    display: flex;
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.content-container section ol.set-preview li {
+    float: left;
+    width: 20%;
+    border: 1px #363636 solid;
+}
+
+.content-container section ol.set-preview li:hover {
+    border: 1px $color-orange solid;
+    -webkit-transition: ease 0.3s;
+	-moz-transition: ease 0.3s;
+	-o-transition: ease 0.3s;
+}
+.content-container section ol.set-preview li:nth-child(1n+2) {
+    margin-left: 15px;
+}
+.content-container section ol.set-preview li img {
+    width: 100%;
+}
+.content-container section li.set-item button {
+    float: right;
+    width: 230px;
+    height: 65px;
+    background-color: #363636;
+	cursor: pointer;
+	color: $color-white;
+	font-family: $font-square;
+	font-size: 30px;
+    font-weight: 100;
+	text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+.content-container section li.set-item button:hover,
+.gallery-controls > button:hover {
+    background-color: $color-orange;
+    -webkit-transition: ease 0.3s;
+	-moz-transition: ease 0.3s;
+	-o-transition: ease 0.3s;
+}
+/* Index most popular END */
+
+/* Gallery START */
+
+.gallery .content-container {
+    padding-top: 220px;
+}
+
+.about .content-container {
+    padding-top: 124px;
+}
+
+.gallery-controls {
+    display: flex;
+    float: left;
+    margin-bottom: 10px;
+    width: 100%;
+    flex-flow: wrap;
+}
+
+.gallery-controls > button {
+    float: left;
+    width: 33.333%;
+    height: 50px;
+    font-family: $font-square;
+    color: $color-white;
+    font-size: 30px;
+    background-color: #363636;
+	cursor: pointer;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+.gallery-controls > button.active {
+    background-color: $color-orange;
+}
+
+.gallery-controls input {
+    float: left;
+    width: 100%;
+    height: 50px;
+    padding: 0 20px 0 50px;
+    background: url('/images/search-ico.png') 12px 10px no-repeat $color-white;
+    border: none;
+    outline: none;
+    font-family: 'LatoRegular';
+    font-size: 22px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+
+.keywords {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.keywords li {
+    float: left;
+    margin: 0 10px 10px 0;
+    padding: 7px 20px;
+    font-family: 'LatoRegular';
+    font-size: 16px;
+    color: $color-white;
+    background: #363636;
+}
+
+/* Gallery END */
+
+/* About START */
+
+.about-list {
+    margin-top: 20px;
+}
+
+.about-list,
+.about-list li {
+    float: left;
+    width: 100%;
+}
+
+.about-list li:first-child > img {
+    display: block;
+    width: 342px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.about-list article,
+.about-list article img,
+.about-list article p {
+    float: left;
+}
+
+.about-list article {
+    margin: 20px 0 20px 0;
+}
+
+.about-list li > h4 {
+    font-size: 36px;
+    font-weight: 100;
+}
+
+.about-list article p {
+    margin-left: 20px;
+    width: 70%;
+}
+
+.about-list li:nth-child(1n+2) {
+    border-bottom: solid 1px #cecece;
+    margin-top: 20px;
+}
+
+.about-list li:last-child {
+    border: none;
+}
+
+/* About END */
+
+/* Designer START */
+
+
+
+/* Designer END */
+
+/* Footer START */
+
+footer {
+    float: left;
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    background-color: #363636;
+    font-family: 'LatoRegular';
+    font-size: 14px;
+}
+
+footer > ul,
+footer > ul > li {
+    display: block;
+    color: $color-white;
+}
+
+footer > ul {
+    float: left;
+    width: 100%;
+}
+
+footer > ul > li:nth-child(2) {
+    width: 170px;
+    margin: 0 auto;
+}
+
+ul.social-media {
+    float: left;
+    margin: 10px 0 0 30px;
+}
+
+ul.social-media li {
+    float: left;
+    margin-right: 10px;
+}
+
+ul.social-media li a {
+    float: left;
+    width: 30px;
+    height: 30px;
+    background: url('/Content/images/social-medias.png') no-repeat;
+}
+
+ul.social-media .social-tw a {
+    background-position: 0 -40px;
+}
+
+ul.social-media .social-gplus a {
+    background-position: 0 -80px;
+}
+
+ul.social-media .social-instagr a {
+    background-position: 0 -120px;
+}
+
+footer ul.footer-nav {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+
+footer ul.footer-nav li {
+    float: left;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+footer ul.footer-nav > li > a {
+    text-decoration: none;
+}
+
+footer ul.footer-nav > li > a:hover {
+    color: $color-orange;
+    -webkit-transition: ease 0.3s;
+	-moz-transition: ease 0.3s;
+	-o-transition: ease 0.3s;
+}
+
+footer > ul > li:nth-child(3) {
+    float: right;
+    margin: 20px 30px 0 0;
+}
+/* Footer END */
+
+/* Index page END */ 
+
+/* External START */
+
+@media screen and (max-width: 1366px) {
+    .inner-wrapper {
+        width: 60%;
+    }
+    
+    h1 {
+        margin-top: 150px;
+        font-size: 12vh;
+        line-height: 9vh;
+    }
+    
+    .index-slogan p {
+        margin: 10px auto;
+        padding: 10px 0 0 0;
+        width: 80%;
+        font-size: 3vh;
+        line-height: 3vh;
+        border-top: 2px #363636 solid;
+    }
+
+    .index-slogan span {
+        font-size: 3vh;
+    }
+    
+    .index .content-container {
+        margin-top: -82px;
+    }
+
+    h2 {
+        font-size: 50px;
+    }
+           
+    .content-container section ol.set-preview li:nth-child(1n+2) {
+        margin-left: 10px;           
+    }
+    
+    .content-container section p {
+        margin-top: 0;
+        width: 100%;
+        font-size: 14px;           
+    }
+    
+    .about-list article img {
+        width: 175px;
+    }
+           
+    .content-container section li.set-item button {
+        width: 150px;
+        height: 50px;
+        font-size: 22px;
+    }
+           
+    .gallery .content-container,
+    .about .content-container {
+        padding-top: 220px;
+        width: 100%;           
+    }
+    
+    .content-container section ol.set-preview {
+        margin-bottom: 10px;    
+    }
+    
+    .content-container section ul li.set-item {
+        margin-bottom: 30px;    
+    }
+    
+    .gallery-controls > button{
+        font-size: 24px;
+    }
+    
+    .content-container section h3 {
+        font-size: 36px;
+    }
+}
+
+@media only screen and (max-width : 1024px) {
+    
+    .inner-wrapper {
+        width: 100%;
+    }
+    
+    .index .content-container {
+        margin-top: -123px;
+    }
+    
+    .content-container section ul li.set-item {
+        width: 100%;
+    }
+    
+    .menu-list {
+        float: left;
+        width: 100%;
+        background: #fff;
+    }
+    
+    .menu-list li {
+        height: 125px;
+    }
+    
+    .menu-list li a {
+        display: block;
+        width: 100%;
+        font-size: 50px;
+        text-decoration: none;
+        text-align: center;
+        box-sizing: border-box;
+        height: 100%;
+        line-height: 125px;
+        border-bottom: 1px solid #e7e7e7;
+    }
+    
+    h1 {
+        margin-top: 31vh;
+        font-size: 12vh;
+        line-height: 9vh;
+    }
+    
+    h2 {
+        padding: 37px 0;
+    }
+    
+    .index-slogan p {
+        margin: 1.5vh auto;
+        padding: 1vh 0 0 0;
+        width: 65%;
+        font-size: 2.5vh;
+        line-height: 3vh;
+    }
+    
+    .index-slogan span {
+        font-size: 2.5vh;
+    }
+    
+    footer {
+        display: none;
+    }
+    
+    .content-container section p {
+        width: 100%;
+        font-size: 24px;
+    }
+    
+    .content-container section li.set-item button {
+        width: 190px;
+        height: 60px;
+        font-size: 30px;
+    }
+    
+    .gallery .content-container {
+        padding-top: 154px;
+    }
+    
+    .about .content-container {
+        padding-top: 94px;
+    }
+
+    .gallery-controls > button {
+        height: 65px;
+        font-size: 32px;
+    }
+    
+    .gallery-controls input {
+        height: 55px;
+    }
+    
+    .content-container section p {
+        margin-top: 0;
+        width: 70%;
+        font-size: 18px;
+    }
+    
+}
+
+@media only screen and (max-width : 768px) {
+    h1 {
+        margin-top: 26vh;
+    }
+    .index-slogan p {
+        width: 90%;
+    }
+
+    .gallery .content-container, .about .content-container {
+        padding-top: 94px;
+    }
+}
+
+@media only screen and (max-width : 480px) {
+    h1 {
+        font-size: 9vh;
+        line-height: 7vh;
+    }
+    
+    
+}
+
+/* External END */
+
+
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET AND CSS FOR RESPONSIVE */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
+/* MAKE AN IMPORT SASS FILE WITH CSS RESET */
 
 .video-container {
     position: relative;

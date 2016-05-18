@@ -205,7 +205,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\Gallery.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -231,8 +231,10 @@
     <Content Include="Content\images\login-hover.png" />
     <Content Include="Content\images\login.png" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logoff.png" />
     <Content Include="Content\images\menu-sprite-r.png" />
     <Content Include="Content\images\menu-sprite.png" />
+    <Content Include="Content\images\profile.png" />
     <Content Include="Content\images\search-ico.png" />
     <Content Include="Content\images\social-medias.png" />
     <Content Include="Content\images\squares\1.jpg" />

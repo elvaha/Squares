@@ -27,6 +27,8 @@ namespace Squares.Controllers
 
         public ActionResult Contact()
         {
+            ViewBag.Class = "contact";
+
             ViewBag.Message = "Your contact page.";
 
             return View();
@@ -34,7 +36,7 @@ namespace Squares.Controllers
 
         public ActionResult Gallery()
         {
-            //ViewBag.Class = "gallery";
+            ViewBag.Class = "gallery";
             
             //Gallery gal = new Gallery();
             //List<Set> gallery = gal.Sets();

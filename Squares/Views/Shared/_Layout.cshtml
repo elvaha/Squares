@@ -12,36 +12,22 @@
 
     <nav>
         <ul class="main-navigation">
-            <li class="main-navigation__item"><a href="#"><img src="~/Content/images/logo.png"></a></li>
-            <li class="main-navigation__item"><a href="#"><img src="~/Content/images/gallery.png"></a></li>
-            <li class="main-navigation__item"><a href="#"><img src="~/Content/images/about.png"></a></li>
-            <li class="main-navigation__item"><a href="#"><img src="~/Content/images/login.png"></a></li>
-            @if (User.Identity.IsAuthenticated)
-            {
-                <li class="profile"><a href="/account/profile"></a></li>
-                <li class="logoff"><a href="/account/logoff"></a></li>
-            }
-            else
-            {
-                <li class="user"><a></a></li>
-            }
-
+            <li class="main-navigation__item main-navigation__item--logo"><a href="/"><img src="~/Content/images/logo.png"></a></li>
+            <li class="main-navigation__item"><a href="/Home/Gallery"><img src="~/Content/images/about.png"></a></li>
+            <li class="main-navigation__item"><a href="/Home/About"><img src="~/Content/images/about.png"></a></li>
+            <li class="main-navigation__item"><a href="/Account/Login"><img src="~/Content/images/about.png"></a></li>
         </ul>
         <div id="search-widget" class="search bring-to-front">
 
             <form class="search__form">
+
                 <div class="search__type hidden-sm-down">
                     <p class="search__type-text">artist</p>
-=======
-                <div class="search__type hidden-sm-down bring-to-front">
-                    <p class="search__type-text">ARTIST</p>
->>>>>>> refs/remotes/origin/master
                 </div>
                 <div class="search__searchbar-wrapper">
                     <input class="search__searchbar" placeholder="Search our collection" type="text" />
                 </div>
                 <img class="search__submit" src="~/Content/images/search-ico.png" />
-<<<<<<< HEAD
                 <div class="hidden-sm-down search__sort @if (ViewBag.Class == "index" || ViewBag.Class == "about") { @Html.Raw("hidden") }">
                     <div class="">
                         <p class="search__sort-item">top rated</p>
@@ -74,7 +60,7 @@
                     </li>
                     <li>
                         <ul class="footer-nav">
-                            <li>@Html.ActionLink("Home","Index","Home")</li>
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
                             <li>@Html.ActionLink("About Us", "About", "Home")</li>
                         </ul>
@@ -86,46 +72,10 @@
             </footer>
         </div>
     </div>
-=======
-                <div class="container-fluid hidden-sm-down search__sort">
-                    <div class="row">
-                        <div class="col-sm-4 col-md-4 col-lg-4 remove-gutter">
-                            <p class="search__sort-item">TOP RATED</p>
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-lg-4 remove-gutter">
-                            <p class="search__sort-item">MOST VIEWED</p>
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-lg-4 remove-gutter">
-                            <p class="search__sort-item">NEWEST</p>
-                        </div>
-                    </div>
-                </div>
-
-            </form>
-
-        </div>
-
-    </nav>
-
-    @RenderBody()
-
-    <button class="v">V</button>
-    <button class="h">H</button>
-    <button class="f">F</button>
-
-    <footer class="footer"></footer>
-    >>>>>>> refs/remotes/origin/rogue
->>>>>>> refs/remotes/origin/master
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-<<<<<<< HEAD
-=======
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
->>>>>>> refs/remotes/origin/master
 </body>
 </html>

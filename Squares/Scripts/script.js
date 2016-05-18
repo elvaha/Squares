@@ -1,139 +1,105 @@
-﻿$('.h').click(function () {
+﻿function rotateVertical(rotationElement, rotationElementChild) {
 
-    $('.main-navigation').removeClass('rotate').addClass('rotate-reverse');
-    $('.main-navigation__item').removeClass('rotate1').addClass('rotate1-reverse');
-    $('.main-navigation__logo').removeClass('rotate1').addClass('rotate1-reverse');
+    $(rotationElement).addClass('rotate').removeClass('rotate--reverse');
+    $(rotationElementChild).addClass('rotate-child').removeClass('rotate-child--reverse');
 
-});
+}
 
-$('.v').click(function () {
+function rotateHorizontal(rotationElement, rotationElementChild) {
 
-    $('.main-navigation').addClass('rotate').removeClass('rotate-reverse');
-    $('.main-navigation__item').addClass('rotate1').removeClass('rotate1-reverse');
-    $('.main-navigation__logo').addClass('rotate1').removeClass('rotate1-reverse');
+    $(rotationElement).addClass('rotate--reverse').removeClass('rotate');
+    $(rotationElementChild).addClass('rotate-child--reverse').removeClass('rotate-child');
 
-});
+}
 
-$('.f').click(function () {
-    $('.fold').toggleClass('fold--collapse').one('webkitTransitionEnd mozTransitionEnd MSTransitionEnd otransitionend transitionend', function () {
+function expandSearchbar() {
 
-        console.log('transitionend');
+    $('#search-widget').removeAttr('style');
+    $('#search-widget .search__type').show();
+    $('#search-widget .search__searchbar-wrapper').show();
+    $('#search-widget search__sort').show();
+    $('#search-widget .search__form').find('.search__arrow').remove();
 
-        $('.gallery').children().addClass('animated').addClass('zoomOut').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+}
 
-            $(this).removeClass('zoomOut').detach();
-            $('.gallery').append($(this));
+function collapseSearchbar() {
 
-        });
+    $('#search-widget').css('width', '100px');
+    $('#search-widget .search__type').hide();
+    $('#search-widget .search__searchbar-wrapper').hide();
+    $('#search-widget search__sort').hide();
+
+    var arrowImg = $('<img />');
+    arrowImg.attr('src', 'https://cdn0.iconfinder.com/data/icons/solid-line-essential-ui-icon-set/512/essential_set_left-512.png');
+    arrowImg.addClass('search__arrow');
+
+    $('#search-widget .search__form').append(arrowImg);
+
+    $(arrowImg).click(function () {
+
+        expandSearchbar();
 
     });
 
-});
+}
 
-$('.gallery__item')
-    .height($('.gallery__item').width());
+function displace(breakpoint, rotationElement, rotationElementChild) {
 
-$(window).resize(function () {
+    if ($(breakpoint).offset() === undefined || $(window).width() <= 1366) return;
 
-    $('.gallery__item')
-        .height($('.gallery__item').width());
+    var flagBottom = false;
+    var flagTop = false;
+    var distance = $(breakpoint).offset().top,
+        $window = $(window);
 
-});
+    if ($window.scrollTop() >= distance + 20) {
+    
+        console.log('INIT');
 
-$('#search-widget').hover(function () {
-
-    //$(this).css('width', '100%').css('max-width', '700px');
-
-    //$(this).find('.search__type').css('display', 'inline-block');
-
-    //$(this).find('.search__searchbar-wrapper').css('display', 'block');
-
-}, function () {
-
-    //$(this).removeAttr('style');
-
-    //$(this).find('.search__type').removeAttr('style');
-
-    //$(this).find('.search__searchbar-wrapper').removeAttr('style');
-
-});
-
-
-$('.main-navigation__item').hover(function () {
-
-    console.log('in');
-
-    $(this).find('a').first().css('color', '#ff6a00');
-
-}, function () {
-
-    console.log('out');
-
-    $(this).find('a').first().removeAttr('style');
-
-});
-
-var flag = false;
-var flag1 = false;
-var distance = $('#search-widget').offset().top,
-    $window = $(window);
-
-$window.scroll(function () {
-
-    if ($window.scrollTop() >= distance - 10) {
-        console.log('SCROLLED PAST');
-        
-        flag = true;
-
-        if (flag1) {
-            console.log('DOWN');
-
-            $('#search-widget').css('position', 'fixed').css('top', '10px');
-
-            $('#search-widget').addClass('search--pin');
-            $('.main-navigation').removeClass('rotate').addClass('rotate-reverse');
-            $('.main-navigation__item').removeClass('rotate1').addClass('rotate1-reverse');
-            $('.main-navigation__logo').removeClass('rotate1').addClass('rotate1-reverse');
-            flag1 = !flag1;
-
-        }
-
-    } else {
-        console.log('SCROLLED BEFORE');
-
-        flag1 = true;
-
-        if (flag) {
-            console.log('UP');
-
-            $('#search-widget').removeAttr('style');
-
-            $('#search-widget').removeClass('search--pin');
-            $('.main-navigation').addClass('rotate').removeClass('rotate-reverse');
-            $('.main-navigation__item').addClass('rotate1').removeClass('rotate1-reverse');
-            $('.main-navigation__logo').addClass('rotate1').removeClass('rotate1-reverse');
-            flag = !flag;
-
-        }
-
+        collapseSearchbar();
+        rotateVertical(rotationElement, rotationElementChild);
     }
 
-});
+    if ($window.width() > 1366) {
 
-function stuffAboveOnce() {
+        $window.scroll(function () {
 
-    if ($window.scrollTop() >= distance - 10) {
+            if ($window.scrollTop() >= distance + 20) {
+                console.log('SCROLLED PAST');
 
-            $('#search-widget').css('position', 'fixed').css('top', '10px');
+                flagBottom = true;
 
-            $('#search-widget').addClass('search--pin');
-            $('.main-navigation').removeClass('rotate').addClass('rotate-reverse');
-            $('.main-navigation__item').removeClass('rotate1').addClass('rotate1-reverse');
-            $('.main-navigation__logo').removeClass('rotate1').addClass('rotate1-reverse');
-            flag1 = !flag1;
+                if (flagTop) {
+                    console.log('DOWN')
+
+                    collapseSearchbar();
+                    rotateVertical(rotationElement, rotationElementChild);
+                    flagTop = !flagTop;
+
+                }
+
+            } else {
+                console.log('SCROLLED BEFORE');
+
+                flagTop = true;
+
+                if (flagBottom) {
+                    console.log('UP');
+
+                    expandSearchbar();
+                    rotateHorizontal(rotationElement, rotationElementChild);
+                    flagBottom = !flagBottom;
+
+                }
+
+            }
+
+        });
 
     }
 
 }
 
-stuffAboveOnce();
+displace('#index-hook', '.main-navigation', '.main-navigation__item');
+displace('#about-hook', '.main-navigation', '.main-navigation__item');
+displace('.gallery #search-widget', '.main-navigation', '.main-navigation__item');

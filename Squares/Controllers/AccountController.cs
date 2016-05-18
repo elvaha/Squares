@@ -438,7 +438,32 @@ namespace Squares.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult AddSet()
+        {
+            SquaresDataContext db = new SquaresDataContext();
 
+            bool isArtist = false;
+
+            var artist = db.Authors.Where(x => x.UserId == User.Identity.GetUserId()).FirstOrDefault();
+
+            if(artist == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddSet(CreateSetModel model)
+        {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+
+            //TODO! sommething somehting
+
+            return View();
+        }
 
 
         protected override void Dispose(bool disposing)

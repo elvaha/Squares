@@ -106,6 +106,8 @@ input, select {
   width: 100px;
   height: 100px;
   background-color: transparent; }
+  .main-navigation__item--logo:hover {
+    background-color: transparent; }
   .main-navigation__item--logo a, .main-navigation__item--logo img {
     width: 100px;
     height: 100px; }

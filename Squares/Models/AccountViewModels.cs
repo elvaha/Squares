@@ -110,6 +110,21 @@ namespace Squares.Models
         public string Code { get; set; }
     }
 
+    public class CreateSetModel
+    {
+        [Required]
+        [Display(Name = "Title")]
+        public string Title { get; set; }
+
+        [Required]
+        [Display(Name = "Description")]
+        public string Description { get; set; }
+
+        [Required]
+        [Display(Name = "Images")]
+        public List<string> Images { get; set; }
+    }
+
     public class ForgotPasswordViewModel
     {
         [Required]

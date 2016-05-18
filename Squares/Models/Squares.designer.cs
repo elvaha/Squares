@@ -60,9 +60,9 @@ namespace Squares.Models
     partial void InsertPiece(Piece instance);
     partial void UpdatePiece(Piece instance);
     partial void DeletePiece(Piece instance);
-    partial void InsertSet(Set instance);
-    partial void UpdateSet(Set instance);
-    partial void DeleteSet(Set instance);
+    partial void InsertSet(ArtistSet instance);
+    partial void UpdateSet(ArtistSet instance);
+    partial void DeleteSet(ArtistSet instance);
     partial void InsertTag(Tag instance);
     partial void UpdateTag(Tag instance);
     partial void DeleteTag(Tag instance);
@@ -189,11 +189,11 @@ namespace Squares.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Set> Sets
+		public System.Data.Linq.Table<ArtistSet> Sets
 		{
 			get
 			{
-				return this.GetTable<Set>();
+				return this.GetTable<ArtistSet>();
 			}
 		}
 		
@@ -1891,7 +1891,7 @@ namespace Squares.Models
 		
 		private System.Nullable<System.DateTime> _Date;
 		
-		private EntitySet<Set> _Sets;
+		private EntitySet<ArtistSet> _Sets;
 		
 		private EntityRef<AspNetUserRole> _AspNetUserRole;
 		
@@ -1913,7 +1913,7 @@ namespace Squares.Models
 		
 		public Author()
 		{
-			this._Sets = new EntitySet<Set>(new Action<Set>(this.attach_Sets), new Action<Set>(this.detach_Sets));
+			this._Sets = new EntitySet<ArtistSet>(new Action<ArtistSet>(this.attach_Sets), new Action<ArtistSet>(this.detach_Sets));
 			this._AspNetUserRole = default(EntityRef<AspNetUserRole>);
 			OnCreated();
 		}
@@ -2027,7 +2027,7 @@ namespace Squares.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Author_Set", Storage="_Sets", ThisKey="UserId,RoleId", OtherKey="UserId,RoleId")]
-		public EntitySet<Set> Sets
+		public EntitySet<ArtistSet> Sets
 		{
 			get
 			{
@@ -2095,13 +2095,13 @@ namespace Squares.Models
 			}
 		}
 		
-		private void attach_Sets(Set entity)
+		private void attach_Sets(ArtistSet entity)
 		{
 			this.SendPropertyChanging();
 			entity.Author = this;
 		}
 		
-		private void detach_Sets(Set entity)
+		private void detach_Sets(ArtistSet entity)
 		{
 			this.SendPropertyChanging();
 			entity.Author = null;
@@ -2126,7 +2126,7 @@ namespace Squares.Models
 		
 		private EntityRef<AspNetUser> _AspNetUser;
 		
-		private EntityRef<Set> _Set;
+		private EntityRef<ArtistSet> _Set;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2147,7 +2147,7 @@ namespace Squares.Models
 		public Collection()
 		{
 			this._AspNetUser = default(EntityRef<AspNetUser>);
-			this._Set = default(EntityRef<Set>);
+			this._Set = default(EntityRef<ArtistSet>);
 			OnCreated();
 		}
 		
@@ -2294,7 +2294,7 @@ namespace Squares.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Set_Collection", Storage="_Set", ThisKey="SetId", OtherKey="SetId", IsForeignKey=true)]
-		public Set Set
+		public ArtistSet Set
 		{
 			get
 			{
@@ -2302,7 +2302,7 @@ namespace Squares.Models
 			}
 			set
 			{
-				Set previousValue = this._Set.Entity;
+				ArtistSet previousValue = this._Set.Entity;
 				if (((previousValue != value) 
 							|| (this._Set.HasLoadedOrAssignedValue == false)))
 				{
@@ -2423,7 +2423,7 @@ namespace Squares.Models
 		
 		private string _Url;
 		
-		private EntityRef<Set> _Set;
+		private EntityRef<ArtistSet> _Set;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2439,7 +2439,7 @@ namespace Squares.Models
 		
 		public Piece()
 		{
-			this._Set = default(EntityRef<Set>);
+			this._Set = default(EntityRef<ArtistSet>);
 			OnCreated();
 		}
 		
@@ -2508,7 +2508,7 @@ namespace Squares.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Set_Piece", Storage="_Set", ThisKey="SetId", OtherKey="SetId", IsForeignKey=true)]
-		public Set Set
+		public ArtistSet Set
 		{
 			get
 			{
@@ -2516,7 +2516,7 @@ namespace Squares.Models
 			}
 			set
 			{
-				Set previousValue = this._Set.Entity;
+				ArtistSet previousValue = this._Set.Entity;
 				if (((previousValue != value) 
 							|| (this._Set.HasLoadedOrAssignedValue == false)))
 				{
@@ -2563,7 +2563,7 @@ namespace Squares.Models
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Set]")]
-	public partial class Set : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class ArtistSet : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -2612,7 +2612,7 @@ namespace Squares.Models
     partial void OnRoleIdChanged();
     #endregion
 		
-		public Set()
+		public ArtistSet()
 		{
 			this._Collections = new EntitySet<Collection>(new Action<Collection>(this.attach_Collections), new Action<Collection>(this.detach_Collections));
 			this._Pieces = new EntitySet<Piece>(new Action<Piece>(this.attach_Pieces), new Action<Piece>(this.detach_Pieces));

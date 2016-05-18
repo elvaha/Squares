@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -80,6 +82,15 @@
                 </ul>
             </footer>
         </div>
+    </div>
+
+    <div class="squares-modal">
+
+        <div class="squares-modal__content">
+            @Html.Partial("_Login");
+        </div>
+        <button class="squares-modal__close">close</button>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")

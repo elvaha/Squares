@@ -299,13 +299,8 @@
     <Content Include="fonts\SimplySquareJL.woff" />
     <Content Include="Content\styles.scss" />
     <Content Include="Content\_navigation.scss" />
-    <Content Include="Content\_normalize.scss" />
     <Content Include="Content\_global.scss" />
-    <Content Include="Content\_fold.scss" />
-    <Content Include="Content\_gallery.scss" />
     <Content Include="Content\_search.scss" />
-    <Content Include="Content\_footer.scss" />
-    <Content Include="Content\_set.scss" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

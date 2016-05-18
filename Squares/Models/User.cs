@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Squares.Models
 {
-    public class Artist
+    public class User
     {
         public String FirstName { get; set; }
         public String LastName { get; set; }
@@ -15,31 +15,40 @@ namespace Squares.Models
         public String Alias { get; set; }
         public String Description { get; set; }
 
-        public Artist()
+        public User()
         {
 
         }
 
 
-        public Artist GetArtist(String UserId)
+        public User GetArtist(String UserId)
         {
             SquaresDataContext db = new SquaresDataContext();
 
-            AspNetUser user = db.AspNetUsers.Single(x => x.Id == UserId);
-            Author author = db.Authors.Single(x => x.UserId == UserId);
+            String alias = "";
+            String description = "";
 
-            Artist artist = new Artist()
+            AspNetUser user = db.AspNetUsers.Where(x => x.Id == UserId).FirstOrDefault();
+            Author author = db.Authors.Where(x => x.UserId == UserId).FirstOrDefault();
+
+            if (author != null)
+            {
+                alias = author.Alias;
+                description = author.Description;
+            }
+
+            User CurrentUser = new User()
             {
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 PhoneNumber = user.PhoneNumber,
                 UserName = user.UserName,
                 Address = user.Address,
-                Alias = author.Alias,
-                Description = author.Description
+                Alias = alias,
+                Description = description
             };
 
-            return artist;
+            return CurrentUser;
         } 
     }
 }

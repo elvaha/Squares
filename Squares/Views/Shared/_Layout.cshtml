@@ -8,65 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-
-@*
-
-        <<<<<<< HEAD
-    <body class=@ViewBag.Class>
-
-        <div class="wrapper">
-            <nav>
-                <ul>
-                    <li class="logo"><a href="/Home/Index"><img src="~/Content/images/logo.png"></a></li>
-                    <li class="gallery"><a href="/Home/Gallery"></a></li>
-                    <li class="search"><a href="#"></a></li>
-                    <li class="about"><a href="/Home/About"></a></li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="profile"><a href="/account/profile"></a></li>
-                        <li class="logoff"><a href="/account/logoff"></a></li>
-                    }
-                    else
-                    {
-                        <li class="user"><a></a></li>
-                    }
-                </ul>
-                <p>@User.Identity.Name</p>
-            </nav>
-            <div class="inner-wrapper">
-
-                @RenderBody()
-
-                <footer>
-                    <ul>
-                        <li>
-                            <ul class="social-media">
-                                <li class="social-fb"><a href="#"></a></li>
-                                <li class="social-tw"><a href="#"></a></li>
-                                <li class="social-gplus"><a href="#"></a></li>
-                                <li class="social-instagr"><a href="#"></a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <ul class="footer-nav">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Gallery</a></li>
-                                <li><a href="#">About Us</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span>&copy; Copyright 2016</span>
-                        </li>
-                    </ul>
-                </footer>
-            </div>
-        </div>
-
-
-        =======
-
-*@
-<body>
+<body class=@ViewBag.Class>
 
     <nav>
         <ul class="main-navigation">
@@ -83,18 +25,68 @@
             {
                 <li class="user"><a></a></li>
             }
+
         </ul>
         <div id="search-widget" class="search bring-to-front">
 
             <form class="search__form">
-
+                <div class="search__type hidden-sm-down">
+                    <p class="search__type-text">artist</p>
+=======
                 <div class="search__type hidden-sm-down bring-to-front">
                     <p class="search__type-text">ARTIST</p>
+>>>>>>> refs/remotes/origin/master
                 </div>
                 <div class="search__searchbar-wrapper">
                     <input class="search__searchbar" placeholder="Search our collection" type="text" />
                 </div>
                 <img class="search__submit" src="~/Content/images/search-ico.png" />
+<<<<<<< HEAD
+                <div class="hidden-sm-down search__sort @if (ViewBag.Class == "index" || ViewBag.Class == "about") { @Html.Raw("hidden") }">
+                    <div class="">
+                        <p class="search__sort-item">top rated</p>
+                    </div>
+                    <div class="">
+                        <p class="search__sort-item">most viewed</p>
+                    </div>
+                    <div class="">
+                        <p class="search__sort-item">newest</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        <div class="inner-wrapper">
+
+            @RenderBody()
+
+            <footer>
+                <ul>
+                    <li>
+                        <ul class="social-media">
+                            <li class="social-fb"><a href="/Home/Social"></a></li>
+                            <li class="social-tw"><a href="/Home/Social"></a></li>
+                            <li class="social-gplus"><a href="/Home/Social"></a></li>
+                            <li class="social-instagr"><a href="/Home/Social"></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="footer-nav">
+                            <li>@Html.ActionLink("Home","Index","Home")</li>
+                            <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
+                            <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>&copy; Copyright 2016</span>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+=======
                 <div class="container-fluid hidden-sm-down search__sort">
                     <div class="row">
                         <div class="col-sm-4 col-md-4 col-lg-4 remove-gutter">
@@ -123,10 +115,17 @@
 
     <footer class="footer"></footer>
     >>>>>>> refs/remotes/origin/rogue
-
+>>>>>>> refs/remotes/origin/master
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+<<<<<<< HEAD
+=======
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+>>>>>>> refs/remotes/origin/master
 </body>
 </html>

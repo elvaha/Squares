@@ -151,10 +151,24 @@ namespace Squares.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                };
+                
+                SquaresDataContext db = new SquaresDataContext();
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
+                    if (model.isAuthor)
+                    {
+                        Guid Id = Guid.NewGuid();
+                        db.AddAuthor(user.Id, null, model.Alias, model.Description);
+                    }
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -403,24 +417,31 @@ namespace Squares.Controllers
         }
 
         [HttpGet]
-        public ActionResult AccountManagement()
+        public ActionResult AccountManagement(String userId)
         {
             try
             {
+
+                Models.User CurrentUser = new Models.User();
+
                 var user = UserManager.FindById(User.Identity.GetUserId());
                 if(user == null)
                 {
                     return RedirectToAction("Login", "Account");
                 }
-
+                else
+                {
+                    CurrentUser = CurrentUser.GetUser(userId);
+                }
                 
+                return View(CurrentUser);
+
+
             }
             catch
             {
-                
+                return RedirectToAction("Index", "Home");
             }
-
-            return View();
         }
 
 

@@ -79,6 +79,23 @@ namespace Squares.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
+        [Display(Name = "Alias")]
+        public string Alias { get; set; }
+                
+        [Display(Name = "Description")]
+        public string Description { get; set; }
+
+        [Display(Name = "Is author")]
+        public bool isAuthor { get; set; }
     }
 
     public class ResetPasswordViewModel

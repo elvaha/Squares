@@ -15,16 +15,16 @@
     <nav>
         <ul class="main-navigation">
             <li class="main-navigation__item main-navigation__item--logo"><a href="/"><img src="~/Content/images/logo.png"></a></li>
-            <li class="main-navigation__item"><a href="/Home/Gallery"><img src="~/Content/images/gallery.png"></a></li>
-            <li class="main-navigation__item"><a href="/Home/About"><img src="~/Content/images/about.png"></a></li>
+            <li class="main-navigation__item nav-gallery"><a href="/Home/Gallery"></a></li>
+            <li class="main-navigation__item"><a class="nav-about" href="/Home/About"></a></li>
             @if (User.Identity.IsAuthenticated)
             {
-                <li class="main-navigation__item"><a href="/Account/AccountManagement"><img src="~/Content/images/profile.png"></a></li>
-                <li class="main-navigation__item"><a href="/Account/LogOff"><img src="~/Content/images/logoff.png"></a></li>
+                <li class="main-navigation__item"><a class="nav-profile" href="/Account/AccountManagement"><!--<img src="~/Content/images/profile.png">--></a></li>
+                <li class="main-navigation__item"><a href="/Account/LogOff"><!--<img src="~/Content/images/logoff.png">--></a></li>
             }
             else
             {
-                <li class="main-navigation__item"><a href="/Account/Login"><img src="~/Content/images/login.png"></a></li>
+                <li class="main-navigation__item"><a class="nav-login" href="/Account/Login"></a></li>
             }
             
         </ul>

@@ -83,17 +83,38 @@ input, select {
   width: 100%;
   z-index: 2000;
   background-color: #363636; }
+  .main-navigation .nav-gallery {
+    background: url(/Content/images/menu-sprite.png) no-repeat;
+    background-size: 100px; }
+    .main-navigation .nav-gallery a {
+      background: url(/Content/images/menu-sprite.png) no-repeat -50px 0;
+      background-size: 100px;
+      opacity: 0; }
+    .main-navigation .nav-gallery a:hover {
+      opacity: 1;
+      -webkit-transition: ease 0.3s;
+      -moz-transition: ease 0.3s;
+      -o-transition: ease 0.3s; }
+  .main-navigation .nav-login {
+    background: url(/Content/images/menu-sprite.png) no-repeat 0 -181px;
+    background-size: 100px; }
+  .main-navigation .nav-about {
+    background: url(/Content/images/menu-sprite.png) no-repeat 0 -132px;
+    background-size: 100px; }
 
 .main-navigation__item {
   display: inline-block;
   width: 50px;
   height: 50px;
-  margin: 10px 8px 0 0;
+  margin: 10px 8px 10px 0;
   cursor: pointer;
   vertical-align: top;
   background-color: #363636; }
   .main-navigation__item:hover:nth-child(1n+3) {
-    background-color: #ff740b; }
+    background-color: #ff740b;
+    -webkit-transition: ease 0.3s;
+    -moz-transition: ease 0.3s;
+    -o-transition: ease 0.3s; }
   .main-navigation__item a, .main-navigation__item img {
     display: inline-block;
     width: 50px;
@@ -528,14 +549,26 @@ ul.social-media li a {
   height: 30px;
   background: url("/Content/images/social-medias.png") no-repeat; }
 
+ul.social-media .social-fb a:hover {
+  background-position: -30px 0; }
+
 ul.social-media .social-tw a {
   background-position: 0 -40px; }
+
+ul.social-media .social-tw a:hover {
+  background-position: -30px -40px; }
 
 ul.social-media .social-gplus a {
   background-position: 0 -80px; }
 
+ul.social-media .social-gplus a:hover {
+  background-position: -30px -80px; }
+
 ul.social-media .social-instagr a {
   background-position: 0 -120px; }
+
+ul.social-media .social-instagr a:hover {
+  background-position: -30px -120px; }
 
 footer ul.footer-nav {
   float: left;

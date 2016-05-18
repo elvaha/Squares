@@ -436,16 +436,31 @@ ul.social-media li a {
     background: url('/Content/images/social-medias.png') no-repeat;
 }
 
+ul.social-media .social-fb a:hover {
+    background-position: -30px 0;
+}
+
 ul.social-media .social-tw a {
     background-position: 0 -40px;
 }
 
+ul.social-media .social-tw a:hover {
+    background-position: -30px -40px;
+}
 ul.social-media .social-gplus a {
     background-position: 0 -80px;
 }
 
+ul.social-media .social-gplus a:hover {
+    background-position: -30px -80px;
+}
+
 ul.social-media .social-instagr a {
     background-position: 0 -120px;
+}
+
+ul.social-media .social-instagr a:hover {
+    background-position: -30px -120px;
 }
 
 footer ul.footer-nav {

@@ -3,13 +3,42 @@
     width: 100%;
     z-index: 2000;
     background-color: $primary-color;
+
+    .nav-gallery {
+        background: url(/Content/images/menu-sprite.png) no-repeat;
+        background-size: 100px;
+
+        a {
+            background: url(/Content/images/menu-sprite.png) no-repeat -50px 0;
+            background-size: 100px;
+            opacity: 0;
+        }
+
+        a:hover {
+            opacity: 1;
+            -webkit-transition: ease 0.3s;
+	        -moz-transition: ease 0.3s;
+	        -o-transition: ease 0.3s;
+        }
+    }
+
+    .nav-login {
+        background: url(/Content/images/menu-sprite.png) no-repeat 0 -181px;
+        background-size: 100px;
+    }
+    
+    .nav-about {
+        background: url(/Content/images/menu-sprite.png) no-repeat 0 -132px;
+        background-size: 100px;
+    }
+
 }
 
     .main-navigation__item {
         display: inline-block;
         width: 50px;
         height: 50px;
-        margin: 10px 8px 0 0;
+        margin: 10px 8px 10px 0;
 
         cursor: pointer;
         vertical-align: top;
@@ -17,6 +46,9 @@
 
         &:hover:nth-child(1n+3) {
             background-color: $complementary-color;
+            -webkit-transition: ease 0.3s;
+	        -moz-transition: ease 0.3s;
+	        -o-transition: ease 0.3s;
         }
 
         a, img {

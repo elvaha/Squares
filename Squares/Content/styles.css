@@ -88,16 +88,19 @@ input, select {
   display: inline-block;
   width: 50px;
   height: 50px;
-  margin: 10px;
+  margin: 10px 8px 0 0;
   cursor: pointer;
   vertical-align: top;
   background-color: #363636; }
-  .main-navigation__item:hover {
+  .main-navigation__item:hover:nth-child(1n+3) {
     background-color: #ff740b; }
   .main-navigation__item a, .main-navigation__item img {
     display: inline-block;
     width: 50px;
     height: 50px; }
+
+.main-navigation__item:first-child {
+  margin: 10px; }
 
 .main-navigation__item--logo {
   width: 100px;
@@ -308,28 +311,28 @@ h2 {
 .content-container section ul li.set-item:nth-child(odd) {
   margin-right: 4%; }
 
-.content-container section h3 {
+.set-title {
   font-size: 48px;
   font-weight: 100; }
 
-.content-container section span {
+.artist-name {
   font-size: 30px;
   font-weight: 100; }
 
-.content-container section p {
+.set-description {
   margin: 20px 0;
   font-size: 16px;
   font-weight: 100; }
 
-.content-container section span,
-.content-container section p {
+.artist-name,
+.set-description {
   font-family: 'LatoRegular'; }
 
-.content-container section dl {
+.rating-container {
   float: left;
   margin-bottom: 10px; }
 
-.content-container section dl dt {
+.rating-container dt {
   float: left;
   width: 23px;
   height: 22px;
@@ -364,7 +367,7 @@ h2 {
 .content-container section ol.set-preview li img {
   width: 100%; }
 
-.content-container section li.set-item button {
+.btn {
   float: right;
   width: 230px;
   height: 65px;
@@ -376,9 +379,10 @@ h2 {
   font-weight: 100;
   text-decoration: none;
   border: none;
+  border-radius: 0;
   outline: none; }
 
-.content-container section li.set-item button:hover,
+.btn:hover,
 .gallery-controls > button:hover {
   background-color: #ff740b;
   -webkit-transition: ease 0.3s;
@@ -461,7 +465,8 @@ h2 {
 .about-list article,
 .about-list article img,
 .about-list article p {
-  float: left; }
+  float: left;
+  font-family: "LatoRegular", Fallback, sans-serif; }
 
 .about-list article {
   margin: 20px 0 20px 0; }

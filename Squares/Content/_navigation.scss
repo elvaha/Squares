@@ -9,13 +9,13 @@
         display: inline-block;
         width: 50px;
         height: 50px;
-        margin: 10px;
+        margin: 10px 8px 0 0;
 
         cursor: pointer;
         vertical-align: top;
         background-color: $primary-color;
 
-        &:hover{
+        &:hover:nth-child(1n+3) {
             background-color: $complementary-color;
         }
 
@@ -25,6 +25,10 @@
             height: 50px;
         }
 
+    }
+
+    .main-navigation__item:first-child {
+        margin: 10px;
     }
 
     .main-navigation__item--logo {

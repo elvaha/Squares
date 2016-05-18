@@ -18,8 +18,8 @@
 
 $font-lato: 'LatoRegular', Fallback, sans-serif;
 $font-square: 'SimplySquare', Fallback, sans-serif;
-$color-orange: #ff740b;
-$color-white: #fff;
+$color-accent: #ff740b;
+$color-clear: #fff;
 
 /* SASS END */
 
@@ -148,7 +148,7 @@ h1 {
 }
 
 .index-slogan span a:hover {
-    color: $color-orange;
+    color: $color-accent;
     -webkit-transition: ease 0.3s;
 	-moz-transition: ease 0.3s;
 	-o-transition: ease 0.3s;
@@ -167,14 +167,14 @@ h2 {
     padding: 16px 0;
     font-size: 68px;
     font-weight: 100;
-    color: $color-white;
+    color: $color-clear;
     text-align: center;
     background-color: #363636;
 }
 .content-container section {
     float: left;
     padding: 30px;
-    background: $color-white;
+    background: $color-clear;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 }
 .content-container section ul li.set-item {
@@ -185,28 +185,28 @@ h2 {
 .content-container section ul li.set-item:nth-child(odd) {
     margin-right: 4%;   
 }
-.content-container section h3 {
+.set-title {
     font-size: 48px;
     font-weight: 100;
 }
-.content-container section span {
+.artist-name {
     font-size: 30px;
     font-weight: 100;
 }
-.content-container section p {
+.set-description {
     margin: 20px 0;
     font-size: 16px;
     font-weight: 100;
 }
-.content-container section span,
-.content-container section p {
+.artist-name,
+.set-description {
     font-family: 'LatoRegular';
 }
-.content-container section dl {
+.rating-container {
     float: left;
     margin-bottom: 10px;
 }
-.content-container section dl dt {
+.rating-container dt {
     float: left;
     width: 23px;
     height: 22px;
@@ -231,7 +231,7 @@ h2 {
 }
 
 .content-container section ol.set-preview li:hover {
-    border: 1px $color-orange solid;
+    border: 1px $color-accent solid;
     -webkit-transition: ease 0.3s;
 	-moz-transition: ease 0.3s;
 	-o-transition: ease 0.3s;
@@ -242,24 +242,25 @@ h2 {
 .content-container section ol.set-preview li img {
     width: 100%;
 }
-.content-container section li.set-item button {
+.btn {
     float: right;
     width: 230px;
     height: 65px;
     background-color: #363636;
 	cursor: pointer;
-	color: $color-white;
+	color: $color-clear;
 	font-family: $font-square;
 	font-size: 30px;
     font-weight: 100;
 	text-decoration: none;
     border: none;
+    border-radius: 0;
     outline: none;
 }
 
-.content-container section li.set-item button:hover,
+.btn:hover,
 .gallery-controls > button:hover {
-    background-color: $color-orange;
+    background-color: $color-accent;
     -webkit-transition: ease 0.3s;
 	-moz-transition: ease 0.3s;
 	-o-transition: ease 0.3s;
@@ -289,7 +290,7 @@ h2 {
     width: 33.333%;
     height: 50px;
     font-family: $font-square;
-    color: $color-white;
+    color: $color-clear;
     font-size: 30px;
     background-color: #363636;
 	cursor: pointer;
@@ -299,7 +300,7 @@ h2 {
 }
 
 .gallery-controls > button.active {
-    background-color: $color-orange;
+    background-color: $color-accent;
 }
 
 .gallery-controls input {
@@ -307,7 +308,7 @@ h2 {
     width: 100%;
     height: 50px;
     padding: 0 20px 0 50px;
-    background: url('/images/search-ico.png') 12px 10px no-repeat $color-white;
+    background: url('/images/search-ico.png') 12px 10px no-repeat $color-clear;
     border: none;
     outline: none;
     font-family: 'LatoRegular';
@@ -327,7 +328,7 @@ h2 {
     padding: 7px 20px;
     font-family: 'LatoRegular';
     font-size: 16px;
-    color: $color-white;
+    color: $color-clear;
     background: #363636;
 }
 
@@ -356,6 +357,7 @@ h2 {
 .about-list article img,
 .about-list article p {
     float: left;
+    font-family: $font-lato;
 }
 
 .about-list article {
@@ -404,7 +406,7 @@ footer {
 footer > ul,
 footer > ul > li {
     display: block;
-    color: $color-white;
+    color: $color-clear;
 }
 
 footer > ul {
@@ -463,7 +465,7 @@ footer ul.footer-nav > li > a {
 }
 
 footer ul.footer-nav > li > a:hover {
-    color: $color-orange;
+    color: $color-accent;
     -webkit-transition: ease 0.3s;
 	-moz-transition: ease 0.3s;
 	-o-transition: ease 0.3s;

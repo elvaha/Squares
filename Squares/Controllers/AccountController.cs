@@ -411,7 +411,7 @@ namespace Squares.Controllers
         }
 
         [HttpGet]
-        public ActionResult AccountManagement(String userId)
+        public ActionResult AccountManagement()
         {
             try
             {
@@ -425,7 +425,7 @@ namespace Squares.Controllers
                 }
                 else
                 {
-                    CurrentUser = CurrentUser.GetUser(userId);
+                    CurrentUser = CurrentUser.GetUser(user.Id);
                 }
                 
                 return View(CurrentUser);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SquaresDataLibrary
 {
-    class DataHandler
+    public class DataHandler
     {
 
         private DataHandler() {}

@@ -353,11 +353,8 @@
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Home\Designer.cshtml" />
     <Content Include="Views\Account\AccountManagement.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Account\AddSet.cshtml" />
-=======
->>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

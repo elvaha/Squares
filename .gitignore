@@ -237,3 +237,4 @@ _Pvt_Extensions
 
 **/packages/**
 ApplicationInsights.config
+Squares.csproj

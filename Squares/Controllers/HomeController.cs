@@ -12,9 +12,9 @@ namespace Squares.Controllers
         public ActionResult Index()
         {
             ViewBag.Class = "index";
-            
+            Gallery toprated = new Gallery();
 
-            return View();
+            return View(toprated);
         }
 
         public ActionResult About()

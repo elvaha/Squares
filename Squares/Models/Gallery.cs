@@ -2,25 +2,48 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace Squares.Models
 {
     public class Gallery
     {
 
-
         public Gallery()
         {
-
         }
 
-        // ordered by Rating as default, can be sorted afterwards
-        public List<ArtistSet> Sets()
+        public List<ArtistSet> getGalleryItems(int start, int limit, string sort)
         {
-            SquaresDataContext db = new SquaresDataContext();
-            List<ArtistSet> sets = db.Sets.OrderBy(x => x.Rating).ToList();
+            using (var db = new SquaresDataContext())
+            {
 
-            return sets;
+                IOrderedQueryable<ArtistSet> query = null;
+
+                switch (sort)
+                {
+                    case "rating":
+                        
+                        query = db.Sets.Include("Author").OrderBy(x => x.Rating);
+
+                        break;
+
+                    default:
+
+                        query = db.Sets.Include("Author").OrderBy(x => x.Title);
+
+                        break;
+                }
+
+                return query.Skip(start)
+                     .Take(limit)
+                     .ToList<ArtistSet>();
+            }
+        }
+
+        public List<ArtistSet> getGalleryDefault()
+        {
+            return getGalleryItems(0, 6, "rating");
         }
 
     }

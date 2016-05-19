@@ -221,6 +221,14 @@ namespace SquaresDataLibrary
 			}
 		}
 		
+		public System.Data.Linq.Table<vTopRated> vTopRateds
+		{
+			get
+			{
+				return this.GetTable<vTopRated>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DeleteSet")]
 		public int DeleteSet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SetId", DbType="NVarChar(128)")] string setId)
 		{
@@ -3121,6 +3129,141 @@ namespace SquaresDataLibrary
 		{
 			this.SendPropertyChanging();
 			entity.Zipcode = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vTopRated")]
+	public partial class vTopRated
+	{
+		
+		private string _SetId;
+		
+		private string _Title;
+		
+		private string _Description;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+		private System.Nullable<int> _Rating;
+		
+		private System.Nullable<int> _ViewCount;
+		
+		private string _Alias;
+		
+		public vTopRated()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SetId", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
+		public string SetId
+		{
+			get
+			{
+				return this._SetId;
+			}
+			set
+			{
+				if ((this._SetId != value))
+				{
+					this._SetId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(MAX)")]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this._Title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this._Date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rating", DbType="Int")]
+		public System.Nullable<int> Rating
+		{
+			get
+			{
+				return this._Rating;
+			}
+			set
+			{
+				if ((this._Rating != value))
+				{
+					this._Rating = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViewCount", DbType="Int")]
+		public System.Nullable<int> ViewCount
+		{
+			get
+			{
+				return this._ViewCount;
+			}
+			set
+			{
+				if ((this._ViewCount != value))
+				{
+					this._ViewCount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Alias", DbType="NVarChar(MAX)")]
+		public string Alias
+		{
+			get
+			{
+				return this._Alias;
+			}
+			set
+			{
+				if ((this._Alias != value))
+				{
+					this._Alias = value;
+				}
+			}
 		}
 	}
 }

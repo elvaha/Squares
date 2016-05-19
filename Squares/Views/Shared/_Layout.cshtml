@@ -20,14 +20,22 @@
             @if (User.Identity.IsAuthenticated)
             {
                 <li class="main-navigation__item"><a href="/Account/AccountManagement"><img src="~/Content/images/profile.png"></a></li>
-                <li class="main-navigation__item"><a href="/Account/LogOff"><img src="~/Content/images/logoff.png"></a></li>
+
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <li class="main-navigation__item"><a href="javascript:document.getElementById('logoutForm').submit()"><img src="~/Content/images/logoff.png"></a></li>
+                }
             }
             else
             {
-                <li class="main-navigation__item"><a href="/Account/Login"><img src="~/Content/images/login.png"></a></li>
+                <li id="nav_login" class="main-navigation__item"><a href=""><img src="~/Content/images/login.png"></a></li>
             }
-            
+
         </ul>
+
+
+
         <div id="search-widget" class="search bring-to-front">
 
             <form class="search__form">
@@ -84,10 +92,10 @@
         </div>
     </div>
 
-    <div class="squares-modal">
+    <div id="modal_login" class="squares-modal">
 
         <div class="squares-modal__content">
-            @Html.Partial("_Login");
+            @Html.Partial("_Login")
         </div>
         <button class="squares-modal__close">close</button>
 

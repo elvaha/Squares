@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 19.5, 15" name="DataClassesSquares">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 19.5, 15.25" name="DataClassesSquares">
   <DataContextMoniker Name="/DataClassesSquaresDataContext" />
   <nestedChildShapes>
     <classShape Id="43559dca-e565-4db4-b6e2-daecf93b4b78" absoluteBounds="6.75, 0.75, 2, 1.5785953776041666">
@@ -106,14 +106,14 @@
         <classShapeMoniker Id="f7345d69-6bcb-427e-ba76-0f87892f1892" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 9.96311686197917); (4.5 : 13.9142976888021); (6.25 : 13.9142976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 9.96311686197917); (5.875 : 10.3381168619792); (5.875 : 13.9142976888021); (6.25 : 13.9142976888021)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesSquaresDataContext/AspNetUser/AspNetUser_AspNetUserClaim" />
       <nodes>
         <classShapeMoniker Id="7bf2260d-6e35-45b9-920b-99d25f3ef4d7" />
         <classShapeMoniker Id="cc55fe70-11e0-44b6-8d4d-4dccc3d525de" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.0312525 : 9.96311686197917); (5.0312525 : 11.6931469726562); (6.25 : 11.6931469726562)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.0312525 : 9.96311686197917); (5.0312525 : 11.6931469726562); (5.79166666666667 : 11.6931469726562 : JumpStart); (5.95833333333333 : 11.6931469726562 : JumpEnd); (6.25 : 11.6931469726562)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassesSquaresDataContext/AspNetUser/AspNetUser_AspNetUserLogin" />
       <nodes>
         <classShapeMoniker Id="7bf2260d-6e35-45b9-920b-99d25f3ef4d7" />
@@ -134,7 +134,7 @@
         <classShapeMoniker Id="384fa9e8-a50f-4704-b609-ddeeb9089a90" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 5.5); (4.5 : 4.69074725651042); (14.0416666666667 : 4.69074725651042 : JumpStart); (14.2083333333333 : 4.69074725651042 : JumpEnd); (14.5 : 4.69074725651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.5 : 5.5); (4.5 : 4.69074725651042); (14.5 : 4.69074725651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassesSquaresDataContext/AspNetUser/AspNetUser_Collection" />
       <nodes>
         <classShapeMoniker Id="7bf2260d-6e35-45b9-920b-99d25f3ef4d7" />
@@ -197,5 +197,11 @@
         <classShapeMoniker Id="7bf2260d-6e35-45b9-920b-99d25f3ef4d7" />
       </nodes>
     </associationConnector>
+    <classShape Id="c6446236-72b6-40d3-9a3b-56ef7fc150c4" absoluteBounds="3, 12.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataClassesSquaresDataContext/vTopRated" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf25ac23-f8ba-424b-8c33-b4fbdfae0c1c" absoluteBounds="3.015, 13.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

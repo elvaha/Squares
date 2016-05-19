@@ -1,0 +1,19 @@
+﻿@model Squares.Models.CreateSetModel
+
+@{
+    ViewBag.Title = "AddSet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddSet</h2>
+
+@using (Html.BeginForm("Multiple", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+    <div id="multiple">
+        <label for="Images">Filename:</label>
+        <input type="file" name="Images" id="Images" multiple/>
+    </div>
+
+}

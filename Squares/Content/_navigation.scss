@@ -63,21 +63,6 @@
         margin: 10px;
     }
 
-    .main-navigation__item--logo {
-
-        width: 100px;
-        height: 100px;
-        background-color:transparent;
-
-        &:hover{
-            background-color: transparent;
-        }
-        a, img {
-            width: 100px;
-            height: 100px;
-        }
-    }
-
 .rotate {
     transform: rotate(90deg);
     transform-origin: 60px 50%;
@@ -127,6 +112,21 @@
         width: auto;
 
         background-color: transparent;
+    }
+
+    .main-navigation__item--logo {
+
+        width: 100px;
+        height: 100px;
+        background-color:transparent;
+
+        &:hover{
+            background-color: transparent;
+        }
+        a, img {
+            width: 100px;
+            height: 100px;
+        }
     }
 
 }

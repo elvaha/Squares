@@ -13,6 +13,11 @@
   /* Safari, Android, iOS */ }
 
 /* SASS START*/
+.inner-wrapper:before, .inner-wrapper:after {
+  content: '';
+  display: table;
+  clear: both; }
+
 /* SASS END */
 /* CSS Reset START */
 /*
@@ -44,6 +49,7 @@ time, mark, audio, video {
   list-style-type: none; }
 
 body {
+  position: relative;
   line-height: 1;
   background: url(/Content/images/bg.jpg) no-repeat;
   font-family: "SimplySquare", Fallback, sans-serif;
@@ -123,16 +129,6 @@ input, select {
 .main-navigation__item:first-child {
   margin: 10px; }
 
-.main-navigation__item--logo {
-  width: 100px;
-  height: 100px;
-  background-color: transparent; }
-  .main-navigation__item--logo:hover {
-    background-color: transparent; }
-  .main-navigation__item--logo a, .main-navigation__item--logo img {
-    width: 100px;
-    height: 100px; }
-
 .rotate {
   transform: rotate(90deg);
   transform-origin: 60px 50%;
@@ -161,7 +157,16 @@ input, select {
   .main-navigation {
     display: inline-block;
     width: auto;
-    background-color: transparent; } }
+    background-color: transparent; }
+  .main-navigation__item--logo {
+    width: 100px;
+    height: 100px;
+    background-color: transparent; }
+    .main-navigation__item--logo:hover {
+      background-color: transparent; }
+    .main-navigation__item--logo a, .main-navigation__item--logo img {
+      width: 100px;
+      height: 100px; } }
 
 /*Navigation end*/
 /*Search start*/
@@ -265,6 +270,7 @@ input, select {
   position: fixed;
   top: 0;
   left: 0;
+  display: none;
   width: 100%;
   height: 100vh;
   z-index: 5000;
@@ -276,19 +282,18 @@ input, select {
   right: 10px; }
 
 .squares-modal__content {
-  max-width: 500px;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #FFF; }
+  transform: translate(-50%, -50%); }
 
 /*Search end*/
 /* Index page START */
 /* Index page header START */
 .inner-wrapper {
   width: 70%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  min-height: 100vh; }
 
 .index-slogan {
   float: left;
@@ -534,9 +539,10 @@ h2 {
 /* About END */
 /* Form START */
 .form-container {
-  margin: 25vh auto;
-  width: 50%;
-  height: 50vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-family: "LatoRegular", Fallback, sans-serif; }
 
 .feedback-input {
@@ -619,7 +625,7 @@ input:hover, textarea:hover,
 input:focus, textarea:focus {
   background-color: #fff; }
 
-#button {
+.form-button {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   float: right;
   width: 200px;
@@ -631,7 +637,7 @@ input:focus, textarea:focus {
   font-family: 'SimplySquare';
   font-size: 36px; }
 
-#button:hover {
+.form-button:hover {
   background-color: #ff740b;
   -webkit-transition: ease 0.3s;
   -moz-transition: ease 0.3s;
@@ -642,7 +648,8 @@ input:focus, textarea:focus {
 /* Designer END */
 /* Footer START */
 footer {
-  float: left;
+  position: absolute;
+  bottom: 0;
   margin-top: 20px;
   width: 100%;
   height: 50px;

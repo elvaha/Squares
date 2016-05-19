@@ -103,3 +103,22 @@ function displace(breakpoint, rotationElement, rotationElementChild) {
 displace('#index-hook', '.main-navigation', '.main-navigation__item');
 displace('#about-hook', '.main-navigation', '.main-navigation__item');
 displace('.gallery #search-widget', '.main-navigation', '.main-navigation__item');
+
+
+$('.squares-modal__close').click(function () {
+
+    $(this).parent()
+        .hide();
+
+    $(this).parent()
+        .find('form')
+        .find("input, textarea")
+        .val("");
+
+});
+
+$('#nav_login').click(function () {
+
+    $('#modal_login').show();
+
+});

@@ -510,6 +510,112 @@ h2 {
   border: none; }
 
 /* About END */
+/* Form START */
+.form-container {
+  margin: 25vh auto;
+  width: 50%;
+  height: 50vh;
+  font-family: "LatoRegular", Fallback, sans-serif; }
+
+.feedback-input {
+  color: #363636;
+  font-weight: 100;
+  font-size: 18px;
+  border-radius: 0;
+  line-height: 22px;
+  background-color: #fff;
+  padding: 13px 13px 13px 54px;
+  margin-bottom: 10px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 3px solid transparent;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
+
+.feedback-input:focus {
+  background: #fff;
+  box-shadow: 0;
+  border: 3px solid #ff740b;
+  color: #363636;
+  outline: none;
+  padding: 13px 13px 13px 54px;
+  -webkit-transition: ease 0.3s;
+  -moz-transition: ease 0.3s;
+  -o-transition: ease 0.3s; }
+
+.focused {
+  color: #ff740b;
+  border: #ff740b solid 3px; }
+
+/* Icons ---------------------------------- */
+#username {
+  background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat; }
+
+#username:focus {
+  background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat; }
+
+#first-name {
+  background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+  background-size: 30px 30px;
+  background-position: 11px 9px;
+  background-repeat: no-repeat; }
+
+#last-name {
+  background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+  background-size: 30px 30px;
+  background-position: 11px 9px;
+  background-repeat: no-repeat; }
+
+#email {
+  background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat; }
+
+#email:focus {
+  background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat; }
+
+#password,
+#repeat-password {
+  background-image: url(../images/password.png);
+  background-size: 5%;
+  background-position: 11px 8px;
+  background-repeat: no-repeat; }
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+  background-color: #fff; }
+
+#button {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  float: right;
+  width: 200px;
+  height: 65px;
+  cursor: pointer;
+  background-color: #363636;
+  color: #fff;
+  border: none;
+  font-family: 'SimplySquare';
+  font-size: 36px; }
+
+#button:hover {
+  background-color: #ff740b;
+  -webkit-transition: ease 0.3s;
+  -moz-transition: ease 0.3s;
+  -o-transition: ease 0.3s; }
+
+/* Form END */
 /* Designer START */
 /* Designer END */
 /* Footer START */
@@ -651,7 +757,7 @@ footer > ul > li:nth-child(3) {
   .menu-list {
     float: left;
     width: 100%;
-    background: #fff; }
+    background: #363636; }
   .menu-list li {
     height: 125px; }
   .menu-list li a {

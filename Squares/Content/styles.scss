@@ -20,6 +20,7 @@ $font-lato: 'LatoRegular', Fallback, sans-serif;
 $font-square: 'SimplySquare', Fallback, sans-serif;
 $color-accent: #ff740b;
 $color-clear: #fff;
+$color-secondary: #363636;
 
 /* SASS END */
 
@@ -59,7 +60,7 @@ body {
     line-height:1;
     background: url(/Content/images/bg.jpg) no-repeat;
     font-family: $font-square;
-    color: #363636;
+    color: $color-secondary;
     font-weight: 100;
 }
 
@@ -136,7 +137,7 @@ h1 {
     font-family: $font-lato;
     font-size: 22px;
     line-height: 27px;
-    border-top: 5px #363636 solid;
+    border-top: 5px $color-secondary solid;
 }
 .index-slogan span {
     display: block;
@@ -169,7 +170,7 @@ h2 {
     font-weight: 100;
     color: $color-clear;
     text-align: center;
-    background-color: #363636;
+    background-color: $color-secondary;
 }
 .content-container section {
     float: left;
@@ -227,7 +228,7 @@ h2 {
 .content-container section ol.set-preview li {
     float: left;
     width: 20%;
-    border: 1px #363636 solid;
+    border: 1px $color-secondary solid;
 }
 
 .content-container section ol.set-preview li:hover {
@@ -246,7 +247,7 @@ h2 {
     float: right;
     width: 230px;
     height: 65px;
-    background-color: #363636;
+    background-color: $color-secondary;
 	cursor: pointer;
 	color: $color-clear;
 	font-family: $font-square;
@@ -292,7 +293,7 @@ h2 {
     font-family: $font-square;
     color: $color-clear;
     font-size: 30px;
-    background-color: #363636;
+    background-color: $color-secondary;
 	cursor: pointer;
     text-decoration: none;
     border: none;
@@ -329,7 +330,7 @@ h2 {
     font-family: 'LatoRegular';
     font-size: 16px;
     color: $color-clear;
-    background: #363636;
+    background: $color-secondary;
 }
 
 /* Gallery END */
@@ -385,6 +386,113 @@ h2 {
 
 /* About END */
 
+/* Form START */
+.form-container {
+  margin: 25vh auto;
+  width: 50%;
+  height: 50vh;
+  font-family: "LatoRegular", Fallback, sans-serif; }
+
+.feedback-input {
+  color: $color-secondary;
+  font-weight: 100;
+  font-size: 18px;
+  border-radius: 0;
+  line-height: 22px;
+  background-color: $color-clear;
+  padding: 13px 13px 13px 54px;
+  margin-bottom: 10px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 3px solid transparent;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
+
+.feedback-input:focus {
+  background: $color-clear;
+  box-shadow: 0;
+  border: 3px solid $color-accent;
+  color: $color-secondary;
+  outline: none;
+  padding: 13px 13px 13px 54px;
+  -webkit-transition: ease 0.3s;
+  -moz-transition: ease 0.3s;
+  -o-transition: ease 0.3s; }
+
+.focused {
+  color: $color-accent;
+  border: $color-accent solid 3px; }
+
+/* Icons ---------------------------------- */
+#username {
+  background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat; }
+
+#username:focus {
+  background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat; }
+
+#first-name {
+  background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+  background-size: 30px 30px;
+  background-position: 11px 9px;
+  background-repeat: no-repeat; }
+
+#last-name {
+  background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+  background-size: 30px 30px;
+  background-position: 11px 9px;
+  background-repeat: no-repeat; }
+
+#email {
+  background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat; }
+
+#email:focus {
+  background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat; }
+
+#password,
+#repeat-password {
+  background-image: url(../images/password.png);
+  background-size: 5%;
+  background-position: 11px 8px;
+  background-repeat: no-repeat; }
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+  background-color: $color-clear; }
+
+#button {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  float: right;
+  width: 200px;
+  height: 65px;
+  cursor: pointer;
+  background-color: $color-secondary;
+  color: $color-clear;
+  border: none;
+  font-family: 'SimplySquare';
+  font-size: 36px; }
+
+#button:hover {
+  background-color: $color-accent;
+  -webkit-transition: ease 0.3s;
+  -moz-transition: ease 0.3s;
+  -o-transition: ease 0.3s; }
+
+/* Form END */
+
 /* Designer START */
 
 
@@ -398,7 +506,7 @@ footer {
     margin-top: 20px;
     width: 100%;
     height: 50px;
-    background-color: #363636;
+    background-color: $color-secondary;
     font-family: 'LatoRegular';
     font-size: 14px;
 }
@@ -513,7 +621,7 @@ footer > ul > li:nth-child(3) {
         width: 80%;
         font-size: 3vh;
         line-height: 3vh;
-        border-top: 2px #363636 solid;
+        border-top: 2px $color-secondary solid;
     }
 
     .index-slogan span {
@@ -588,7 +696,7 @@ footer > ul > li:nth-child(3) {
     .menu-list {
         float: left;
         width: 100%;
-        background: #fff;
+        background: $color-secondary;
     }
     
     .menu-list li {

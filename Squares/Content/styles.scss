@@ -214,10 +214,10 @@ h2 {
     height: 22px;
     margin-right: 0;
 }
-.content-container section dl dt.rating-on {
+.rating-container dt.rating-on {
     background: 0 0 url('/Content/images/star.png') no-repeat;
 }
-.content-container section dl dt.rating-off {
+.rating-container dt.rating-off {
     background: 0 -28px url('/Content/images/star.png') no-repeat;
 }
 .content-container section ol.set-preview {
@@ -499,6 +499,90 @@ input:focus, textarea:focus {
 
 
 /* Designer END */
+
+/* Account Page START */
+.profile-container {
+    float: left;
+    width: 100%;
+    margin-top: 200px;
+    background: $color-clear;
+    padding: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+
+.profile-image-container {
+    float: left;
+    width: 20%;
+
+    img {
+        float: left;
+        width: 100%;
+    }
+}
+
+.profile-info-container {
+    float: left;
+    width: 65%;
+    margin-left: 2%;
+
+    h3 {
+        font-size: 4vw;
+    }
+    p {
+        font-family: $font-lato;
+        font-size: 1vw;
+    }
+}
+
+.profile-sets-container {
+    float: left;
+    margin-top: 20px;
+    width: 100%;
+    background: $color-clear;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.profile-sets-wrapper {
+    float: left;
+    width: 100%;
+    padding: 20px;
+
+    h3 {
+        font-size: 42px;
+    }
+
+    ul {
+        display: flex;
+        float: left;
+        width: 100%;
+        padding-bottom: 20px;
+
+        li {
+            float: left;
+            width: 20%;
+            margin-left: 10px;
+            border: 1px solid $color-secondary;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        li:hover {
+            border-color: $color-accent;
+            cursor: pointer;
+            -webkit-transition: ease 0.5s;
+            -moz-transition: ease 0.5s;
+            -o-transition: ease 0.5s;
+            transition: ease 0.5s;
+        }
+
+        li:first-child {
+            margin: 0;
+        }
+    }
+}
+/* Accout Page END */
 
 /* Footer START */
 

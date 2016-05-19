@@ -52,5 +52,11 @@ namespace Squares.Controllers
             
             return View(set);
         }
+
+        [HttpGet]
+        public ActionResult Profile()
+        {
+            return View();
+        }
     }
 }

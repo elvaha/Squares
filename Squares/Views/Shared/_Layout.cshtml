@@ -19,14 +19,12 @@
             <li class="main-navigation__item"><a class="nav-about" href="/Home/About"></a></li>
             @if (User.Identity.IsAuthenticated)
             {
-<<<<<<< HEAD
                 <li class="main-navigation__item"><a class="nav-profile" href="/Account/AccountManagement"><!--<img src="~/Content/images/profile.png">--></a></li>
                 <li class="main-navigation__item"><a href="/Account/LogOff"><!--<img src="~/Content/images/logoff.png">--></a></li>
             }
             else
             {
                 <li class="main-navigation__item"><a class="nav-login" href="/Account/Login"></a></li>
-=======
                 <li class="main-navigation__item"><a href="/Account/AccountManagement"><img src="~/Content/images/profile.png"></a></li>
 
                 using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "" }))
@@ -38,7 +36,6 @@
             else
             {
                 <li id="nav_login" class="main-navigation__item"><a href=""><img src="~/Content/images/login.png"></a></li>
->>>>>>> origin/master
             }
 
         </ul>

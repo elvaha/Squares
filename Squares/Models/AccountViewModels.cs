@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace Squares.Models
 {
@@ -122,7 +123,17 @@ namespace Squares.Models
 
         [Required]
         [Display(Name = "Images")]
-        public List<string> Images { get; set; }
+        public IEnumerable<HttpPostedFileBase> Images { get; set; }
+    }
+
+    public class ArtistUser
+    {
+        [Display(Name = "Alias")]
+        public string Alias { get; set; }
+
+        [Required]
+        [Display(Name = "Description")]
+        public string Description { get; set; }
     }
 
     public class ForgotPasswordViewModel

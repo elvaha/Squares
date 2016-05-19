@@ -12,8 +12,6 @@ namespace Squares.Models
         public String PhoneNumber { get; set; }
         public String UserName { get; set; }
         public String Address { get; set; }
-        public String Alias { get; set; }
-        public String Description { get; set; }
 
         public User()
         {
@@ -44,8 +42,6 @@ namespace Squares.Models
                 PhoneNumber = user.PhoneNumber,
                 UserName = user.UserName,
                 Address = user.Address,
-                Alias = alias,
-                Description = description
             };
 
             return CurrentUser;

@@ -14,33 +14,21 @@
 
     <nav>
         <ul class="main-navigation">
-            <li class="main-navigation__item main-navigation__item--logo"><a href="/"><img src="~/Content/images/logo.png"></a></li>
+            <li class="main-navigation__item main-navigation__item--logo"><a href="/"><img src="~/Content/images/logo.png" /></a></li>
             <li class="main-navigation__item nav-gallery"><a href="/Home/Gallery"></a></li>
             <li class="main-navigation__item"><a class="nav-about" href="/Home/About"></a></li>
             @if (User.Identity.IsAuthenticated)
             {
-                <li class="main-navigation__item"><a class="nav-profile" href="/Account/AccountManagement"><!--<img src="~/Content/images/profile.png">--></a></li>
-                <li class="main-navigation__item"><a href="/Account/LogOff"><!--<img src="~/Content/images/logoff.png">--></a></li>
+                <li class="main-navigation__item"><a class="nav-profile" href="/Account/AccountManagement"></a></li>
+                <li class="main-navigation__item"><a href="/Account/LogOff"></a></li>
             }
             else
             {
-                <li class="main-navigation__item"><a class="nav-login" href="/Account/Login"></a></li>
-                <li class="main-navigation__item"><a href="/Account/AccountManagement"><img src="~/Content/images/profile.png"></a></li>
-
-                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <li class="main-navigation__item"><a href="javascript:document.getElementById('logoutForm').submit()"><img src="~/Content/images/logoff.png"></a></li>
-                }
-            }
-            else
-            {
-                <li id="nav_login" class="main-navigation__item"><a href=""><img src="~/Content/images/login.png"></a></li>
+                <li class="main-navigation__item"><a class="nav-login" href="/Account/Login"></a>
+                </li>
             }
 
         </ul>
-
-
 
         <div id="search-widget" class="search bring-to-front">
 
@@ -72,40 +60,31 @@
         <div class="inner-wrapper">
 
             @RenderBody()
+        </div>
+    </div>
 
-            <footer>
-                <ul>
-                    <li>
-                        <ul class="social-media">
-                            <li class="social-fb"><a href="/Home/Social"></a></li>
-                            <li class="social-tw"><a href="/Home/Social"></a></li>
-                            <li class="social-gplus"><a href="/Home/Social"></a></li>
-                            <li class="social-instagr"><a href="/Home/Social"></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul class="footer-nav">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
-                            <li>@Html.ActionLink("About Us", "About", "Home")</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span>&copy; Copyright 2016</span>
-                    </li>
+    <footer>
+        <ul>
+            <li>
+                <ul class="social-media">
+                    <li class="social-fb"><a href="/Home/Social"></a></li>
+                    <li class="social-tw"><a href="/Home/Social"></a></li>
+                    <li class="social-gplus"><a href="/Home/Social"></a></li>
+                    <li class="social-instagr"><a href="/Home/Social"></a></li>
                 </ul>
-            </footer>
-        </div>
-    </div>
-
-    <div id="modal_login" class="squares-modal">
-
-        <div class="squares-modal__content">
-            @Html.Partial("_Login")
-        </div>
-        <button class="squares-modal__close">close</button>
-
-    </div>
+            </li>
+            <li>
+                <ul class="footer-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
+                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                </ul>
+            </li>
+            <li>
+                <span>&copy; Copyright 2016</span>
+            </li>
+        </ul>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

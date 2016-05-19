@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Squares.Models;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Squares.Controllers
 {
@@ -22,7 +24,7 @@ namespace Squares.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +36,9 @@ namespace Squares.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -120,7 +122,7 @@ namespace Squares.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -158,13 +160,13 @@ namespace Squares.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                 };
-                
+
                 SquaresDataContext db = new SquaresDataContext();
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -419,7 +421,7 @@ namespace Squares.Controllers
                 Models.User CurrentUser = new Models.User();
 
                 var user = UserManager.FindById(User.Identity.GetUserId());
-                if(user == null)
+                if (user == null)
                 {
                     return RedirectToAction("Login", "Account");
                 }
@@ -427,7 +429,7 @@ namespace Squares.Controllers
                 {
                     CurrentUser = CurrentUser.GetUser(user.Id);
                 }
-                
+
                 return View(CurrentUser);
 
 
@@ -438,16 +440,22 @@ namespace Squares.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult AccountManagement(bool isArtist)
+        {
+
+
+            return View();
+        }
+
         [HttpGet]
         public ActionResult AddSet()
         {
             SquaresDataContext db = new SquaresDataContext();
 
-            bool isArtist = false;
-
             var artist = db.Authors.Where(x => x.UserId == User.Identity.GetUserId()).FirstOrDefault();
 
-            if(artist == null)
+            if (artist == null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -458,11 +466,44 @@ namespace Squares.Controllers
         [HttpPost]
         public ActionResult AddSet(CreateSetModel model)
         {
+            SquaresDataContext db = new SquaresDataContext();
+            List<String> urls = new List<String>();
             var user = UserManager.FindById(User.Identity.GetUserId());
+            Guid SetId = Guid.NewGuid();
 
-            //TODO! sommething somehting
+            try
+            {
+                ArtistSet set = new ArtistSet()
+                {
+                    Title = model.Title,
+                    Description = model.Description,
+                };
 
-            return View();
+                db.Sets.InsertOnSubmit(set);
+
+                foreach (var file in model.Images)
+                {
+                    Guid pieceId = Guid.NewGuid();
+                    string path = Path.Combine(Server.MapPath("~/App_Data/uploads"), Guid.NewGuid() + Path.GetExtension(file.FileName));
+                    Piece piece = new Piece()
+                    {
+                        PieceId = pieceId.ToString(),
+                        SetId = SetId.ToString(),
+                        Url = path
+                    };
+
+                    db.Pieces.InsertOnSubmit(piece);
+                    file.SaveAs(path);
+                }
+                //TODO! sommething somehting
+                db.SubmitChanges();
+                return View();
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
         }
 
 

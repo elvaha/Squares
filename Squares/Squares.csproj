@@ -206,6 +206,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Profile.cs" />
+    <Compile Include="Models\HomeViewModels.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Gallery.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -353,6 +354,8 @@
     <Content Include="Views\Home\Designer.cshtml" />
     <Content Include="Views\Account\AccountManagement.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Account\AddSet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

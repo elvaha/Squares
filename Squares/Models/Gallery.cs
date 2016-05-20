@@ -13,12 +13,23 @@ namespace Squares.Models
         {
         }
 
-        public List<ArtistSet> getGalleryItems(int start, int limit, string sort)
+
+        public List<Set> WholeGallery()
+        {
+            SquaresDataContext db = new SquaresDataContext();
+            List<Set> Sets = new List<Set>();
+
+            Sets = db.Sets.OrderBy(x => x.Rating).ToList();
+
+            return Sets;
+        }
+
+        public List<Set> getGalleryItems(int start, int limit, string sort)
         {
             using (var db = new SquaresDataContext())
             {
 
-                IOrderedQueryable<ArtistSet> query = null;
+                IOrderedQueryable<Set> query = null;
 
                 switch (sort)
                 {
@@ -37,11 +48,11 @@ namespace Squares.Models
 
                 return query.Skip(start)
                      .Take(limit)
-                     .ToList<ArtistSet>();
+                     .ToList<Set>();
             }
         }
 
-        public List<ArtistSet> getGalleryDefault()
+        public List<Set> getGalleryDefault()
         {
             return getGalleryItems(0, 6, "rating");
         }

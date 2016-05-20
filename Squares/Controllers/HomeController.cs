@@ -37,18 +37,17 @@ namespace Squares.Controllers
         public ActionResult Gallery()
         {
             ViewBag.Class = "gallery";
-            
-            //Gallery gal = new Gallery();
-            //List<Set> gallery = gal.Sets();
-            
-            return View();
+
+            Gallery gal = new Gallery();
+
+            return View(gal);
         }
 
         public ActionResult Designer(String SetId)
         {
             SquaresDataContext db = new SquaresDataContext();
 
-            ArtistSet set = db.Sets.Single(x => x.SetId == SetId);
+            Set set = db.Sets.Single(x => x.SetId == SetId);
             
             return View(set);
         }

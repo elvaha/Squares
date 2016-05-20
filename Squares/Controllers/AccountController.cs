@@ -453,7 +453,7 @@ namespace Squares.Controllers
         {
             SquaresDataContext db = new SquaresDataContext();
 
-            var artist = db.Authors.Where(x => x.UserId == User.Identity.GetUserId()).FirstOrDefault();
+            var artist = db.Artists.Where(x => x.UserId == User.Identity.GetUserId()).FirstOrDefault();
 
             if (artist == null)
             {
@@ -473,7 +473,7 @@ namespace Squares.Controllers
 
             try
             {
-                ArtistSet set = new ArtistSet()
+                Set set = new Set()
                 {
                     Title = model.Title,
                     Description = model.Description,
@@ -485,14 +485,14 @@ namespace Squares.Controllers
                 {
                     Guid pieceId = Guid.NewGuid();
                     string path = Path.Combine(Server.MapPath("~/App_Data/uploads"), Guid.NewGuid() + Path.GetExtension(file.FileName));
-                    Piece piece = new Piece()
+                    SetPiece setPiece = new SetPiece()
                     {
                         PieceId = pieceId.ToString(),
                         SetId = SetId.ToString(),
                         Url = path
                     };
 
-                    db.Pieces.InsertOnSubmit(piece);
+                    db.SetPieces.InsertOnSubmit(setPiece);
                     file.SaveAs(path);
                 }
                 //TODO! sommething somehting

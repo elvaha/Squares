@@ -27,7 +27,7 @@ namespace Squares.Models
             String description = "";
 
             AspNetUser user = db.AspNetUsers.Where(x => x.Id == UserId).FirstOrDefault();
-            Author author = db.Authors.Where(x => x.UserId == UserId).FirstOrDefault();
+            Artist author = db.Artists.Where(x => x.UserId == UserId).FirstOrDefault();
 
             if (author != null)
             {

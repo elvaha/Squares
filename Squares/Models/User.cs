@@ -9,9 +9,10 @@ namespace Squares.Models
     {
         public String FirstName { get; set; }
         public String LastName { get; set; }
-        public String PhoneNumber { get; set; }
+        //public String PhoneNumber { get; set; }
         public String UserName { get; set; }
-        public String Address { get; set; }
+        //public String Address { get; set; }
+        public bool IsArtist { get; set; }
 
         public User()
         {
@@ -39,9 +40,10 @@ namespace Squares.Models
             {
                 FirstName = user.FirstName,
                 LastName = user.LastName,
-                PhoneNumber = user.PhoneNumber,
+                //PhoneNumber = user.PhoneNumber,
                 UserName = user.UserName,
-                Address = user.Address,
+                //Address = user.Address,
+                IsArtist =(bool) user.IsArtist
             };
 
             return CurrentUser;

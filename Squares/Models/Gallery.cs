@@ -52,9 +52,22 @@ namespace Squares.Models
             }
         }
 
-        public List<Set> getGalleryDefault()
+        public List<Set> getIndexGallery()
         {
-            return getGalleryItems(0, 6, "rating");
+            SquaresDataContext db = new SquaresDataContext();
+            List<Set> indexSets = new List<Set>();
+
+            if (db.Sets.Count() > 6)
+            {
+                indexSets = db.Sets.Skip(0).Take(6).OrderBy(x=> x.Rating).ToList();
+            }
+            else
+            {
+                indexSets = db.Sets.ToList();
+            }
+           
+
+            return indexSets;
         }
 
     }

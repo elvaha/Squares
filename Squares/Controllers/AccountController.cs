@@ -159,6 +159,7 @@ namespace Squares.Controllers
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
+                    IsArtist = false
                 };
 
                 SquaresDataContext db = new SquaresDataContext();
@@ -441,11 +442,28 @@ namespace Squares.Controllers
         }
 
         [HttpPost]
-        public ActionResult AccountManagement(bool isArtist)
+        public ActionResult UserAsArtist(ArtistUser model)
         {
+            SquaresDataContext db = new SquaresDataContext();
+            var user = UserManager.FindById(User.Identity.GetUserId());
 
+            Guid Id = Guid.NewGuid();
 
-            return View();
+            Artist artist = new Artist()
+            {
+                ArtistId = Id.ToString(),
+                Alias = model.Alias,
+                Description = model.Description,
+                UserId = user.Id,
+                Date = DateTime.Now
+            };
+
+            AspNetUser update = db.AspNetUsers.Where(x => x.Id == user.Id).FirstOrDefault();
+            db.Artists.InsertOnSubmit(artist);
+            update.IsArtist = true;
+            db.SubmitChanges();
+
+            return RedirectToAction("AccountManagement", "Account");
         }
 
         [HttpGet]

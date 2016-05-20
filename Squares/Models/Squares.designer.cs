@@ -2248,7 +2248,7 @@ namespace Squares.Models
 		{
 			get
 			{
-				return this._Artist.Entity;
+                return this._Artist.Entity;
 			}
 			set
 			{

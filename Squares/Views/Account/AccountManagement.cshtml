@@ -10,15 +10,12 @@
     <h2>@Model.FirstName</h2>
     <h2>@Model.LastName</h2>
 
+    @{
+        Squares.Models.ArtistUser artist = new Squares.Models.ArtistUser();   
+    }
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-
-
-
-}
-
-
+    @if (!Model.IsArtist)
+    {
+        @Html.Partial("UserArtist", artist)
+    }
 </div>
-
-

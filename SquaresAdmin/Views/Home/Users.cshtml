@@ -1,0 +1,83 @@
+﻿@using SquaresDAL
+@using SquaresDAL.Handlers
+
+@{
+    ViewBag.Title = "About";
+}
+
+<main class="content-wrapper">
+    <section class="content-header">
+        <h1>User manager</h1>
+    </section>
+    <section class="content">
+
+        <section class="box">
+            <div class="box-body">
+                <table id="user_table" class="table table-bordered table-hover dataTable" role="grid">
+                    <thead>
+                        <tr role="row">
+                            <th>Type</th>
+                            <th>Username</th>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>E-mail</th>
+                            <th>Phone</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (AspNetUser user in UserHandler.getUsers())
+                        {
+                            <tr role="row" class="odd">
+                                <td>
+
+                                    @if (user.IsArtist)
+                                    {
+
+                                        <span>Artist</span>
+
+                                    }
+                                    else {
+
+                                        <span>Customer</span>
+
+                                    }
+
+                                </td>
+                                
+                                <td>@user.UserName</td>
+                                <td>@user.FirstName</td>
+                                <td>@user.LastName</td>
+                                <td>@user.Email</td>
+                                <td>@user.PhoneNumber</td>
+                                <td>
+                                    @if (user.HasAccess)
+                                    {
+                                        <button type="button" class="btn btn-block btn-danger btn-flat user-status">Disable</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="button" class="btn btn-block btn-success btn-flat user-status">Enable</button>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Type</th>
+                            <th>Username</th>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>E-mail</th>
+                            <th>Phone</th>
+                            <th>Status</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+    </section>
+</main>

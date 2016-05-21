@@ -1,0 +1,69 @@
+﻿@using SquaresDAL
+@using SquaresDAL.Handlers
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+<main class="content-wrapper">
+    <section class="content-header">
+        <h1>Set manager</h1>
+    </section>
+    <section class="content">
+
+        <section class="box">
+            <div class="box-body">
+                <table id="set_table" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                    <thead>
+                        <tr role="row">
+                            <th>Set name</th>
+                            <th>Artist name</th>
+                            <th>Rating</th>
+                            <th>View count</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (Set set in GalleryHandler.getSets())
+                        {
+                            <tr role="row" class="odd">
+                                <td>@set.Title</td>
+                                <td>@set.Artist.Alias</td>
+                                <td>
+                                    @for (var i = 0; i < set.Rating; i++)
+                                    {
+                                        <span class="ion ion-star"></span>
+                                    }
+                                </td>
+
+                                <td>@set.ViewCount</td>
+                                <td>
+
+                                    @if (set.isDisabled)
+                                    {
+                                        <button type="button" class="btn btn-block btn-success btn-flat user-status">Enable</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="button" class="btn btn-block btn-danger btn-flat user-status">Disable</button>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Set name</th>
+                            <th>Artist name</th>
+                            <th>Rating</th>
+                            <th>View count</th>
+                            <th>Status</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+    </section>
+</main>

@@ -242,11 +242,9 @@ a:focus {
   float: left;
   background-color: transparent;
   background-image: none;
-  padding: 15px 15px;
+  padding: 5px 10px;
   font-family: fontAwesome;
-}
-.main-header .sidebar-toggle:before {
-  content: "\f0c9";
+  font-size: 28px;
 }
 .main-header .sidebar-toggle:hover {
   color: #fff;
@@ -2760,7 +2758,12 @@ table.text-center th {
 }
 .login-box-body .form-control-feedback,
 .register-box-body .form-control-feedback {
+  position: absolute;
+  top: 0;
+  right: 0;
   color: #777;
+  font-size: 18px;
+  padding: 5px;
 }
 .login-box-msg,
 .register-box-msg {

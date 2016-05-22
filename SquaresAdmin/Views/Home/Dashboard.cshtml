@@ -12,95 +12,89 @@
         <h1>Dashboard</h1>
     </section>
     <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-
-                <section class="box">
-                    <div class="box-header with-border">
-                        <h2 class="box-title">Latest sets</h2>
-                    </div>
-                    <div class="box-body">
-                        <div class="row">
-
-                            @foreach (Set s in GalleryHandler.searchSets(0, 8, 3, ""))
-                            {
-                                <div class="col-lg-3">
-                                    <div class="info-box bg-light-gray">
-                                        <span class="info-box-icon bg-yellow"><i class="ion ion-images"></i></span>
-
-                                        <div class="info-box-content">
-                                            <span class="info-box-text"><strong>@s.Title</strong></span>
-                                            <span>@s.Artist.Alias</span>
-                                            <div>
-
-                                                @for (var i = 0; i < s.Rating; i++)
-                                                {
-                                                    <span class="ion ion-star"></span>
-                                                }
-
-                                            </div>
-                                            <span>Views <strong>(@s.ViewCount)</strong></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-
-                        </div>
-                    </div>
-                    <div class="box-footer">
-                        @Html.ActionLink("Manage Sets", "Sets", "Home", new { @class = "btn btn-default btn-flat" })
-                    </div>
-                </section>
-
-                <section class="box">
-                    <div class="box-header with-border">
-                        <h2 class="box-title">Latest artists</h2>
-                    </div>
-                    <div class="box-body">
-                        <div class="row">
-
-                            @foreach (vTopArtist artist in UserHandler.getTopArtists())
-                            {
-                                <div class="col-lg-3">
-                                    <div class="box box-widget widget-user">
-                                        <div class="box-header bg-yellow">
-                                            <div class="widget-user-header">
-                                                <h3 class="widget-user-username">@artist.Alias</h3>
-                                            </div>
-                                        </div>
-                                        <div class="box-footer bg-light-gray">
-                                            <div class="row">
-                                                <div class="col-sm-4 border-right">
-                                                    <div class="description-block">
-                                                        <h5 class="description-header">@artist.SetNumber</h5>
-                                                        <span class="description-text">Sets</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4 border-right">
-                                                    <div class="description-block">
-                                                        <h5 class="description-header">@artist.AverageRating</h5>
-                                                        <span class="description-text">Rating</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="description-block">
-                                                        <h5 class="description-header">@artist.TotalViews</h5>
-                                                        <span class="description-text">Views</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                    <div class="box-footer">
-                        @Html.ActionLink("Manage Users", "Users", "Home", new { @class = "btn btn-default btn-flat" })
-                    </div>
-                </section>
-
+        <section class="box">
+            <div class="box-header with-border">
+                <h2 class="box-title">Latest sets</h2>
             </div>
-        </div>
+            <div class="box-body">
+                <div class="row">
+
+                    @foreach (Set s in GalleryHandler.searchSets(0, 8, 3, ""))
+                    {
+                        <div class="col-lg-3">
+                            <div class="info-box bg-light-gray">
+                                <span class="info-box-icon bg-yellow"><i class="ion ion-images"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text"><strong>@s.Title</strong></span>
+                                    <span>@s.Artist.Alias</span>
+                                    <div>
+
+                                        @for (var i = 0; i < s.Rating; i++)
+                                        {
+                                            <span class="ion ion-star"></span>
+                                        }
+
+                                    </div>
+                                    <span>Views <strong>(@s.ViewCount)</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="box-footer">
+                @Html.ActionLink("Manage Sets", "Sets", "Home", new { @class = "btn btn-default btn-flat" })
+            </div>
+        </section>
+
+        <section class="box">
+            <div class="box-header with-border">
+                <h2 class="box-title">Latest artists</h2>
+            </div>
+            <div class="box-body">
+                <div class="row">
+
+                    @foreach (vTopArtist artist in UserHandler.getTopArtists())
+                    {
+                        <div class="col-lg-3">
+                            <div class="box box-widget widget-user">
+                                <div class="box-header bg-yellow">
+                                    <div class="widget-user-header">
+                                        <h3 class="widget-user-username">@artist.Alias</h3>
+                                    </div>
+                                </div>
+                                <div class="box-footer bg-light-gray">
+                                    <div class="row">
+                                        <div class="col-sm-4 border-right">
+                                            <div class="description-block">
+                                                <h5 class="description-header">@artist.SetNumber</h5>
+                                                <span class="description-text">Sets</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 border-right">
+                                            <div class="description-block">
+                                                <h5 class="description-header">@artist.AverageRating</h5>
+                                                <span class="description-text">Rating</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="description-block">
+                                                <h5 class="description-header">@artist.TotalViews</h5>
+                                                <span class="description-text">Views</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="box-footer">
+                @Html.ActionLink("Manage Users", "Users", "Home", new { @class = "btn btn-default btn-flat" })
+            </div>
+        </section>
     </section>
 </main>

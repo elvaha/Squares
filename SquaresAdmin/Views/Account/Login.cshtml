@@ -9,7 +9,7 @@
 <div class="login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Squares Admin</b></a>
+            <b>Squares Admin</b>
         </div>
 
         <div class="login-box-body">
@@ -18,18 +18,18 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "" })
+                @Html.ValidationSummary(true, "", new { @class = "validation-summary text-red" })
 
                 <div class="form-item">
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
                     <span class="ion-email form-control-feedback"></span>
-                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-red" })
                 </div>
 
                 <div class="form-item">
                     @Html.PasswordFor(m => m.Password, new { @class = "form-control form-item", @placeholder = "Password" })
                     <span class="ion-locked form-control-feedback"></span>
-                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-red" })
                 </div>
                 <div class="form-item">
                     @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox-label" })

@@ -19,7 +19,7 @@ namespace Squares.Models
             SquaresDataContext db = new SquaresDataContext();
             List<Set> Sets = new List<Set>();
 
-            Sets = db.Sets.Include("Artist").OrderBy(x => x.Rating).ToList();
+            Sets = db.Sets.Include("Artist").Include("SetPiece").OrderBy(x => x.Rating).ToList();
 
             return Sets;
         }

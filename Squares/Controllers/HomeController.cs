@@ -58,17 +58,19 @@ namespace Squares.Controllers
 
             ViewBag.Class = "designer";
 
-            //Set set = db.Sets.Single(x => x.SetId == SetId);
+            Set set = db.Sets.Single(x => x.SetId == SetId);
 
-            //return View(set);
-
-            return View();
+            return View(set);
         }
 
         [HttpGet]
-        public ActionResult Profile()
+        public ActionResult Profile(string artistId)
         {
-            return View();
+            SquaresDataContext db = new SquaresDataContext();
+
+            Artist artist = db.Artists.Where(x => x.ArtistId == artistId).FirstOrDefault();
+
+            return View(artist);
         }
     }
 }

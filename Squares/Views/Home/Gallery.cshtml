@@ -1,4 +1,4 @@
-﻿@using System.Data
+﻿
 @model List<Squares.Models.Set>
 
 @{
@@ -33,11 +33,29 @@
                             }
                         </dl>
                         <ol class="set-preview">
-                            @for (int i = 0; i < 5; i++)
+                            @if (set.SetPieces.Count > 0)
                             {
-                                
-                                <li><a href="#"><img src="~/Content/images/squares/1.jpg"></a></li>
+                                int counter = 0;
+                                if (set.SetPieces.Count > 5)
+                                {
+                                    counter = 5;
+                                }
+                                else
+                                {
+                                    counter = set.SetPieces.Count;
+                                }
+
+                                for (int i = 0; i < counter; i++)
+                                {
+                                    <li><a href="#"><img src="@set.SetPieces[i].Url"></a></li>
+                                }
                             }
+                            else
+                            {
+                                <li><a href="#">No images added</li>
+                            }
+
+
                         </ol>
                         @Html.ActionLink("Customize", "Designer", "Home", new { setId = set.SetId }, new { @class = "btn" })
                         @*<button class="btn">Customize</button>*@

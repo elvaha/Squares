@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Squares.Models.Set
+
+@{
     ViewBag.Title = "Designer";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -6,11 +8,17 @@
 <h3>Title</h3>
 <span class="artist-name">Artist Name</span>
 <dl class="rating-container">
-    <dt class="rating-on"></dt>
-    <dt class="rating-on"></dt>
-    <dt class="rating-on"></dt>
-    <dt class="rating-on"></dt>
-    <dt class="rating-off"></dt>
+    @for (int i = 0; i < 5; i++)
+    {
+        if (i <= Model.Rating)
+        {
+            <dt class="rating-on"></dt>
+        }
+        else
+        {
+            <dt class="rating-off"></dt>
+        }
+    }
 </dl>
 
 <div class="designer-container">
@@ -34,37 +42,12 @@
 </div>
 
 <div class="image-gallery drag-zone">
-
-    <div class="dragbox-wrapper">
-        <img src="~/Content/images/squares/1.jpg" class="dragbox" data-rotation="0" data-isplaced="no">
-    </div>
-    <div class="dragbox-wrapper">
-        <img src="~/Content/images/squares/2.jpg" class="dragbox" data-rotation="0" data-isplaced="no">
-    </div>
-    <div class="dragbox-wrapper">
-        <img src="~/Content/images/squares/3.jpg" class="dragbox" data-rotation="0" data-isplaced="no">
-    </div>
-    <div class="dragbox-wrapper">
-        <img src="~/Content/images/squares/4.jpg" class="dragbox" data-rotation="0" data-isplaced="no">
-    </div>
-    <div class="dragbox-wrapper">
-        <img src="~/Content/images/squares/5.jpg" class="dragbox" data-rotation="0" data-isplaced="no">
-    </div>
-    <div class="dragbox-wrapper">
-        <img src="~/Content/images/squares/6.jpg" class="dragbox" data-rotation="0" data-isplaced="no">
-    </div>
-    <div class="dragbox-wrapper">
-        <img src="~/Content/images/squares/7.jpg" class="dragbox" data-rotation="0" data-isplaced="no">
-    </div>
-    <div class="dragbox-wrapper">
-        <img src="~/Content/images/squares/8.jpg" class="dragbox" data-rotation="0" data-isplaced="no">
-    </div>
-    <div class="dragbox-wrapper">
-        <img src="~/Content/images/squares/9.jpg" class="dragbox" data-rotation="0" data-isplaced="no">
-    </div>
-    <div class="dragbox-wrapper">
-        <img src="~/Content/images/squares/10.jpg" class="dragbox" data-rotation="0" data-isplaced="no">
-    </div>
+    @foreach (var item in Model.SetPieces)
+    {
+        <div class="dragbox-wrapper">
+            <img src="@item.Url" class="dragbox" data-rotation="0" data-isplaced="no">
+        </div>
+    }
 </div>
 
 <!--
@@ -101,7 +84,7 @@
 
 <div class="designer-set-desrcription">
     <h4>Description:</h4>
-    <p class="set-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p class="set-description">@Model.Description</p>
 </div>
 <div class="designer-controls">
     <ul class="preview">

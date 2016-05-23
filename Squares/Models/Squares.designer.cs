@@ -2431,11 +2431,11 @@ namespace Squares.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Set_SetPiece", Storage="_SetPieces", ThisKey="SetId", OtherKey="SetId")]
-		public EntitySet<SetPiece> SetPieces
+		public List<SetPiece> SetPieces
 		{
 			get
 			{
-				return this._SetPieces;
+				return this._SetPieces.ToList();
 			}
 			set
 			{

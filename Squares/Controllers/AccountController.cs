@@ -497,12 +497,20 @@ namespace Squares.Controllers
             var user = UserManager.FindById(User.Identity.GetUserId());
             Guid SetId = Guid.NewGuid();
 
+            Artist artist = db.Artists.Where(x => x.UserId == user.Id.ToString()).FirstOrDefault();
+
             try
             {
                 Set set = new Set()
                 {
                     Title = model.Title,
                     Description = model.Description,
+                    isDisabled = false,
+                    Rating = 0,
+                    Date = DateTime.Now,
+                    SetId = SetId.ToString(),
+                    ArtistId = artist.ArtistId,
+                    ViewCount = 0
                 };
 
                 db.Sets.InsertOnSubmit(set);
@@ -510,12 +518,13 @@ namespace Squares.Controllers
                 foreach (var file in model.Images)
                 {
                     Guid pieceId = Guid.NewGuid();
-                    string path = Path.Combine(Server.MapPath("~/App_Data/uploads"), Guid.NewGuid() + Path.GetExtension(file.FileName));
+                    string path = Path.Combine(Server.MapPath("~/App_Data/uploads"), pieceId + Path.GetExtension(file.FileName));
+                    string url = "~/App_Data/uploads/" + pieceId + Path.GetExtension(file.FileName);
                     SetPiece setPiece = new SetPiece()
                     {
                         PieceId = pieceId.ToString(),
                         SetId = SetId.ToString(),
-                        Url = path
+                        Url = url
                     };
 
                     db.SetPieces.InsertOnSubmit(setPiece);

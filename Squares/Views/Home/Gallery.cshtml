@@ -1,4 +1,5 @@
-﻿@model List<Squares.Models.Set>
+﻿@using System.Data
+@model List<Squares.Models.Set>
 
 @{
     ViewBag.Title = "Gallery";
@@ -19,11 +20,17 @@
                             @set.Description
                         </p>
                         <dl class="rating-container">
-                            <dt class="rating-on"></dt>
-                            <dt class="rating-on"></dt>
-                            <dt class="rating-on"></dt>
-                            <dt class="rating-on"></dt>
-                            <dt class="rating-off"></dt>
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                if (i <= set.Rating)
+                                {
+                                    <dt class="rating-on"></dt>
+                                }
+                                else
+                                {
+                                    <dt class="rating-off"></dt>
+                                }
+                            }
                         </dl>
                         <ol class="set-preview">
                             @for (int i = 0; i < 5; i++)
@@ -31,7 +38,8 @@
                                 <li><a href="#"><img src="~/Content/images/squares/1.jpg"></a></li>
                             }
                         </ol>
-                        <button class="btn">Customize</button>
+                        @Html.ActionLink("Customize", "Designer", "Home", new { setId = set.SetId }, new { @class = "btn" })
+                        @*<button class="btn">Customize</button>*@
                     </li>
                 }
             }

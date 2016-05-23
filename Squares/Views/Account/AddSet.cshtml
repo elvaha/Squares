@@ -1,18 +1,17 @@
 ﻿@model Squares.Models.CreateSetModel
-
 @{
     ViewBag.Title = "AddSet";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>AddSet</h2>
+<div>
 
-@using (Html.BeginForm("AddSet", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
+    @using (Html.BeginForm("AddSet", "Account", FormMethod.Post, new { enctype = "multipart/form-data" })){
+        @Html.TextBoxFor(x => x.Title)
+        @Html.TextAreaFor(x => x.Description)
 
-    <div id="multiple">
-        <label for="Images">Filename:</label>
-        <input type="file" name="Images" id="Images" multiple/>
-    </div>
+        <input id="Images" name="Images" type="file" multiple />
+        <input type="submit" value="Submit" />
+    }
 
-}
+</div>

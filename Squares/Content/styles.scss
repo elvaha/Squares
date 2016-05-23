@@ -551,9 +551,8 @@ h2 {
 
 #password,
 #repeat-password {
-  background-image: url(../images/password.png);
-  background-size: 5%;
-  background-position: 11px 8px;
+  background-image: url(images/password.png);
+  background-position: 2px 0;
   background-repeat: no-repeat; }
 
 input:hover, textarea:hover,
@@ -995,7 +994,7 @@ footer > ul > li:nth-child(3) {
     }
 
     .profile-container {
-        margin-top: 120px;
+        margin-top: 164px;
     }
     
     .profile-sets-container {
@@ -1023,6 +1022,10 @@ footer > ul > li:nth-child(3) {
 
     .gallery .content-container, .about .content-container {
         padding-top: 94px;
+    }
+
+    .profile-container {
+        margin-top: 120px;
     }
 }
 

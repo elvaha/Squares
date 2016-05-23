@@ -69,7 +69,7 @@ namespace Squares.Models
 
             if (db.Sets.Count() >= 6)
             {
-                indexSets = db.Sets.Include("Artist").Skip(0).Take(6).OrderBy(x => x.Rating).ToList();
+                indexSets = db.Sets.Include("Artist").Include("SetPiece").Skip(0).Take(6).OrderBy(x => x.Rating).ToList();
             }
             else
             {

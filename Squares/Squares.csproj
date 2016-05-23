@@ -229,6 +229,7 @@
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logoff.png" />
     <Content Include="Content\images\menu-sprite.png" />
+    <Content Include="Content\images\password.png" />
     <Content Include="Content\images\profile.png" />
     <Content Include="Content\images\search-ico.png" />
     <Content Include="Content\images\social-medias.png" />
@@ -367,11 +368,11 @@
     <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Account\AddSet.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
-    <Content Include="Views\Account\AddSet.cshtml" />
     <Content Include="Views\Account\UserArtist.cshtml" />
+    <Content Include="Views\Shared\_Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

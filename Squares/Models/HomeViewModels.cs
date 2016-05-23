@@ -16,4 +16,10 @@ namespace Squares.Models
     {
         public List<Set> sets { get; set; }
     }
+
+    public class searchModel
+    {
+        public string searchParam { get; set; }
+        public string searchPlace { get; set; }
+    }
 }

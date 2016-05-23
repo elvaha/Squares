@@ -416,6 +416,9 @@ namespace Squares.Controllers
         [HttpGet]
         public ActionResult AccountManagement()
         {
+
+            ViewBag.Class = "AccountManagement";
+
             try
             {
 
@@ -469,6 +472,9 @@ namespace Squares.Controllers
         [HttpGet]
         public ActionResult AddSet()
         {
+
+            ViewBag.Class = "AddSet";
+
             SquaresDataContext db = new SquaresDataContext();
 
             var artist = db.Artists.Where(x => x.UserId == User.Identity.GetUserId()).FirstOrDefault();
@@ -484,10 +490,14 @@ namespace Squares.Controllers
         [HttpPost]
         public ActionResult AddSet(CreateSetModel model)
         {
+            ViewBag.Class = "AddSet";
+
             SquaresDataContext db = new SquaresDataContext();
             List<String> urls = new List<String>();
             var user = UserManager.FindById(User.Identity.GetUserId());
             Guid SetId = Guid.NewGuid();
+
+            Artist artist = db.Artists.Where(x => x.UserId == user.Id.ToString()).FirstOrDefault();
 
             try
             {
@@ -495,6 +505,12 @@ namespace Squares.Controllers
                 {
                     Title = model.Title,
                     Description = model.Description,
+                    isDisabled = false,
+                    Rating = 0,
+                    Date = DateTime.Now,
+                    SetId = SetId.ToString(),
+                    ArtistId = artist.ArtistId,
+                    ViewCount = 0
                 };
 
                 db.Sets.InsertOnSubmit(set);
@@ -502,12 +518,13 @@ namespace Squares.Controllers
                 foreach (var file in model.Images)
                 {
                     Guid pieceId = Guid.NewGuid();
-                    string path = Path.Combine(Server.MapPath("~/App_Data/uploads"), Guid.NewGuid() + Path.GetExtension(file.FileName));
+                    string path = Path.Combine(Server.MapPath("~/App_Data/uploads"), pieceId + Path.GetExtension(file.FileName));
+                    string url = "~/App_Data/uploads/" + pieceId + Path.GetExtension(file.FileName);
                     SetPiece setPiece = new SetPiece()
                     {
                         PieceId = pieceId.ToString(),
                         SetId = SetId.ToString(),
-                        Url = path
+                        Url = url
                     };
 
                     db.SetPieces.InsertOnSubmit(setPiece);

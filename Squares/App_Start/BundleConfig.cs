@@ -23,11 +23,14 @@ namespace Squares
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/CustomJQ.js",
+                      "~/Scripts/interact.js",
+                      "~/Scripts/designer.js",
                       "~/Scripts/script.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/animate.css",
                       "~/Content/bootstrap.min.css",
+                      "~/Content/ionicons.css",
                       "~/Content/styles.css"));
         }
     }

@@ -308,6 +308,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\CustomJQ.js" />
+    <Content Include="Scripts\designer.js" />
+    <Content Include="Scripts\interact.js" />
+    <Content Include="Scripts\interact.min.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

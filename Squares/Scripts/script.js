@@ -65,12 +65,10 @@ function displace(breakpoint, rotationElement, rotationElementChild) {
         $window.scroll(function () {
 
             if ($window.scrollTop() >= distance + 20) {
-                console.log('SCROLLED PAST');
 
                 flagBottom = true;
 
                 if (flagTop) {
-                    console.log('DOWN')
 
                     collapseSearchbar();
                     rotateVertical(rotationElement, rotationElementChild);
@@ -79,7 +77,6 @@ function displace(breakpoint, rotationElement, rotationElementChild) {
                 }
 
             } else {
-                console.log('SCROLLED BEFORE');
 
                 flagTop = true;
 
@@ -103,6 +100,7 @@ function displace(breakpoint, rotationElement, rotationElementChild) {
 displace('#index-hook', '.main-navigation', '.main-navigation__item');
 displace('#about-hook', '.main-navigation', '.main-navigation__item');
 displace('.gallery #search-widget', '.main-navigation', '.main-navigation__item');
+displace('body.designer', '.main-navigation', '.main-navigation__item');
 
 $('.squares-modal__close').click(function () {
 
@@ -116,8 +114,4 @@ $('.squares-modal__close').click(function () {
 
 });
 
-$('#nav_login').click(function () {
-
-    $('#modal_login').show();
-
-});
+$('.drop-zone').height($('.drop-zone').width());

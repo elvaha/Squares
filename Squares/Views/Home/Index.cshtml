@@ -11,7 +11,7 @@
     </h1>
     <p>
         We have made it possible for you to be your own designer, Artist provide the pictures and you do the rest.
-        Let you inner designer take a hold of you
+        Let you inner designer take a hold of you and let go!
     </p>
     <span><a href="#">Click here</a> to find out how to use our designer.</span>
 </section>
@@ -19,14 +19,12 @@
     <h2>Most popular sets</h2>
     <section>
         <ul>
-
             @{
-
                 foreach (var set in Model.getIndexGallery())
                 {
                     <li class="set-item">
                         <h3 class="set-title">@set.Title</h3>
-                        <span class="artist-name">@set.Artist.Alias</span>
+                        <span class="artist-name">@Html.ActionLink(set.Artist.Alias, "Profile", "Home", new { artistId = set.ArtistId })</span>
                         <p class="set-description">
                            @set.Description
                         </p>

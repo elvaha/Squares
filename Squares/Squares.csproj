@@ -88,7 +88,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -220,32 +223,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\uploads\406e8e8e-a3a2-416c-a4ad-7d7e871773e8.jpg" />
-    <Content Include="App_Data\uploads\420b981d-ae7d-4b63-847c-06c1450ac440.jpg" />
-    <Content Include="App_Data\uploads\47a3e73d-afce-4672-a167-9a3b332e6977.jpg" />
-    <Content Include="App_Data\uploads\4df1cc05-2c6a-448d-903c-1646058d73fe.jpg" />
-    <Content Include="App_Data\uploads\509f1aa1-bdc7-441c-a4c6-d6c3a35d7075.jpg" />
-    <Content Include="App_Data\uploads\57f1e743-7594-42b7-8f45-a52945ae873d.jpg" />
-    <Content Include="App_Data\uploads\6775009f-2f11-4b8d-8927-bdd46b527b38.jpg" />
-    <Content Include="App_Data\uploads\71c8df15-82cc-4cf8-8bc8-e6ae2cf569bd.jpg" />
-    <Content Include="App_Data\uploads\8705c55c-fe3b-4999-a473-25bb36a8f66d.jpg" />
-    <Content Include="App_Data\uploads\9327567b-1a60-4ae5-bef1-4ade06f23a65.jpg" />
-    <Content Include="App_Data\uploads\95a2dbf1-9fac-492b-b999-f5f43a33988d.jpg" />
-    <Content Include="App_Data\uploads\9a42bfab-30d5-48cd-879f-c51954e7b7cb.jpg" />
-    <Content Include="App_Data\uploads\a21532dc-cfff-4dbb-aa5b-54a45b138a6e.jpg" />
-    <Content Include="App_Data\uploads\ac3273cc-e108-420b-95c2-c474c64efe8b.jpg" />
-    <Content Include="App_Data\uploads\ad199e83-cdf5-43e6-a621-a30a92a08f93.jpg" />
-    <Content Include="App_Data\uploads\bf42f403-5831-4f73-91e5-7fa75af6802c.jpg" />
-    <Content Include="App_Data\uploads\ccabd5a5-029c-4eb5-a252-ac0d15b67b79.jpg" />
-    <Content Include="App_Data\uploads\d0026d7e-acbe-49f8-a611-b4c0c7bbc396.jpg" />
-    <Content Include="App_Data\uploads\d31b13cb-90d8-4c44-9b4f-371abe5e5320.jpg" />
-    <Content Include="App_Data\uploads\d5925929-809f-49e4-bafe-2474bf21a68f.jpg" />
-    <Content Include="App_Data\uploads\fea21081-499a-40ed-8dce-e590f5398385.jpg" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\about-image.png" />
     <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\favico.png" />
     <Content Include="Content\images\imageBlank.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logoff.png" />
@@ -392,7 +375,10 @@
     <Content Include="Views\Account\UserArtist.cshtml" />
     <Content Include="Views\Shared\_Search.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />

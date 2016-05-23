@@ -416,6 +416,9 @@ namespace Squares.Controllers
         [HttpGet]
         public ActionResult AccountManagement()
         {
+
+            ViewBag.Class = "AccountManagement";
+
             try
             {
 
@@ -469,6 +472,9 @@ namespace Squares.Controllers
         [HttpGet]
         public ActionResult AddSet()
         {
+
+            ViewBag.Class = "AddSet";
+
             SquaresDataContext db = new SquaresDataContext();
 
             var artist = db.Artists.Where(x => x.UserId == User.Identity.GetUserId()).FirstOrDefault();
@@ -484,6 +490,8 @@ namespace Squares.Controllers
         [HttpPost]
         public ActionResult AddSet(CreateSetModel model)
         {
+            ViewBag.Class = "AddSet";
+
             SquaresDataContext db = new SquaresDataContext();
             List<String> urls = new List<String>();
             var user = UserManager.FindById(User.Identity.GetUserId());

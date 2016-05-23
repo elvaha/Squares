@@ -31,7 +31,8 @@
                                 <li><a href="#"><img src="~/Content/images/squares/1.jpg"></a></li>
                             }
                         </ol>
-                        <button class="btn">Customize</button>
+                        @Html.ActionLink("Customize", "Designer", "Home", new { setId = set.SetId }, new { @class = "btn" })
+                        @*<button class="btn">Customize</button>*@
                     </li>
                 }
             }

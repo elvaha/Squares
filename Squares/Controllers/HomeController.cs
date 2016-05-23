@@ -34,7 +34,6 @@ namespace Squares.Controllers
             return View();
         }
 
-        [HttpGet]
         public ActionResult Gallery(string sort)
         {
             ViewBag.Class = "gallery";
@@ -44,12 +43,13 @@ namespace Squares.Controllers
             return View(gal.getGalleryItems(sort));
         }
 
-        [HttpGet]
-        public ActionResult Gallery(string searchParam, string searchPlace)
+        [HttpPost]
+        public ActionResult Gallery(searchModel model)
         {
-            Gallery gal = new Gallery();
+            ViewBag.Class = "gallery";
 
-            return View(gal.SearchGallery("ARTIST", searchPlace));
+            Gallery gal = new Gallery();
+            return View(gal.SearchGallery(model.searchParam, "ARTIST"));
         }
 
         public ActionResult Designer(String SetId)

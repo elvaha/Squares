@@ -361,6 +361,7 @@
     <Content Include="Views\Account\AccountManagement.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Account\AddSet.cshtml" />
+    <Content Include="Views\Account\UserArtist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -375,12 +376,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SquaresDataLibrary\SquaresDataLibrary.csproj">
-      <Project>{90d141e2-6706-4609-87ad-c945c3441ded}</Project>
-      <Name>SquaresDataLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Models\Squares.dbml.layout">

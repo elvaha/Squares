@@ -9,6 +9,13 @@
     <h2>Welcome: @Model.UserName</h2>
     <h2>@Model.FirstName</h2>
     <h2>@Model.LastName</h2>
+
+    @{
+        Squares.Models.ArtistUser artist = new Squares.Models.ArtistUser();   
+    }
+
+    @if (!Model.IsArtist)
+    {
+        @Html.Partial("UserArtist", artist)
+    }
 </div>
-
-

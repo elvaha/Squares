@@ -34,13 +34,22 @@ namespace Squares.Controllers
             return View();
         }
 
-        public ActionResult Gallery()
+        [HttpGet]
+        public ActionResult Gallery(string sort)
         {
             ViewBag.Class = "gallery";
 
             Gallery gal = new Gallery();
 
-            return View(gal);
+            return View(gal.getGalleryItems(sort));
+        }
+
+        [HttpGet]
+        public ActionResult Gallery(string searchParam, string searchPlace)
+        {
+            Gallery gal = new Gallery();
+
+            return View(gal.SearchGallery("ARTIST", searchPlace));
         }
 
         public ActionResult Designer(String SetId)

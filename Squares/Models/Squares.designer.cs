@@ -209,6 +209,13 @@ namespace Squares.Models
 				return this.GetTable<Zipcode>();
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Search")]
+		public ISingleResult<SearchResult> Search([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchParameter", DbType="NVarChar(MAX)")] string searchParameter, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchText", DbType="NVarChar(MAX)")] string searchText)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchParameter, searchText);
+			return ((ISingleResult<SearchResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[__MigrationHistory]")]
@@ -2932,6 +2939,158 @@ namespace Squares.Models
 		{
 			this.SendPropertyChanging();
 			entity.Zipcode = null;
+		}
+	}
+	
+	public partial class SearchResult
+	{
+		
+		private string _SetId;
+		
+		private string _Title;
+		
+		private string _Description;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+		private System.Nullable<int> _Rating;
+		
+		private System.Nullable<int> _ViewCount;
+		
+		private string _ArtistId;
+		
+		private System.Nullable<bool> _isDisabled;
+		
+		public SearchResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SetId", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
+		public string SetId
+		{
+			get
+			{
+				return this._SetId;
+			}
+			set
+			{
+				if ((this._SetId != value))
+				{
+					this._SetId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(MAX)")]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this._Title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this._Date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rating", DbType="Int")]
+		public System.Nullable<int> Rating
+		{
+			get
+			{
+				return this._Rating;
+			}
+			set
+			{
+				if ((this._Rating != value))
+				{
+					this._Rating = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViewCount", DbType="Int")]
+		public System.Nullable<int> ViewCount
+		{
+			get
+			{
+				return this._ViewCount;
+			}
+			set
+			{
+				if ((this._ViewCount != value))
+				{
+					this._ViewCount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArtistId", DbType="NVarChar(128)")]
+		public string ArtistId
+		{
+			get
+			{
+				return this._ArtistId;
+			}
+			set
+			{
+				if ((this._ArtistId != value))
+				{
+					this._ArtistId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isDisabled", DbType="Bit")]
+		public System.Nullable<bool> isDisabled
+		{
+			get
+			{
+				return this._isDisabled;
+			}
+			set
+			{
+				if ((this._isDisabled != value))
+				{
+					this._isDisabled = value;
+				}
+			}
 		}
 	}
 }

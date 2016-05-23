@@ -86,28 +86,28 @@
         <elementListCompartment Id="8f4924fb-f856-468d-8268-8042e166c358" absoluteBounds="0.765, 7.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.5 : 4.19399251302083); (4.5 : 4.65949625651042); (6.25 : 4.65949625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.5 : 4.19399251302083); (4.5 : 4.65949625651042); (6.25 : 4.65949625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SquaresDataContext/AspNetRole/AspNetRole_AspNetUserRole" />
       <nodes>
         <classShapeMoniker Id="57fb5dec-6e50-433a-906b-4f310a9d3328" />
         <classShapeMoniker Id="de67532b-b5d2-4ba5-948e-123d54ebdf7c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 9.9727197265625); (4.5 : 11.7604484049479); (6.25 : 11.7604484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.5 : 9.9727197265625); (4.5 : 11.7604484049479); (6.25 : 11.7604484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SquaresDataContext/AspNetUser/AspNetUser_Artist" />
       <nodes>
         <classShapeMoniker Id="4d053b3d-22db-4b36-80af-6648fed61ddd" />
         <classShapeMoniker Id="50217ce8-a87e-44e3-bc70-eb74c0d20f94" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 9.03929768880208); (6.25 : 9.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 9.03929768880208); (6.25 : 9.03929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SquaresDataContext/AspNetUser/AspNetUser_AspNetUserClaim" />
       <nodes>
         <classShapeMoniker Id="4d053b3d-22db-4b36-80af-6648fed61ddd" />
         <classShapeMoniker Id="cff87b72-643a-49c3-a9da-dbcb458ec07a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 6.81814697265625); (6.25 : 6.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 6.81814697265625); (6.25 : 6.81814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SquaresDataContext/AspNetUser/AspNetUser_AspNetUserLogin" />
       <nodes>
         <classShapeMoniker Id="4d053b3d-22db-4b36-80af-6648fed61ddd" />
@@ -121,63 +121,63 @@
         <classShapeMoniker Id="de67532b-b5d2-4ba5-948e-123d54ebdf7c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 7.81814697265625); (11.75 : 7.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 7.81814697265625); (11.75 : 7.81814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SquaresDataContext/AspNetUser/AspNetUser_Collection" />
       <nodes>
         <classShapeMoniker Id="4d053b3d-22db-4b36-80af-6648fed61ddd" />
         <classShapeMoniker Id="22497c1f-0757-49d0-924b-31d92a803a69" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(13.75 : 8.01044840494792); (15.5 : 8.01044840494792); (15.5 : 10.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(13.75 : 8.01044840494792); (15.5 : 8.01044840494792); (15.5 : 10.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SquaresDataContext/Collection/Collection_CollectionPiece" />
       <nodes>
         <classShapeMoniker Id="22497c1f-0757-49d0-924b-31d92a803a69" />
         <classShapeMoniker Id="7b163d22-63f4-4184-a65b-f3b54850d20f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 10.625); (11.375 : 10.25); (11.375 : 8.38827389127604); (11.75 : 8.38827389127604)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11 : 10.625); (11.375 : 10.25); (11.375 : 8.38827389127604); (11.75 : 8.38827389127604)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SquaresDataContext/Set/Set_Collection" />
       <nodes>
         <classShapeMoniker Id="faab7e82-6381-4bfd-83cc-c7e060b435ef" />
         <classShapeMoniker Id="22497c1f-0757-49d0-924b-31d92a803a69" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 11.7604484049479); (9 : 11.7604484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 11.7604484049479); (9 : 11.7604484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SquaresDataContext/Artist/Artist_Set" />
       <nodes>
         <classShapeMoniker Id="50217ce8-a87e-44e3-bc70-eb74c0d20f94" />
         <classShapeMoniker Id="faab7e82-6381-4bfd-83cc-c7e060b435ef" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(13.75 : 13.6931469726562); (15.5 : 13.6931469726562); (15.5 : 11.3189925130208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(13.75 : 13.6931469726562); (15.5 : 13.6931469726562); (15.5 : 11.3189925130208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SquaresDataContext/SetPiece/SetPiece_CollectionPiece" />
       <nodes>
         <classShapeMoniker Id="36d6770d-cec9-48f1-becc-c27be0fab6e1" />
         <classShapeMoniker Id="7b163d22-63f4-4184-a65b-f3b54850d20f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(10 : 12.9728011067708); (10 : 13.6931469726562); (11.75 : 13.6931469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(10 : 12.9728011067708); (10 : 13.6931469726562); (11.75 : 13.6931469726562)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SquaresDataContext/Set/Set_SetPiece" />
       <nodes>
         <classShapeMoniker Id="faab7e82-6381-4bfd-83cc-c7e060b435ef" />
         <classShapeMoniker Id="36d6770d-cec9-48f1-becc-c27be0fab6e1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 11.0032487565104); (11.75 : 11.0032487565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11 : 11.0032487565104); (11.75 : 11.0032487565104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SquaresDataContext/Set/Set_SetTag" />
       <nodes>
         <classShapeMoniker Id="faab7e82-6381-4bfd-83cc-c7e060b435ef" />
         <classShapeMoniker Id="4788be6c-486c-4c28-ae9f-dbf2dc8abad0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 9.28776401652644); (11.3041435320414 : 9.47603337993927 : JumpStart); (11.4458564679586 : 9.56375579196435 : JumpEnd); (11.65625 : 9.69399251302083); (11.65625 : 10.03125); (11.75 : 10.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(11 : 9.28776401652644); (11.65625 : 9.69399251302083); (11.65625 : 10.03125); (11.75 : 10.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SquaresDataContext/Tag/Tag_SetTag" />
       <nodes>
         <classShapeMoniker Id="6660f52f-8886-4478-9486-94940226d313" />
         <classShapeMoniker Id="4788be6c-486c-4c28-ae9f-dbf2dc8abad0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 7.56814697265625); (3.5 : 7.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 7.56814697265625); (3.5 : 7.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SquaresDataContext/Zipcode/Zipcode_AspNetUser" />
       <nodes>
         <classShapeMoniker Id="d65d26cb-c662-4473-9381-58d44bf9b0dd" />

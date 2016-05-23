@@ -1,4 +1,4 @@
-﻿@model Squares.Models.Gallery
+﻿@model List<Squares.Models.Set>
 
 @{
     ViewBag.Title = "Gallery";
@@ -10,7 +10,7 @@
         <ul>
             @{
 
-                foreach (var set in Model.WholeGallery())
+                foreach (var set in Model.ToList())
                 {
                     <li class="set-item">
                         <h3 class="set-title">@set.Title</h3>

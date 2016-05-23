@@ -43,13 +43,13 @@
                 <img class="search__submit" src="~/Content/images/search-ico.png" />
                 <div class="hidden-sm-down search__sort @if (ViewBag.Class == "index" || ViewBag.Class == "about") { @Html.Raw("hidden") }">
                     <div class="">
-                        <p class="search__sort-item">top rated</p>
+                        @Html.ActionLink("Top Rated", "Gallery", "Home", new { sort = "RATING" }, new { @class = "search__sort-item" })
                     </div>
                     <div class="">
-                        <p class="search__sort-item">most viewed</p>
+                        @Html.ActionLink("Most Viewed", "Gallery", "Home", new { sort = "VIEWS" }, new { @class = "search__sort-item" })
                     </div>
                     <div class="">
-                        <p class="search__sort-item">newest</p>
+                        @Html.ActionLink("Newest", "Gallery", "Home", new { sort = "NEW" }, new { @class = "search__sort-item" })
                     </div>
                 </div>
             </form>

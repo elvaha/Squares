@@ -19,48 +19,46 @@ namespace Squares.Models
             SquaresDataContext db = new SquaresDataContext();
             List<Set> Sets = new List<Set>();
 
-            Sets = db.Sets.OrderBy(x => x.Rating).ToList();
+            Sets = db.Sets.Include("Artist").OrderBy(x => x.Rating).ToList();
 
             return Sets;
         }
 
 
-        public List<Set> getGalleryItems(int start, int limit, string sort)
+        public List<Set> getGalleryItems(string sort)
         {
-            using (var db = new SquaresDataContext())
+            SquaresDataContext db = new SquaresDataContext();
+
+            List<Set> sets = new List<Set>();
+
+            switch (sort)
             {
+                case "RATING":
 
-                List<Set> sets = new List<Set>();
+                    sets = db.Sets.Include("Artist").OrderByDescending(x => x.Rating).ToList();
 
-                switch (sort)
-                {
-                    case "RATING":
+                    break;
 
-                        sets = db.Sets.OrderBy(x => x.Rating).ToList();
+                case "NEW":
 
-                        break;
+                    sets = db.Sets.Include("Artist").OrderByDescending(x => x.Date).ToList();
 
-                    case "NEW":
+                    break;
 
-                        sets = db.Sets.OrderBy(x => x.Date).ToList();
+                case "VIEWS":
 
-                        break;
+                    sets = db.Sets.OrderByDescending(x => x.ViewCount).ToList();
 
-                    case "VIEWS":
+                    break;
 
-                        sets = db.Sets.OrderByDescending(x => x.ViewCount).ToList();
+                default:
 
-                        break;
+                    sets = WholeGallery();
 
-                    default:
-
-                        sets = db.Sets.OrderBy(x => x.Title).ToList();
-
-                        break;
-                }
-
-                return sets;
+                    break;
             }
+
+            return sets;
         }
 
 
@@ -69,9 +67,9 @@ namespace Squares.Models
             SquaresDataContext db = new SquaresDataContext();
             List<Set> indexSets = new List<Set>();
 
-            if (db.Sets.Count() > 6)
+            if (db.Sets.Count() >= 6)
             {
-                indexSets = db.Sets.Skip(0).Take(6).OrderBy(x => x.Rating).ToList();
+                indexSets = db.Sets.Include("Artist").Skip(0).Take(6).OrderBy(x => x.Rating).ToList();
             }
             else
             {
@@ -80,6 +78,30 @@ namespace Squares.Models
 
 
             return indexSets;
+        }
+
+        public List<Set> SearchGallery(string searchParam, string searchPlace)
+        {
+            SquaresDataContext db = new SquaresDataContext();
+            List<Set> searchSet = new List<Set>();
+
+            switch (searchPlace)
+            {
+
+                case "ARTIST":
+                    searchSet = db.Sets.Where(x => x.Artist.Alias.Contains(searchParam)).ToList();
+
+                    break;
+                case "SET":
+                    searchSet = db.Sets.Where(x => x.Title.Contains(searchParam) || x.Description.Contains(searchParam)).ToList();
+                    break;
+
+                default:
+                    searchSet = WholeGallery();
+                    break;
+            }
+
+            return searchSet;
         }
 
     }

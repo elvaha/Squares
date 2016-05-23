@@ -105,6 +105,12 @@ input, select {
   .main-navigation .nav-about {
     background: url(/Content/images/menu-sprite.png) no-repeat 0 -132px;
     background-size: 100px; }
+  .main-navigation .nav-profile {
+    background: url(/Content/images/profile.png);
+    background-size: 50px; }
+  .main-navigation .nav-logout {
+    background: url(/Content/images/logoff.png);
+    background-size: 50px; }
 
 .main-navigation__item {
   display: inline-block;
@@ -242,7 +248,12 @@ input, select {
   cursor: pointer; }
 
 .search__sort-item:hover {
-  background-color: #ff740b; }
+  background-color: #ff740b;
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: ease 0.3s;
+  -moz-transition: ease 0.3s;
+  -o-transition: ease 0.3s; }
 
 @media (min-width: 768px) {
   .search__searchbar-wrapper {
@@ -844,8 +855,49 @@ footer > ul > li:nth-child(3) {
   .gallery-controls > button {
     font-size: 24px; }
   .content-container section h3 {
-    font-size: 36px; } }
+    font-size: 36px; }
+  body.AddSet .content-container section {
+    width: 100%; }
+  body.AccountManagement .inner-wrapper {
+    padding-top: 180px; }
+  body.AddSet .inner-wrapper {
+    padding-top: 200px; } }
 
+/* Account Management START */
+.AccountManagement .inner-wrapper {
+  padding-top: 120px; }
+
+.AccountManagement .profile-container {
+  margin-top: 20px; }
+
+.AccountManagement .btn {
+  width: 100%;
+  margin-top: 20px;
+  line-height: 55px; }
+
+.AccountManagement .btn:hover {
+  color: #fff; }
+
+/* Account Management END */
+/* Add Set START */
+.AddSet .inner-wrapper {
+  padding-top: 120px; }
+
+.add-set {
+  float: left;
+  width: 100%; }
+  .add-set form, .add-set input, .add-set textarea {
+    width: 100%; }
+  .add-set input {
+    width: 100%; }
+
+.AddSet .content-container section {
+  float: none;
+  margin: 0 auto;
+  padding-bottom: 95px;
+  width: 50%; }
+
+/* Add Set END */
 @media only screen and (max-width: 1024px) {
   .inner-wrapper {
     width: 100%; }
@@ -911,7 +963,13 @@ footer > ul > li:nth-child(3) {
     margin-top: 0; }
   .search {
     box-shadow: none;
-    border-bottom: 1px solid #e7e7e7; } }
+    border-bottom: 1px solid #e7e7e7; }
+  body.AccountManagement .inner-wrapper {
+    padding-top: 185px; }
+  .AccountManagement .profile-container {
+    margin-top: 0; }
+  .AddSet .content-container section {
+    width: 100%; } }
 
 @media only screen and (max-width: 768px) {
   h1 {
@@ -921,7 +979,11 @@ footer > ul > li:nth-child(3) {
   .gallery .content-container, .about .content-container {
     padding-top: 94px; }
   .profile-container {
-    margin-top: 120px; } }
+    margin-top: 120px; }
+  body.AccountManagement .inner-wrapper {
+    padding-top: 120px; }
+  .AccountManagement .profile-container {
+    margin: 0; } }
 
 @media only screen and (max-width: 480px) {
   h1 {

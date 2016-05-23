@@ -5,10 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="inner-wrapper">
     <h2>Welcome: @Model.UserName</h2>
-    <h2>@Model.FirstName</h2>
-    <h2>@Model.LastName</h2>
 
     @{
         Squares.Models.ArtistUser artist = new Squares.Models.ArtistUser();   
@@ -19,5 +16,18 @@
         @Html.Partial("UserArtist", artist)
     }
 
-    @Html.ActionLink("Add Set", "AddSet", "Account")
-</div>
+    <section class="profile-container">
+        <div class="profile-image-container">
+            <img src="https://lh3.googleusercontent.com/-OVWapa1cMi8/AAAAAAAAAAI/AAAAAAAAAAA/QcfUy0l4Luw/photo.jpg" />
+        </div>
+        <div class="profile-info-container">
+            <h3>Alias Name Last Name</h3>
+            <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            </p>
+        </div>
+        @Html.ActionLink("Add Set", "AddSet", "Account", new { @class = "btn" })
+    </section>
+
+    

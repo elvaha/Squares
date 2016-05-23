@@ -101,6 +101,11 @@
 
     .search__sort-item:hover {
         background-color: $complementary-color;
+        color: #fff;
+        text-decoration: none;
+        -webkit-transition: ease 0.3s;
+	    -moz-transition: ease 0.3s;
+	    -o-transition: ease 0.3s;
     }
 
 @media (min-width: $sm-grid) {

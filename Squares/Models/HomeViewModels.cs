@@ -11,4 +11,9 @@ namespace Squares.Models
         public string Description { get; set; }
         public List<string> ImageUrls { get; set; }
     }
+
+    public class indexModel
+    {
+        public List<Set> sets { get; set; }
+    }
 }

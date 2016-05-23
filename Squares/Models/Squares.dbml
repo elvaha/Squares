@@ -103,9 +103,9 @@
   </Table>
   <Table Name="dbo.CollectionPiece" Member="CollectionPieces">
     <Type Name="CollectionPiece">
+      <Column Name="CollectionPieceId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="CollectionId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
       <Column Name="PieceId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-      <Column Name="ImgUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="Collection_CollectionPiece" Member="Collection" ThisKey="CollectionId" OtherKey="CollectionId" Type="Collection" IsForeignKey="true" />
       <Association Name="Piece_CollectionPiece" Member="Piece" ThisKey="PieceId" OtherKey="PieceId" Type="Piece" IsForeignKey="true" />
     </Type>
@@ -129,6 +129,7 @@
       <Column Name="ViewCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="UserId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
       <Column Name="RoleId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="isDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Set_Collection" Member="Collections" ThisKey="SetId" OtherKey="SetId" Type="Collection" />
       <Association Name="Set_Piece" Member="Pieces" ThisKey="SetId" OtherKey="SetId" Type="Piece" />
       <Association Name="Set_SetTag" Member="SetTags" ThisKey="SetId" OtherKey="SetId" Type="SetTag" />
@@ -137,6 +138,7 @@
   </Table>
   <Table Name="dbo.SetTag" Member="SetTags">
     <Type Name="SetTag">
+      <Column Name="SetTagId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TagId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
       <Column Name="SetId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
       <Association Name="Set_SetTag" Member="Set" ThisKey="SetId" OtherKey="SetId" Type="Set" IsForeignKey="true" />
@@ -158,54 +160,4 @@
       <Association Name="Zipcode_AspNetUser" Member="AspNetUsers" ThisKey="ZipcodeId" OtherKey="ZipcodeId" Type="AspNetUser" />
     </Type>
   </Table>
-  <Table Name="dbo.topGallery" Member="topGalleries">
-    <Type Name="topGallery">
-      <Column Name="SetId" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Rating" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ViewCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UserId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-      <Column Name="RoleId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Function Name="dbo.AddAuthor" Method="AddAuthor">
-    <Parameter Name="UserId" Parameter="userId" Type="System.String" DbType="NVarChar(128)" />
-    <Parameter Name="RoleId" Parameter="roleId" Type="System.String" DbType="NVarChar(128)" />
-    <Parameter Name="Alias" Parameter="alias" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.DeleteSet" Method="DeleteSet">
-    <Parameter Name="SetId" Parameter="setId" Type="System.String" DbType="NVarChar(128)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.NewSet" Method="NewSet">
-    <Parameter Name="SetId" Parameter="setId" Type="System.String" DbType="NVarChar(128)" />
-    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="UserId" Parameter="userId" Type="System.String" DbType="NVarChar(128)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.Search" Method="Search">
-    <Parameter Name="SearchParameter" Parameter="searchParameter" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="SearchText" Parameter="searchText" Type="System.String" DbType="NVarChar(MAX)" />
-    <ElementType Name="SearchResult">
-      <Column Name="SetId" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Rating" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ViewCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UserId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-      <Column Name="RoleId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.UpdateSet" Method="UpdateSet">
-    <Parameter Name="SetId" Parameter="setId" Type="System.String" DbType="NVarChar(128)" />
-    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
-    <Return Type="System.Int32" />
-  </Function>
 </Database>

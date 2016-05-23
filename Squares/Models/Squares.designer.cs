@@ -60,9 +60,9 @@ namespace Squares.Models
     partial void InsertPiece(Piece instance);
     partial void UpdatePiece(Piece instance);
     partial void DeletePiece(Piece instance);
-    partial void InsertSet(ArtistSet instance);
-    partial void UpdateSet(ArtistSet instance);
-    partial void DeleteSet(ArtistSet instance);
+    partial void InsertSet(Set instance);
+    partial void UpdateSet(Set instance);
+    partial void DeleteSet(Set instance);
     partial void InsertTag(Tag instance);
     partial void UpdateTag(Tag instance);
     partial void DeleteTag(Tag instance);
@@ -189,11 +189,11 @@ namespace Squares.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<ArtistSet> Sets
+		public System.Data.Linq.Table<Set> Sets
 		{
 			get
 			{
-				return this.GetTable<ArtistSet>();
+				return this.GetTable<Set>();
 			}
 		}
 		
@@ -219,49 +219,6 @@ namespace Squares.Models
 			{
 				return this.GetTable<Zipcode>();
 			}
-		}
-		
-		public System.Data.Linq.Table<topGallery> topGalleries
-		{
-			get
-			{
-				return this.GetTable<topGallery>();
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddAuthor")]
-		public int AddAuthor([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="NVarChar(128)")] string userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RoleId", DbType="NVarChar(128)")] string roleId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alias", DbType="NVarChar(MAX)")] string alias, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, roleId, alias, description);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DeleteSet")]
-		public int DeleteSet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SetId", DbType="NVarChar(128)")] string setId)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), setId);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NewSet")]
-		public int NewSet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SetId", DbType="NVarChar(128)")] string setId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Title", DbType="NVarChar(MAX)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="NVarChar(128)")] string userId)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), setId, title, description, userId);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Search")]
-		public ISingleResult<SearchResult> Search([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchParameter", DbType="NVarChar(MAX)")] string searchParameter, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchText", DbType="NVarChar(MAX)")] string searchText)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchParameter, searchText);
-			return ((ISingleResult<SearchResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateSet")]
-		public int UpdateSet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SetId", DbType="NVarChar(128)")] string setId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Title", DbType="NVarChar(MAX)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), setId, title, description);
-			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -1891,7 +1848,7 @@ namespace Squares.Models
 		
 		private System.Nullable<System.DateTime> _Date;
 		
-		private EntitySet<ArtistSet> _Sets;
+		private EntitySet<Set> _Sets;
 		
 		private EntityRef<AspNetUserRole> _AspNetUserRole;
 		
@@ -1913,7 +1870,7 @@ namespace Squares.Models
 		
 		public Author()
 		{
-			this._Sets = new EntitySet<ArtistSet>(new Action<ArtistSet>(this.attach_Sets), new Action<ArtistSet>(this.detach_Sets));
+			this._Sets = new EntitySet<Set>(new Action<Set>(this.attach_Sets), new Action<Set>(this.detach_Sets));
 			this._AspNetUserRole = default(EntityRef<AspNetUserRole>);
 			OnCreated();
 		}
@@ -2027,7 +1984,7 @@ namespace Squares.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Author_Set", Storage="_Sets", ThisKey="UserId,RoleId", OtherKey="UserId,RoleId")]
-		public EntitySet<ArtistSet> Sets
+		public EntitySet<Set> Sets
 		{
 			get
 			{
@@ -2095,13 +2052,13 @@ namespace Squares.Models
 			}
 		}
 		
-		private void attach_Sets(ArtistSet entity)
+		private void attach_Sets(Set entity)
 		{
 			this.SendPropertyChanging();
 			entity.Author = this;
 		}
 		
-		private void detach_Sets(ArtistSet entity)
+		private void detach_Sets(Set entity)
 		{
 			this.SendPropertyChanging();
 			entity.Author = null;
@@ -2126,7 +2083,7 @@ namespace Squares.Models
 		
 		private EntityRef<AspNetUser> _AspNetUser;
 		
-		private EntityRef<ArtistSet> _Set;
+		private EntityRef<Set> _Set;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2147,7 +2104,7 @@ namespace Squares.Models
 		public Collection()
 		{
 			this._AspNetUser = default(EntityRef<AspNetUser>);
-			this._Set = default(EntityRef<ArtistSet>);
+			this._Set = default(EntityRef<Set>);
 			OnCreated();
 		}
 		
@@ -2294,7 +2251,7 @@ namespace Squares.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Set_Collection", Storage="_Set", ThisKey="SetId", OtherKey="SetId", IsForeignKey=true)]
-		public ArtistSet Set
+		public Set Set
 		{
 			get
 			{
@@ -2302,7 +2259,7 @@ namespace Squares.Models
 			}
 			set
 			{
-				ArtistSet previousValue = this._Set.Entity;
+				Set previousValue = this._Set.Entity;
 				if (((previousValue != value) 
 							|| (this._Set.HasLoadedOrAssignedValue == false)))
 				{
@@ -2352,14 +2309,30 @@ namespace Squares.Models
 	public partial class CollectionPiece
 	{
 		
+		private int _CollectionPieceId;
+		
 		private string _CollectionId;
 		
 		private string _PieceId;
 		
-		private string _ImgUrl;
-		
 		public CollectionPiece()
 		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CollectionPieceId", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int CollectionPieceId
+		{
+			get
+			{
+				return this._CollectionPieceId;
+			}
+			set
+			{
+				if ((this._CollectionPieceId != value))
+				{
+					this._CollectionPieceId = value;
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CollectionId", DbType="NVarChar(128)")]
@@ -2393,22 +2366,6 @@ namespace Squares.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgUrl", DbType="NVarChar(MAX)")]
-		public string ImgUrl
-		{
-			get
-			{
-				return this._ImgUrl;
-			}
-			set
-			{
-				if ((this._ImgUrl != value))
-				{
-					this._ImgUrl = value;
-				}
-			}
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Piece")]
@@ -2423,7 +2380,7 @@ namespace Squares.Models
 		
 		private string _Url;
 		
-		private EntityRef<ArtistSet> _Set;
+		private EntityRef<Set> _Set;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2439,7 +2396,7 @@ namespace Squares.Models
 		
 		public Piece()
 		{
-			this._Set = default(EntityRef<ArtistSet>);
+			this._Set = default(EntityRef<Set>);
 			OnCreated();
 		}
 		
@@ -2508,7 +2465,7 @@ namespace Squares.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Set_Piece", Storage="_Set", ThisKey="SetId", OtherKey="SetId", IsForeignKey=true)]
-		public ArtistSet Set
+		public Set Set
 		{
 			get
 			{
@@ -2516,7 +2473,7 @@ namespace Squares.Models
 			}
 			set
 			{
-				ArtistSet previousValue = this._Set.Entity;
+				Set previousValue = this._Set.Entity;
 				if (((previousValue != value) 
 							|| (this._Set.HasLoadedOrAssignedValue == false)))
 				{
@@ -2563,7 +2520,7 @@ namespace Squares.Models
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Set]")]
-	public partial class ArtistSet : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class Set : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -2583,6 +2540,8 @@ namespace Squares.Models
 		private string _UserId;
 		
 		private string _RoleId;
+		
+		private bool _isDeleted;
 		
 		private EntitySet<Collection> _Collections;
 		
@@ -2610,9 +2569,11 @@ namespace Squares.Models
     partial void OnUserIdChanged();
     partial void OnRoleIdChanging(string value);
     partial void OnRoleIdChanged();
+    partial void OnisDeletedChanging(bool value);
+    partial void OnisDeletedChanged();
     #endregion
 		
-		public ArtistSet()
+		public Set()
 		{
 			this._Collections = new EntitySet<Collection>(new Action<Collection>(this.attach_Collections), new Action<Collection>(this.detach_Collections));
 			this._Pieces = new EntitySet<Piece>(new Action<Piece>(this.attach_Pieces), new Action<Piece>(this.detach_Pieces));
@@ -2788,6 +2749,26 @@ namespace Squares.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isDeleted", DbType="Bit NOT NULL")]
+		public bool isDeleted
+		{
+			get
+			{
+				return this._isDeleted;
+			}
+			set
+			{
+				if ((this._isDeleted != value))
+				{
+					this.OnisDeletedChanging(value);
+					this.SendPropertyChanging();
+					this._isDeleted = value;
+					this.SendPropertyChanged("isDeleted");
+					this.OnisDeletedChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Set_Collection", Storage="_Collections", ThisKey="SetId", OtherKey="SetId")]
 		public EntitySet<Collection> Collections
 		{
@@ -2899,12 +2880,30 @@ namespace Squares.Models
 	public partial class SetTag
 	{
 		
+		private int _SetTagId;
+		
 		private string _TagId;
 		
 		private string _SetId;
 		
 		public SetTag()
 		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SetTagId", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int SetTagId
+		{
+			get
+			{
+				return this._SetTagId;
+			}
+			set
+			{
+				if ((this._SetTagId != value))
+				{
+					this._SetTagId = value;
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TagId", DbType="NVarChar(128)")]
@@ -3161,311 +3160,6 @@ namespace Squares.Models
 		{
 			this.SendPropertyChanging();
 			entity.Zipcode = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.topGallery")]
-	public partial class topGallery
-	{
-		
-		private string _SetId;
-		
-		private string _Title;
-		
-		private string _Description;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private System.Nullable<int> _Rating;
-		
-		private System.Nullable<int> _ViewCount;
-		
-		private string _UserId;
-		
-		private string _RoleId;
-		
-		public topGallery()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SetId", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
-		public string SetId
-		{
-			get
-			{
-				return this._SetId;
-			}
-			set
-			{
-				if ((this._SetId != value))
-				{
-					this._SetId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(MAX)")]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this._Title = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this._Description = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this._Date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rating", DbType="Int")]
-		public System.Nullable<int> Rating
-		{
-			get
-			{
-				return this._Rating;
-			}
-			set
-			{
-				if ((this._Rating != value))
-				{
-					this._Rating = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViewCount", DbType="Int")]
-		public System.Nullable<int> ViewCount
-		{
-			get
-			{
-				return this._ViewCount;
-			}
-			set
-			{
-				if ((this._ViewCount != value))
-				{
-					this._ViewCount = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="NVarChar(128)")]
-		public string UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					this._UserId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleId", DbType="NVarChar(128)")]
-		public string RoleId
-		{
-			get
-			{
-				return this._RoleId;
-			}
-			set
-			{
-				if ((this._RoleId != value))
-				{
-					this._RoleId = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SearchResult
-	{
-		
-		private string _SetId;
-		
-		private string _Title;
-		
-		private string _Description;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private System.Nullable<int> _Rating;
-		
-		private System.Nullable<int> _ViewCount;
-		
-		private string _UserId;
-		
-		private string _RoleId;
-		
-		public SearchResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SetId", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
-		public string SetId
-		{
-			get
-			{
-				return this._SetId;
-			}
-			set
-			{
-				if ((this._SetId != value))
-				{
-					this._SetId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(MAX)")]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this._Title = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this._Description = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this._Date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rating", DbType="Int")]
-		public System.Nullable<int> Rating
-		{
-			get
-			{
-				return this._Rating;
-			}
-			set
-			{
-				if ((this._Rating != value))
-				{
-					this._Rating = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViewCount", DbType="Int")]
-		public System.Nullable<int> ViewCount
-		{
-			get
-			{
-				return this._ViewCount;
-			}
-			set
-			{
-				if ((this._ViewCount != value))
-				{
-					this._ViewCount = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="NVarChar(128)")]
-		public string UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					this._UserId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleId", DbType="NVarChar(128)")]
-		public string RoleId
-		{
-			get
-			{
-				return this._RoleId;
-			}
-			set
-			{
-				if ((this._RoleId != value))
-				{
-					this._RoleId = value;
-				}
-			}
 		}
 	}
 }

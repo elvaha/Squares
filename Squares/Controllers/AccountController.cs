@@ -473,7 +473,7 @@ namespace Squares.Controllers
 
             try
             {
-                ArtistSet set = new ArtistSet()
+                Set set = new Set()
                 {
                     Title = model.Title,
                     Description = model.Description,

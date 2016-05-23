@@ -46,6 +46,12 @@ namespace Squares.Models
 
                         break;
 
+                    case "VIEWS":
+
+                        sets = db.Sets.OrderByDescending(x => x.ViewCount).ToList();
+
+                        break;
+
                     default:
 
                         sets = db.Sets.OrderBy(x => x.Title).ToList();

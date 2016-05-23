@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Squares" Class="SquaresDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=squaresprototype.database.windows.net;Initial Catalog=Squares;User ID=SquaresAdmin;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SquaresConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=squaresprototype.database.windows.net;Initial Catalog=Squares;User ID=SquaresAdmin;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SquaresConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[__MigrationHistory]" Member="__MigrationHistories">
+    <Type Name="__MigrationHistory">
+      <Column Name="MigrationId" Type="System.String" DbType="NVarChar(150) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ContextKey" Type="System.String" DbType="NVarChar(300) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Model" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ProductVersion" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Artist" Member="Artists">
     <Type Name="Artist">
       <Column Name="ArtistId" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -65,6 +73,7 @@
       <Column Name="RegistrationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="IsArtist" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HasAccess" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="AspNetUser_Artist" Member="Artists" ThisKey="Id" OtherKey="UserId" Type="Artist" />
       <Association Name="AspNetUser_AspNetUserClaim" Member="AspNetUserClaims" ThisKey="Id" OtherKey="UserId" Type="AspNetUserClaim" />
       <Association Name="AspNetUser_AspNetUserLogin" Member="AspNetUserLogins" ThisKey="Id" OtherKey="UserId" Type="AspNetUserLogin" />
@@ -87,9 +96,8 @@
   </Table>
   <Table Name="dbo.CollectionPiece" Member="CollectionPieces">
     <Type Name="CollectionPiece">
-      <Column Name="CollectionPieceId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CollectionId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-      <Column Name="PieceId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="CollectionId" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="PieceId" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
       <Association Name="Collection_CollectionPiece" Member="Collection" ThisKey="CollectionId" OtherKey="CollectionId" Type="Collection" IsForeignKey="true" />
       <Association Name="SetPiece_CollectionPiece" Member="SetPiece" ThisKey="PieceId" OtherKey="PieceId" Type="SetPiece" IsForeignKey="true" />
     </Type>
@@ -102,13 +110,8 @@
       <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Rating" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ViewCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
-<<<<<<< HEAD
-      <Column Name="UserId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-      <Column Name="RoleId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-      <Column Name="isDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-=======
       <Column Name="ArtistId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
->>>>>>> origin/master
+      <Column Name="isDisabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Set_Collection" Member="Collections" ThisKey="SetId" OtherKey="SetId" Type="Collection" />
       <Association Name="Set_SetPiece" Member="SetPieces" ThisKey="SetId" OtherKey="SetId" Type="SetPiece" />
       <Association Name="Set_SetTag" Member="SetTags" ThisKey="SetId" OtherKey="SetId" Type="SetTag" />
@@ -126,9 +129,8 @@
   </Table>
   <Table Name="dbo.SetTag" Member="SetTags">
     <Type Name="SetTag">
-      <Column Name="SetTagId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TagId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-      <Column Name="SetId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="SetId" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="TagId" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
       <Association Name="Set_SetTag" Member="Set" ThisKey="SetId" OtherKey="SetId" Type="Set" IsForeignKey="true" />
       <Association Name="Tag_SetTag" Member="Tag" ThisKey="TagId" OtherKey="tagId" Type="Tag" IsForeignKey="true" />
     </Type>

@@ -30,6 +30,9 @@ namespace Squares.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void Insert__MigrationHistory(__MigrationHistory instance);
+    partial void Update__MigrationHistory(__MigrationHistory instance);
+    partial void Delete__MigrationHistory(__MigrationHistory instance);
     partial void InsertArtist(Artist instance);
     partial void UpdateArtist(Artist instance);
     partial void DeleteArtist(Artist instance);
@@ -51,21 +54,12 @@ namespace Squares.Models
     partial void InsertCollection(Collection instance);
     partial void UpdateCollection(Collection instance);
     partial void DeleteCollection(Collection instance);
-<<<<<<< HEAD
-    partial void InsertPiece(Piece instance);
-    partial void UpdatePiece(Piece instance);
-    partial void DeletePiece(Piece instance);
-    partial void InsertSet(Set instance);
-    partial void UpdateSet(Set instance);
-    partial void DeleteSet(Set instance);
-=======
     partial void InsertSet(Set instance);
     partial void UpdateSet(Set instance);
     partial void DeleteSet(Set instance);
     partial void InsertSetPiece(SetPiece instance);
     partial void UpdateSetPiece(SetPiece instance);
     partial void DeleteSetPiece(SetPiece instance);
->>>>>>> origin/master
     partial void InsertTag(Tag instance);
     partial void UpdateTag(Tag instance);
     partial void DeleteTag(Tag instance);
@@ -75,7 +69,7 @@ namespace Squares.Models
     #endregion
 		
 		public SquaresDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["SquaresConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["SquaresConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -102,6 +96,14 @@ namespace Squares.Models
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<@__MigrationHistory> @__MigrationHistories
+		{
+			get
+			{
+				return this.GetTable<@__MigrationHistory>();
+			}
 		}
 		
 		public System.Data.Linq.Table<Artist> Artists
@@ -176,19 +178,11 @@ namespace Squares.Models
 			}
 		}
 		
-<<<<<<< HEAD
-		public System.Data.Linq.Table<Set> Sets
-		{
-			get
-			{
-				return this.GetTable<Set>();
-=======
 		public System.Data.Linq.Table<SetPiece> SetPieces
 		{
 			get
 			{
 				return this.GetTable<SetPiece>();
->>>>>>> origin/master
 			}
 		}
 		
@@ -213,6 +207,140 @@ namespace Squares.Models
 			get
 			{
 				return this.GetTable<Zipcode>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[__MigrationHistory]")]
+	public partial class @__MigrationHistory : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MigrationId;
+		
+		private string _ContextKey;
+		
+		private System.Data.Linq.Binary _Model;
+		
+		private string _ProductVersion;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMigrationIdChanging(string value);
+    partial void OnMigrationIdChanged();
+    partial void OnContextKeyChanging(string value);
+    partial void OnContextKeyChanged();
+    partial void OnModelChanging(System.Data.Linq.Binary value);
+    partial void OnModelChanged();
+    partial void OnProductVersionChanging(string value);
+    partial void OnProductVersionChanged();
+    #endregion
+		
+		public @__MigrationHistory()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MigrationId", DbType="NVarChar(150) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MigrationId
+		{
+			get
+			{
+				return this._MigrationId;
+			}
+			set
+			{
+				if ((this._MigrationId != value))
+				{
+					this.OnMigrationIdChanging(value);
+					this.SendPropertyChanging();
+					this._MigrationId = value;
+					this.SendPropertyChanged("MigrationId");
+					this.OnMigrationIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContextKey", DbType="NVarChar(300) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ContextKey
+		{
+			get
+			{
+				return this._ContextKey;
+			}
+			set
+			{
+				if ((this._ContextKey != value))
+				{
+					this.OnContextKeyChanging(value);
+					this.SendPropertyChanging();
+					this._ContextKey = value;
+					this.SendPropertyChanged("ContextKey");
+					this.OnContextKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Model", DbType="VarBinary(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Model
+		{
+			get
+			{
+				return this._Model;
+			}
+			set
+			{
+				if ((this._Model != value))
+				{
+					this.OnModelChanging(value);
+					this.SendPropertyChanging();
+					this._Model = value;
+					this.SendPropertyChanged("Model");
+					this.OnModelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductVersion", DbType="NVarChar(32) NOT NULL", CanBeNull=false)]
+		public string ProductVersion
+		{
+			get
+			{
+				return this._ProductVersion;
+			}
+			set
+			{
+				if ((this._ProductVersion != value))
+				{
+					this.OnProductVersionChanging(value);
+					this.SendPropertyChanging();
+					this._ProductVersion = value;
+					this.SendPropertyChanged("ProductVersion");
+					this.OnProductVersionChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1098,6 +1226,8 @@ namespace Squares.Models
 		
 		private System.Nullable<bool> _IsArtist;
 		
+		private bool _HasAccess;
+		
 		private EntitySet<Artist> _Artists;
 		
 		private EntitySet<AspNetUserClaim> _AspNetUserClaims;
@@ -1154,6 +1284,8 @@ namespace Squares.Models
     partial void OnBirthdayChanged();
     partial void OnIsArtistChanging(System.Nullable<bool> value);
     partial void OnIsArtistChanged();
+    partial void OnHasAccessChanging(bool value);
+    partial void OnHasAccessChanged();
     #endregion
 		
 		public AspNetUser()
@@ -1571,6 +1703,26 @@ namespace Squares.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HasAccess", DbType="Bit NOT NULL")]
+		public bool HasAccess
+		{
+			get
+			{
+				return this._HasAccess;
+			}
+			set
+			{
+				if ((this._HasAccess != value))
+				{
+					this.OnHasAccessChanging(value);
+					this.SendPropertyChanging();
+					this._HasAccess = value;
+					this.SendPropertyChanged("HasAccess");
+					this.OnHasAccessChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AspNetUser_Artist", Storage="_Artists", ThisKey="Id", OtherKey="UserId")]
 		public EntitySet<Artist> Artists
 		{
@@ -1737,244 +1889,14 @@ namespace Squares.Models
 			this.SendPropertyChanging();
 			entity.AspNetUser = null;
 		}
-<<<<<<< HEAD
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Author")]
-	public partial class Author : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _RoleId;
-		
-		private string _UserId;
-		
-		private string _Alias;
-		
-		private string _Description;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private EntitySet<Set> _Sets;
-		
-		private EntityRef<AspNetUserRole> _AspNetUserRole;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRoleIdChanging(string value);
-    partial void OnRoleIdChanged();
-    partial void OnUserIdChanging(string value);
-    partial void OnUserIdChanged();
-    partial void OnAliasChanging(string value);
-    partial void OnAliasChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateChanged();
-    #endregion
-		
-		public Author()
-		{
-			this._Sets = new EntitySet<Set>(new Action<Set>(this.attach_Sets), new Action<Set>(this.detach_Sets));
-			this._AspNetUserRole = default(EntityRef<AspNetUserRole>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleId", DbType="NVarChar(128) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string RoleId
-		{
-			get
-			{
-				return this._RoleId;
-			}
-			set
-			{
-				if ((this._RoleId != value))
-				{
-					if (this._AspNetUserRole.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRoleIdChanging(value);
-					this.SendPropertyChanging();
-					this._RoleId = value;
-					this.SendPropertyChanged("RoleId");
-					this.OnRoleIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="NVarChar(128) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					if (this._AspNetUserRole.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Alias", DbType="NVarChar(MAX)")]
-		public string Alias
-		{
-			get
-			{
-				return this._Alias;
-			}
-			set
-			{
-				if ((this._Alias != value))
-				{
-					this.OnAliasChanging(value);
-					this.SendPropertyChanging();
-					this._Alias = value;
-					this.SendPropertyChanged("Alias");
-					this.OnAliasChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Author_Set", Storage="_Sets", ThisKey="UserId,RoleId", OtherKey="UserId,RoleId")]
-		public EntitySet<Set> Sets
-		{
-			get
-			{
-				return this._Sets;
-			}
-			set
-			{
-				this._Sets.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AspNetUserRole_Author", Storage="_AspNetUserRole", ThisKey="UserId,RoleId", OtherKey="UserId,RoleId", IsForeignKey=true)]
-		public AspNetUserRole AspNetUserRole
-		{
-			get
-			{
-				return this._AspNetUserRole.Entity;
-			}
-			set
-			{
-				AspNetUserRole previousValue = this._AspNetUserRole.Entity;
-				if (((previousValue != value) 
-							|| (this._AspNetUserRole.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._AspNetUserRole.Entity = null;
-						previousValue.Author = null;
-					}
-					this._AspNetUserRole.Entity = value;
-					if ((value != null))
-					{
-						value.Author = this;
-						this._UserId = value.UserId;
-						this._RoleId = value.RoleId;
-					}
-					else
-					{
-						this._UserId = default(string);
-						this._RoleId = default(string);
-					}
-					this.SendPropertyChanged("AspNetUserRole");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Sets(Set entity)
-=======
 		
 		private void attach_Collections(Collection entity)
->>>>>>> origin/master
 		{
 			this.SendPropertyChanging();
 			entity.AspNetUser = this;
 		}
 		
-<<<<<<< HEAD
-		private void detach_Sets(Set entity)
-=======
 		private void detach_Collections(Collection entity)
->>>>>>> origin/master
 		{
 			this.SendPropertyChanging();
 			entity.AspNetUser = null;
@@ -2225,8 +2147,6 @@ namespace Squares.Models
 	public partial class CollectionPiece
 	{
 		
-		private int _CollectionPieceId;
-		
 		private string _CollectionId;
 		
 		private string _PieceId;
@@ -2235,23 +2155,7 @@ namespace Squares.Models
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CollectionPieceId", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int CollectionPieceId
-		{
-			get
-			{
-				return this._CollectionPieceId;
-			}
-			set
-			{
-				if ((this._CollectionPieceId != value))
-				{
-					this._CollectionPieceId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CollectionId", DbType="NVarChar(128)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CollectionId", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
 		public string CollectionId
 		{
 			get
@@ -2266,9 +2170,8 @@ namespace Squares.Models
 				}
 			}
 		}
-<<<<<<< HEAD
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PieceId", DbType="NVarChar(128)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PieceId", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
 		public string PieceId
 		{
 			get
@@ -2285,161 +2188,6 @@ namespace Squares.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Piece")]
-	public partial class Piece : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _PieceId;
-		
-		private string _SetId;
-		
-		private string _Url;
-		
-		private EntityRef<Set> _Set;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPieceIdChanging(string value);
-    partial void OnPieceIdChanged();
-    partial void OnSetIdChanging(string value);
-    partial void OnSetIdChanged();
-    partial void OnUrlChanging(string value);
-    partial void OnUrlChanged();
-    #endregion
-		
-		public Piece()
-		{
-			this._Set = default(EntityRef<Set>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PieceId", DbType="NVarChar(128) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string PieceId
-		{
-			get
-			{
-				return this._PieceId;
-			}
-			set
-			{
-				if ((this._PieceId != value))
-				{
-					this.OnPieceIdChanging(value);
-					this.SendPropertyChanging();
-					this._PieceId = value;
-					this.SendPropertyChanged("PieceId");
-					this.OnPieceIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SetId", DbType="NVarChar(128)")]
-		public string SetId
-		{
-			get
-			{
-				return this._SetId;
-			}
-			set
-			{
-				if ((this._SetId != value))
-				{
-					if (this._Set.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSetIdChanging(value);
-					this.SendPropertyChanging();
-					this._SetId = value;
-					this.SendPropertyChanged("SetId");
-					this.OnSetIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Url", DbType="NVarChar(MAX)")]
-		public string Url
-		{
-			get
-			{
-				return this._Url;
-			}
-			set
-			{
-				if ((this._Url != value))
-				{
-					this.OnUrlChanging(value);
-					this.SendPropertyChanging();
-					this._Url = value;
-					this.SendPropertyChanged("Url");
-					this.OnUrlChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Set_Piece", Storage="_Set", ThisKey="SetId", OtherKey="SetId", IsForeignKey=true)]
-		public Set Set
-		{
-			get
-			{
-				return this._Set.Entity;
-			}
-			set
-			{
-				Set previousValue = this._Set.Entity;
-				if (((previousValue != value) 
-							|| (this._Set.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Set.Entity = null;
-						previousValue.Pieces.Remove(this);
-					}
-					this._Set.Entity = value;
-					if ((value != null))
-					{
-						value.Pieces.Add(this);
-						this._SetId = value.SetId;
-					}
-					else
-					{
-						this._SetId = default(string);
-					}
-					this.SendPropertyChanged("Set");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-=======
-	}
-	
->>>>>>> origin/master
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Set]")]
 	public partial class Set : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2460,7 +2208,7 @@ namespace Squares.Models
 		
 		private string _ArtistId;
 		
-		private bool _isDeleted;
+		private System.Nullable<bool> _isDisabled;
 		
 		private EntitySet<Collection> _Collections;
 		
@@ -2484,17 +2232,10 @@ namespace Squares.Models
     partial void OnRatingChanged();
     partial void OnViewCountChanging(System.Nullable<int> value);
     partial void OnViewCountChanged();
-<<<<<<< HEAD
-    partial void OnUserIdChanging(string value);
-    partial void OnUserIdChanged();
-    partial void OnRoleIdChanging(string value);
-    partial void OnRoleIdChanged();
-    partial void OnisDeletedChanging(bool value);
-    partial void OnisDeletedChanged();
-=======
     partial void OnArtistIdChanging(string value);
     partial void OnArtistIdChanged();
->>>>>>> origin/master
+    partial void OnisDisabledChanging(System.Nullable<bool> value);
+    partial void OnisDisabledChanged();
     #endregion
 		
 		public Set()
@@ -2649,22 +2390,22 @@ namespace Squares.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isDeleted", DbType="Bit NOT NULL")]
-		public bool isDeleted
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isDisabled", DbType="Bit")]
+		public System.Nullable<bool> isDisabled
 		{
 			get
 			{
-				return this._isDeleted;
+				return this._isDisabled;
 			}
 			set
 			{
-				if ((this._isDeleted != value))
+				if ((this._isDisabled != value))
 				{
-					this.OnisDeletedChanging(value);
+					this.OnisDisabledChanging(value);
 					this.SendPropertyChanging();
-					this._isDeleted = value;
-					this.SendPropertyChanged("isDeleted");
-					this.OnisDeletedChanged();
+					this._isDisabled = value;
+					this.SendPropertyChanged("isDisabled");
+					this.OnisDisabledChanged();
 				}
 			}
 		}
@@ -2700,7 +2441,7 @@ namespace Squares.Models
 		{
 			get
 			{
-                return this._Artist.Entity;
+				return this._Artist.Entity;
 			}
 			set
 			{
@@ -2778,15 +2519,9 @@ namespace Squares.Models
 	public partial class SetPiece : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-<<<<<<< HEAD
-		private int _SetTagId;
-		
-		private string _TagId;
-=======
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private string _PieceId;
->>>>>>> origin/master
 		
 		private string _SetId;
 		
@@ -2812,29 +2547,8 @@ namespace Squares.Models
 			OnCreated();
 		}
 		
-<<<<<<< HEAD
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SetTagId", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int SetTagId
-		{
-			get
-			{
-				return this._SetTagId;
-			}
-			set
-			{
-				if ((this._SetTagId != value))
-				{
-					this._SetTagId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TagId", DbType="NVarChar(128)")]
-		public string TagId
-=======
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PieceId", DbType="NVarChar(128) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string PieceId
->>>>>>> origin/master
 		{
 			get
 			{
@@ -2956,31 +2670,15 @@ namespace Squares.Models
 	public partial class SetTag
 	{
 		
-		private string _TagId;
-		
 		private string _SetId;
+		
+		private string _TagId;
 		
 		public SetTag()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TagId", DbType="NVarChar(128)")]
-		public string TagId
-		{
-			get
-			{
-				return this._TagId;
-			}
-			set
-			{
-				if ((this._TagId != value))
-				{
-					this._TagId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SetId", DbType="NVarChar(128)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SetId", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
 		public string SetId
 		{
 			get
@@ -2995,9 +2693,23 @@ namespace Squares.Models
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TagId", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
+		public string TagId
+		{
+			get
+			{
+				return this._TagId;
+			}
+			set
+			{
+				if ((this._TagId != value))
+				{
+					this._TagId = value;
+				}
+			}
+		}
 	}
-<<<<<<< HEAD
-=======
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tag")]
 	public partial class Tag : INotifyPropertyChanging, INotifyPropertyChanged
@@ -3222,6 +2934,5 @@ namespace Squares.Models
 			entity.Zipcode = null;
 		}
 	}
->>>>>>> origin/master
 }
 #pragma warning restore 1591

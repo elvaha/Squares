@@ -13,8 +13,6 @@ namespace Squares.Models
         {
         }
 
-<<<<<<< HEAD
-=======
 
         public List<Set> WholeGallery()
         {
@@ -26,53 +24,54 @@ namespace Squares.Models
             return Sets;
         }
 
->>>>>>> origin/master
+
         public List<Set> getGalleryItems(int start, int limit, string sort)
         {
             using (var db = new SquaresDataContext())
             {
 
-                IOrderedQueryable<Set> query = null;
+                List<Set> sets = new List<Set>();
 
                 switch (sort)
                 {
-                    case "rating":
-                        
-                        query = db.Sets.Include("Author").OrderBy(x => x.Rating);
+                    case "RATING":
+
+                        sets = db.Sets.OrderBy(x => x.Rating).ToList();
+
+                        break;
+
+                    case "NEW":
+
+                        sets = db.Sets.OrderBy(x => x.Date).ToList();
 
                         break;
 
                     default:
 
-                        query = db.Sets.Include("Author").OrderBy(x => x.Title);
+                        sets = db.Sets.OrderBy(x => x.Title).ToList();
 
                         break;
                 }
 
-                return query.Skip(start)
-                     .Take(limit)
-                     .ToList<Set>();
+                return sets;
             }
         }
 
-<<<<<<< HEAD
-        public List<Set> getGalleryDefault()
-=======
+
         public List<Set> getIndexGallery()
->>>>>>> origin/master
         {
             SquaresDataContext db = new SquaresDataContext();
             List<Set> indexSets = new List<Set>();
 
             if (db.Sets.Count() > 6)
             {
-                indexSets = db.Sets.Skip(0).Take(6).OrderBy(x=> x.Rating).ToList();
+                indexSets = db.Sets.Skip(0).Take(6).OrderBy(x => x.Rating).ToList();
             }
             else
             {
                 indexSets = db.Sets.ToList();
             }
-           
+
 
             return indexSets;
         }

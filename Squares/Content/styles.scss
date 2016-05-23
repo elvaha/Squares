@@ -153,7 +153,7 @@ h1 {
     width: 65%;
     text-align: center;
     font-family: $font-lato;
-    font-size: 22px;
+    font-size: 1.2vw;
     line-height: 27px;
     border-top: 5px $color-secondary solid;
 }
@@ -163,7 +163,7 @@ h1 {
     width: 65%;
     text-align: center;
     font-family: 'LatoRegular', Fallback, sans-serif;
-    font-size: 22px;
+    font-size: 1.2vw;
 }
 
 .index-slogan span a:hover {
@@ -367,8 +367,7 @@ h2 {
 
 .about-list li:first-child > img {
     display: block;
-    width: 342px;
-    height: 200px;
+    width: 35%;
     margin: 0 auto;
 }
 
@@ -545,11 +544,11 @@ input:focus, textarea:focus {
     margin-left: 2%;
 
     h3 {
-        font-size: 4vw;
+        font-size: 42px;
     }
     p {
         font-family: $font-lato;
-        font-size: 1vw;
+        font-size: 16px;
     }
 }
 
@@ -715,7 +714,7 @@ footer > ul > li:nth-child(3) {
     }
     
     h1 {
-        margin-top: 150px;
+        margin-top: 200px;
         font-size: 12vh;
         line-height: 9vh;
     }
@@ -724,13 +723,13 @@ footer > ul > li:nth-child(3) {
         margin: 10px auto;
         padding: 10px 0 0 0;
         width: 80%;
-        font-size: 3vh;
+        font-size: 18px;
         line-height: 3vh;
         border-top: 2px $color-secondary solid;
     }
 
     .index-slogan span {
-        font-size: 3vh;
+        font-size: 18px;
     }
     
     .index .content-container {
@@ -740,19 +739,41 @@ footer > ul > li:nth-child(3) {
     h2 {
         font-size: 50px;
     }
-           
+    
+    .main-navigation .nav-gallery {
+        background-size: 92px;
+        background-position: -37px -218px;
+
+        &:hover {
+            background-color: $color-accent;
+            -webkit-transition: ease 0.3s;
+	        -moz-transition: ease 0.3s;
+	        -o-transition: ease 0.3s;
+        }
+
+        a {
+            background: none;
+        }
+    }
+
+
+
     .content-container section ol.set-preview li:nth-child(1n+2) {
         margin-left: 10px;           
     }
-    
+
     .content-container section p {
         margin-top: 0;
         width: 100%;
         font-size: 14px;           
     }
     
+    .about .content-container section p {
+        width: 65%;
+    }
+
     .about-list article img {
-        width: 175px;
+        width: 25%;
     }
            
     .content-container section li.set-item button {
@@ -791,7 +812,7 @@ footer > ul > li:nth-child(3) {
     }
     
     .index .content-container {
-        margin-top: -123px;
+        margin-top: -71px;
     }
     
     .content-container section ul li.set-item {
@@ -827,28 +848,24 @@ footer > ul > li:nth-child(3) {
     }
     
     h2 {
-        padding: 37px 0;
+        padding: 18px 0;
+        font-size: 32px;
     }
     
     .index-slogan p {
         margin: 1.5vh auto;
         padding: 1vh 0 0 0;
         width: 65%;
-        font-size: 2.5vh;
+        font-size: 16px;
         line-height: 3vh;
     }
     
     .index-slogan span {
-        font-size: 2.5vh;
+        font-size: 16px;
     }
     
     footer {
         display: none;
-    }
-    
-    .content-container section p {
-        width: 100%;
-        font-size: 24px;
     }
     
     .content-container section li.set-item button {
@@ -856,7 +873,7 @@ footer > ul > li:nth-child(3) {
         height: 60px;
         font-size: 30px;
     }
-    
+
     .gallery .content-container {
         padding-top: 154px;
     }
@@ -874,12 +891,28 @@ footer > ul > li:nth-child(3) {
         height: 55px;
     }
     
-    .content-container section p {
+    .content-container .set-description {
         margin-top: 0;
-        width: 70%;
+        width: 100%;
         font-size: 18px;
     }
+
+    .artist-name {
+        font-size: 22px;
+    }
+
+    .profile-container {
+        margin-top: 120px;
+    }
     
+    .profile-sets-container {
+        margin-top: 0;
+    }
+
+    .search {
+        box-shadow: none;
+        border-bottom: 1px solid #e7e7e7;
+    }
 }
 
 @media only screen and (max-width : 768px) {

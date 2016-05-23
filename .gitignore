@@ -237,3 +237,5 @@ _Pvt_Extensions
 
 **/packages/**
 ApplicationInsights.config
+Squares/Squares.csproj
+Squares/Content/styles.min.css

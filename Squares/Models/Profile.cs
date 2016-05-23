@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Squares.Models
 {
-    public class Profile
+    public class Profile1
     {
     }
 }

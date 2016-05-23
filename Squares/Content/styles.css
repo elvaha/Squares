@@ -906,7 +906,7 @@ footer > ul > li:nth-child(3) {
   .artist-name {
     font-size: 22px; }
   .profile-container {
-    margin-top: 120px; }
+    margin-top: 164px; }
   .profile-sets-container {
     margin-top: 0; }
   .search {
@@ -919,7 +919,9 @@ footer > ul > li:nth-child(3) {
   .index-slogan p {
     width: 90%; }
   .gallery .content-container, .about .content-container {
-    padding-top: 94px; } }
+    padding-top: 94px; }
+  .profile-container {
+    margin-top: 120px; } }
 
 @media only screen and (max-width: 480px) {
   h1 {

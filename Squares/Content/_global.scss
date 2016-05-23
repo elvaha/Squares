@@ -9,3 +9,19 @@ $complementary-color: #ff740b;
 .hidden {
     display: none !important;
 }
+
+%clearfix {
+
+    &:before {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+}

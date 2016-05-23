@@ -56,9 +56,13 @@ namespace Squares.Controllers
         {
             SquaresDataContext db = new SquaresDataContext();
 
-            Set set = db.Sets.Single(x => x.SetId == SetId);
-            
-            return View(set);
+            ViewBag.Class = "designer";
+
+            //Set set = db.Sets.Single(x => x.SetId == SetId);
+
+            //return View(set);
+
+            return View();
         }
 
         [HttpGet]

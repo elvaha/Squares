@@ -237,5 +237,9 @@ _Pvt_Extensions
 
 **/packages/**
 ApplicationInsights.config
+<<<<<<< HEAD
 Squares/Squares.csproj
 Squares/Content/styles.min.css
+=======
+Squares.csproj
+>>>>>>> origin/master

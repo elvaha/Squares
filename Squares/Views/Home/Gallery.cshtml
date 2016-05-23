@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Squares.Models.Gallery
+
+@{
     ViewBag.Title = "Gallery";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -8,17 +10,13 @@
         <ul>
             @{
 
-                for (var i = 0; i < 6; i++)
+                foreach (var set in Model.WholeGallery())
                 {
                     <li class="set-item">
-                        <h3 class="set-title">Title</h3>
-                        <span class="artist-name">Artist Name</span>
+                        <h3 class="set-title">@set.Title</h3>
+                        <span class="artist-name">@set.Artist.Alias</span>
                         <p class="set-description">
-                            Description Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat.
+                            @set.Description
                         </p>
                         <dl class="rating-container">
                             <dt class="rating-on"></dt>
@@ -28,16 +26,14 @@
                             <dt class="rating-off"></dt>
                         </dl>
                         <ol class="set-preview">
-                            <li><a href="#"><img src="~/Content/images/squares/1.jpg"></a></li>
-                            <li><a href="#"><img src="~/Content/images/squares/2.jpg"></a></li>
-                            <li><a href="#"><img src="~/Content/images/squares/3.jpg"></a></li>
-                            <li><a href="#"><img src="~/Content/images/squares/4.jpg"></a></li>
-                            <li><a href="#"><img src="~/Content/images/squares/5.jpg"></a></li>
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                <li><a href="#"><img src="~/Content/images/squares/1.jpg"></a></li>
+                            }
                         </ol>
                         <button class="btn">Customize</button>
                     </li>
                 }
-
             }
         </ul>
     </section>

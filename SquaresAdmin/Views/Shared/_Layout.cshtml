@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNet.Identity
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="skin-yellow sidebar-mini">
+
+    @if (User.Identity.IsAuthenticated)
+    {
+
+        <div class="wrapper">
+            <header class="main-header">
+                <a href="/Home/Dashboard" class="logo">
+                    <img src="~/Content/images/logo.png" class="squares-logo" />
+                </a>
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <a href="#" class="sidebar-toggle ion-navicon" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                    </a>
+
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <ul id="secondary-nav" class="nav navbar-nav pull-right">
+                            <li>
+                                @Html.ActionLink(User.Identity.GetUserName(), "Dashboard", "Home", routeValues: null, htmlAttributes: new { title = "Manage" })
+                            </li>
+                            <li><a class="ion-log-out" href="javascript:document.getElementById('logoutForm').submit()"></a></li>
+                        </ul>
+
+                    }
+
+                </nav>
+            </header>
+            <aside class="main-sidebar">
+                <ul class="nav sidebar-menu">
+                    <li>@Html.ActionLink("Dashboard", "Dashboard", "Home")</li>
+                    <li>@Html.ActionLink("Sets", "Sets", "Home")</li>
+                    <li>@Html.ActionLink("Users", "Users", "Home")</li>
+                </ul>
+            </aside>
+
+            @RenderBody()
+
+            <footer class="main-footer">
+                Copyright &copy; Squares A/S
+            </footer>
+        </div>
+
+    }
+    else
+    {
+        @RenderBody()
+    }
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

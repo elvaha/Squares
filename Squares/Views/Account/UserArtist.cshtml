@@ -1,0 +1,9 @@
+﻿@model Squares.Models.ArtistUser
+
+<h2>Sign up as Artist</h2>
+@using (Html.BeginForm("UserAsArtist", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.TextBoxFor(m => m.Alias, new { @id = "Alias", @class = "feedback-input", @placeholder = "Alias" })
+    @Html.TextBoxFor(m => m.Description, new { @id = "Description", @class = "feedback-input", @placeholder = "Description" })
+    <input type="submit" class="btn btn-default" value="Register" />
+}

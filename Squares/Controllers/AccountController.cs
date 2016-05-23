@@ -159,6 +159,7 @@ namespace Squares.Controllers
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
+                    IsArtist = false
                 };
 
                 SquaresDataContext db = new SquaresDataContext();
@@ -441,11 +442,28 @@ namespace Squares.Controllers
         }
 
         [HttpPost]
-        public ActionResult AccountManagement(bool isArtist)
+        public ActionResult UserAsArtist(ArtistUser model)
         {
+            SquaresDataContext db = new SquaresDataContext();
+            var user = UserManager.FindById(User.Identity.GetUserId());
 
+            Guid Id = Guid.NewGuid();
 
-            return View();
+            Artist artist = new Artist()
+            {
+                ArtistId = Id.ToString(),
+                Alias = model.Alias,
+                Description = model.Description,
+                UserId = user.Id,
+                Date = DateTime.Now
+            };
+
+            AspNetUser update = db.AspNetUsers.Where(x => x.Id == user.Id).FirstOrDefault();
+            db.Artists.InsertOnSubmit(artist);
+            update.IsArtist = true;
+            db.SubmitChanges();
+
+            return RedirectToAction("AccountManagement", "Account");
         }
 
         [HttpGet]
@@ -453,7 +471,7 @@ namespace Squares.Controllers
         {
             SquaresDataContext db = new SquaresDataContext();
 
-            var artist = db.Authors.Where(x => x.UserId == User.Identity.GetUserId()).FirstOrDefault();
+            var artist = db.Artists.Where(x => x.UserId == User.Identity.GetUserId()).FirstOrDefault();
 
             if (artist == null)
             {
@@ -473,7 +491,7 @@ namespace Squares.Controllers
 
             try
             {
-                ArtistSet set = new ArtistSet()
+                Set set = new Set()
                 {
                     Title = model.Title,
                     Description = model.Description,
@@ -485,14 +503,14 @@ namespace Squares.Controllers
                 {
                     Guid pieceId = Guid.NewGuid();
                     string path = Path.Combine(Server.MapPath("~/App_Data/uploads"), Guid.NewGuid() + Path.GetExtension(file.FileName));
-                    Piece piece = new Piece()
+                    SetPiece setPiece = new SetPiece()
                     {
                         PieceId = pieceId.ToString(),
                         SetId = SetId.ToString(),
                         Url = path
                     };
 
-                    db.Pieces.InsertOnSubmit(piece);
+                    db.SetPieces.InsertOnSubmit(setPiece);
                     file.SaveAs(path);
                 }
                 //TODO! sommething somehting

@@ -20,6 +20,7 @@ namespace Squares.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
+        public bool IsArtist { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

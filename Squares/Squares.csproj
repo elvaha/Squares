@@ -207,15 +207,15 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\HomeViewModels.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\Gallery.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Squares.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Squares.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Gallery.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -282,6 +282,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -296,6 +297,15 @@
     <Content Include="Content\_navigation.scss" />
     <Content Include="Content\_global.scss" />
     <Content Include="Content\_search.scss" />
+<<<<<<< HEAD
+=======
+    <Content Include="Content\_modal.scss" />
+    <Content Include="Models\Squares.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Squares.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+>>>>>>> origin/master
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -353,9 +363,15 @@
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Home\Designer.cshtml" />
     <Content Include="Views\Account\AccountManagement.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Home\Profile.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Account\AddSet.cshtml" />
+=======
+    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Account\AddSet.cshtml" />
+    <Content Include="Views\Account\UserArtist.cshtml" />
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -370,12 +386,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SquaresDataLibrary\SquaresDataLibrary.csproj">
-      <Project>{90d141e2-6706-4609-87ad-c945c3441ded}</Project>
-      <Name>SquaresDataLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Models\Squares.dbml.layout">

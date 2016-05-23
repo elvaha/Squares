@@ -15,7 +15,7 @@
                 {
                     <li class="set-item">
                         <h3 class="set-title">@set.Title</h3>
-                        <span class="artist-name">@set.Artist.Alias</span>
+                        <span class="artist-name">@Html.ActionLink(set.Artist.Alias, "Profile", "Home", new { artistId = set.ArtistId })</span>
                         <p class="set-description">
                             @set.Description
                         </p>
@@ -34,22 +34,22 @@
                         </dl>
                         <ol class="set-preview">
                             @if (set.SetPieces.Count > 0)
+                        {
+                            int counter = 0;
+                            if (set.SetPieces.Count > 5)
                             {
-                                int counter = 0;
-                                if (set.SetPieces.Count > 5)
-                                {
-                                    counter = 5;
-                                }
-                                else
-                                {
-                                    counter = set.SetPieces.Count;
-                                }
+                                counter = 5;
+                            }
+                            else
+                            {
+                                counter = set.SetPieces.Count;
+                            }
 
-                                for (int i = 0; i < counter; i++)
-                                {
+                            for (int i = 0; i < counter; i++)
+                            {
                                     <li><a href="#"><img src="@set.SetPieces[i].Url"></a></li>
                                 }
-                            }
+                        }
                             else
                             {
                                 <li><a href="#">No images added</li>

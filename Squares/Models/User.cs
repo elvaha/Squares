@@ -13,6 +13,8 @@ namespace Squares.Models
         public String UserName { get; set; }
         //public String Address { get; set; }
         public bool IsArtist { get; set; }
+        public String Alias { get; set; }
+        public String Description { get; set; }
 
         public User()
         {
@@ -26,15 +28,10 @@ namespace Squares.Models
 
             String alias = "";
             String description = "";
+            Artist artist = null;
 
             AspNetUser user = db.AspNetUsers.Where(x => x.Id == UserId).FirstOrDefault();
-            Artist author = db.Artists.Where(x => x.UserId == UserId).FirstOrDefault();
 
-            if (author != null)
-            {
-                alias = author.Alias;
-                description = author.Description;
-            }
 
             User CurrentUser = new User()
             {
@@ -43,10 +40,24 @@ namespace Squares.Models
                 //PhoneNumber = user.PhoneNumber,
                 UserName = user.UserName,
                 //Address = user.Address,
-                IsArtist =(bool) user.IsArtist
+                IsArtist = (bool)user.IsArtist,
             };
 
+            if ((bool)user.IsArtist)
+            {
+                artist = db.Artists.Where(x => x.UserId == UserId).FirstOrDefault();
+
+                if (artist != null)
+                {
+                    alias = artist.Alias;
+                    description = artist.Description;
+                }
+
+                CurrentUser.Alias = alias;
+                CurrentUser.Description = Description;
+            }
+
             return CurrentUser;
-        } 
+        }
     }
 }

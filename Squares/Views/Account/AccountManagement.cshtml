@@ -21,13 +21,15 @@
             <img src="https://lh3.googleusercontent.com/-OVWapa1cMi8/AAAAAAAAAAI/AAAAAAAAAAA/QcfUy0l4Luw/photo.jpg" />
         </div>
         <div class="profile-info-container">
-            <h3>Alias Name Last Name</h3>
-            <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-            </p>
+            <h3>@Model.FirstName @Model.LastName</h3>
+            @if (Model.IsArtist)
+            {
+                <p>Artist Alias</p>
+                <p>Alias: @Model.Alias</p>
+                <p>Description: @Model.Description</p>
+                @Html.ActionLink("Add Set", "AddSet", "Account", new { @class = "btn" })
+            }
         </div>
-        @Html.ActionLink("Add Set", "AddSet", "Account", new { @class = "btn" })
     </section>
 
     

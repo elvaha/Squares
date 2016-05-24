@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquaresAdmin", "SquaresAdmi
 		{32DEFF72-2CED-4642-98EB-8E4EED90F5FB} = {32DEFF72-2CED-4642-98EB-8E4EED90F5FB}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquaresDAL", "..\SquaresDAL\SquaresDAL.csproj", "{32DEFF72-2CED-4642-98EB-8E4EED90F5FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquaresDAL", "SquaresDAL\SquaresDAL.csproj", "{32DEFF72-2CED-4642-98EB-8E4EED90F5FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

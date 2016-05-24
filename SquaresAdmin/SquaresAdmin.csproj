@@ -856,7 +856,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SquaresDAL\SquaresDAL.csproj">
+    <ProjectReference Include="..\SquaresDAL\SquaresDAL.csproj">
       <Project>{32deff72-2ced-4642-98eb-8e4eed90f5fb}</Project>
       <Name>SquaresDAL</Name>
     </ProjectReference>

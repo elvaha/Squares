@@ -24,7 +24,7 @@
                 {
                     <li class="set-item">
                         <h3 class="set-title">@set.Title</h3>
-                        <span class="artist-name">@Html.ActionLink(set.Artist.Alias, "Profile", "Home", new { artistId = set.ArtistId })</span>
+                        @Html.ActionLink(set.Artist.Alias, "Profile", "Home", new { artistId = set.ArtistId }, new { @class = "artist-name" })
                         <p class="set-description">
                            @set.Description
                         </p>

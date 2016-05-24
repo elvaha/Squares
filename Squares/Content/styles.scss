@@ -1233,3 +1233,41 @@ footer > ul > li:nth-child(3) {
     DESIGNER COMPONENT END
 */
 
+.gallery .content-container {
+    padding: 230px 0;
+}
+
+.set-creator {
+    padding: 200px 0;
+}
+
+.set-creator form {
+    display: block;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.set-creator form label {
+    font-family: 'LatoRegular';
+}
+
+.set-creator form input, .set-creator form textarea {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
+    font-family: 'LatoRegular';
+    padding: 10px;
+}
+
+.set-creator form textarea {
+    height: 200px;
+}
+
+.set-creator h1 {
+    margin-bottom: 50px;
+}
+
+.set-creator .btn {
+    float: left;
+}

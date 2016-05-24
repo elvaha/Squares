@@ -273,6 +273,7 @@
     <Content Include="Content\images\squares\9.jpg" />
     <Content Include="Content\images\star.png" />
     <Content Include="Content\images\videoLoop.mp4" />
+    <Content Include="Content\ionicons.css" />
     <Content Include="Content\styles.css">
       <DependentUpon>styles.scss</DependentUpon>
     </Content>
@@ -280,6 +281,7 @@
       <DependentUpon>styles.css</DependentUpon>
     </Content>
     <Content Include="favicon.ico" />
+    <Content Include="fonts\ionicons.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -304,6 +306,11 @@
       <LastGenOutput>Squares.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="fonts\ionicons.eot" />
+    <Content Include="fonts\ionicons.ttf" />
+    <Content Include="fonts\ionicons.woff" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -365,14 +372,13 @@
     <Content Include="Views\Home\Designer.cshtml" />
     <Content Include="Views\Account\AccountManagement.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
-    <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Account\AddSet.cshtml" />
-    <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Account\UserArtist.cshtml" />
     <Content Include="Views\Shared\_Search.cshtml" />
+    <Content Include="Views\Home\Social.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\uploads\" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

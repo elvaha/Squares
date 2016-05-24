@@ -17,17 +17,21 @@ function expandSearchbar() {
     $('#search-widget').removeAttr('style');
     $('#search-widget .search__type').show();
     $('#search-widget .search__searchbar-wrapper').show();
-    $('#search-widget search__sort').show();
+    $('#search-widget .search__sort').show();
+    $('#search-widget .search__submit').show();
     $('#search-widget .search__form').find('.search__arrow').remove();
 
 }
 
 function collapseSearchbar() {
 
+    console.log('collapse');
+
     $('#search-widget').css('width', '100px');
     $('#search-widget .search__type').hide();
     $('#search-widget .search__searchbar-wrapper').hide();
-    $('#search-widget search__sort').hide();
+    $('#search-widget .search__sort').hide();
+    $('#search-widget .search__submit').hide();
 
     var arrowImg = $('<img />');
     arrowImg.attr('src', 'https://cdn0.iconfinder.com/data/icons/solid-line-essential-ui-icon-set/512/essential_set_left-512.png');

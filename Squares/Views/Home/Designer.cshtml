@@ -5,91 +5,68 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Title</h3>
-<span class="artist-name">Artist Name</span>
-<dl class="rating-container">
-    @for (int i = 0; i < 5; i++)
-    {
-        if (i <= Model.Rating)
-        {
-            <dt class="rating-on"></dt>
-        }
-        else
-        {
-            <dt class="rating-off"></dt>
-        }
-    }
-</dl>
-
-<div class="designer-container">
-
-    <div id="myCreator" class="designer-grid">
-        <div class="drop-zone">
-            <span id="top-left" class="corner"></span>
-            <span id="top-right" class="corner"></span>
-            <span id="bottom-left" class="corner"></span>
-            <span id="bottom-right" class="corner"></span>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="designer-comp-title">Title</h3>
         </div>
-    </div>
-    <!----<div class="main-image">
-        <div class="drag-zone">
-            <div class="dragbox-wrapper">
-                <img class="dragbox" src="~/Content/images/squares/1.jpg" />
+        <div class="col-lg-12">
+            <dl class="rating-container">
+                @for (int i = 0; i < 5; i++)
+                {
+                    if (i <= Model.Rating)
+                    {
+                        <dt class="rating-on"></dt>
+                    }
+                    else
+                    {
+                        <dt class="rating-off"></dt>
+                    }
+                }
+            </dl>
+
+        </div>
+        <div class="col-lg-12">
+            <p class="designer-comp-artist">Artist Name</p>
+        </div>
+        <div id="myCreator" class="col-lg-6">
+            <div class="drop-zone">
+                <span id="top-left" class="corner"></span>
+                <span id="top-right" class="corner"></span>
+                <span id="bottom-left" class="corner"></span>
+                <span id="bottom-right" class="corner"></span>
             </div>
         </div>
-    </div>-->
-
-</div>
-
-<div class="image-gallery drag-zone">
-    @foreach (var item in Model.SetPieces)
-    {
-        <div class="dragbox-wrapper">
-            <img src="@item.Url" class="dragbox" data-rotation="0" data-isplaced="no">
+        <div class="col-lg-6">
+            <div class="drag-zone">
+                @foreach (var item in Model.SetPieces)
+                {
+                    <div class="dragbox-wrapper">
+                        <img src=@Url.Content(item.Url) class="dragbox" data-rotation="0" data-isplaced="no" />
+                    </div>
+                }
+            </div>
         </div>
-    }
+        <div class="col-lg-12">
+            <p class="designer-comp-description-title">Description:</p>
+            <p class="designer-comp-description"></p>
+        </div>
+        <div class="col-lg-12">
+            <ul class="preview">
+                <li class="preview-shirt"><a href="#"></a></li>
+                <li class="preview-wall"><a href="#"></a></li>
+            </ul>
+            <button class="btn designer-comp-order">Order</button>
+        </div>
+    </div>
 </div>
 
-<!--
+@*
 
-    <ul class="image-gallery">
-        <li><img src="~/Content/images/squares/1.jpg"></li>
-        <li><img src="~/Content/images/squares/2.jpg"></li>
-        <li><img src="~/Content/images/squares/3.jpg"></li>
-        <li><img src="~/Content/images/squares/4.jpg"></li>
-        <li><img src="~/Content/images/squares/5.jpg"></li>
-        <li><img src="~/Content/images/squares/6.jpg"></li>
-        <li><img src="~/Content/images/squares/7.jpg"></li>
-        <li><img src="~/Content/images/squares/8.jpg"></li>
-        <li><img src="~/Content/images/squares/9.jpg"></li>
-        <li><img src="~/Content/images/squares/10.jpg"></li>
-        <li><img src="~/Content/images/squares/11.jpg"></li>
-        <li><img src="~/Content/images/squares/12.jpg"></li>
-        <li><img src="~/Content/images/squares/13.jpg"></li>
-        <li><img src="~/Content/images/squares/14.jpg"></li>
-        <li><img src="~/Content/images/squares/15.jpg"></li>
-        <li><img src="~/Content/images/squares/16.jpg"></li>
-        <li><img src="~/Content/images/squares/17.jpg"></li>
-        <li><img src="~/Content/images/squares/18.jpg"></li>
-        <li><img src="~/Content/images/squares/19.jpg"></li>
-        <li><img src="~/Content/images/squares/20.jpg"></li>
-        <li><img src="~/Content/images/squares/21.jpg"></li>
-        <li><img src="~/Content/images/squares/22.jpg"></li>
-        <li><img src="~/Content/images/squares/23.jpg"></li>
-        <li><img src="~/Content/images/squares/24.jpg"></li>
-        <li><img src="~/Content/images/squares/25.jpg"></li>
-    </ul>
 
--->
 
-<div class="designer-set-desrcription">
-    <h4>Description:</h4>
-    <p class="set-description">@Model.Description</p>
-</div>
-<div class="designer-controls">
-    <ul class="preview">
-        <li class="preview-shirt"><a href="#"></a></li>
-        <li class="preview-wall"><a href="#"></a></li>
-    </ul>
-    <button class="btn">Order</button>
-</div>
+
+
+            <p class="set-description">@Model.Description</p>
+
+*@

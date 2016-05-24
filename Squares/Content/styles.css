@@ -11,7 +11,7 @@
   src: url("../fonts/LatoRegular.woff2") format("woff2"), url("../fonts/LatoRegular.woff") format("woff"), url("../fonts/LatoRegular.ttf") format("truetype"); }
 
 /* SASS START*/
-.inner-wrapper:before, .inner-wrapper:after, .designer-container {
+.row, .inner-wrapper:before, .inner-wrapper:after, .drop-zone, .drag-zone {
   content: '';
   display: table;
   clear: both; }
@@ -79,15 +79,18 @@ input, select {
 
 /* CSS Reset END */
 /*Navigation start*/
+* {
+  box-sizing: border-box; }
+
 .hidden {
   display: none !important; }
 
-.inner-wrapper:before, .designer-container:before {
+.row:before, .inner-wrapper:before, .drop-zone:before, .drag-zone:before {
   content: '';
   display: table;
   clear: both; }
 
-.inner-wrapper:after, .designer-container:after {
+.row:after, .inner-wrapper:after, .drop-zone:after, .drag-zone:after {
   content: '';
   display: table;
   clear: both; }
@@ -461,14 +464,23 @@ h2 {
 /* Index most popular END */
 /* Designer START */
 .designer .inner-wrapper {
+  width: 80%;
   padding: 200px 0; }
 
 .designer .content-container {
   margin-top: 20px; }
 
+/*
+
+
+
 .designer-container {
   width: 100%;
-  padding: 100px 0; }
+  padding: 100px 0;
+
+  @extend %clearfix;
+
+}
 
 .designer h3 {
   margin-bottom: 5px;
@@ -488,14 +500,15 @@ h2 {
   float: left;
   width: 49%;
   background: #fff;
-  border: 1px solid #363636; }
+  border: 1px solid $primary-color; }
 
 .designer-grid {
   margin: 0 auto;
   width: 100%;
   height: 600px;
   max-width: 600px;
-  max-height: 600px; }
+  max-height: 600px;
+}
 
 .designer-grid li {
   float: left;
@@ -586,6 +599,7 @@ h2 {
 .preview .preview-wall {
   background-position: -114px -686px; }
 
+*/
 /* Designer END */
 /* About START */
 .about-list {
@@ -937,34 +951,6 @@ footer > ul > li:nth-child(3) {
     font-size: 24px; }
   .content-container section h3 {
     font-size: 36px; }
-<<<<<<< HEAD
-  body.AddSet .content-container section {
-    width: 100%; }
-  body.AccountManagement .inner-wrapper {
-    padding-top: 180px; }
-  body.AddSet .inner-wrapper {
-    padding-top: 200px; } }
-
-/* Account Management START */
-.AccountManagement .inner-wrapper {
-  padding-top: 120px; }
-
-.AccountManagement .profile-container {
-  margin-top: 20px; }
-
-.AccountManagement .btn {
-  width: 100%;
-  margin-top: 20px;
-  line-height: 55px; }
-
-.AccountManagement .btn:hover {
-  color: #fff; }
-
-/* Account Management END */
-/* Add Set START */
-.AddSet .inner-wrapper {
-  padding-top: 120px; }
-=======
   .designer-container {
     display: block; }
   .main-image {
@@ -977,23 +963,7 @@ footer > ul > li:nth-child(3) {
     float: left;
     width: 100%;
     margin: 0; } }
->>>>>>> origin/master
 
-.add-set {
-  float: left;
-  width: 100%; }
-  .add-set form, .add-set input, .add-set textarea {
-    width: 100%; }
-  .add-set input {
-    width: 100%; }
-
-.AddSet .content-container section {
-  float: none;
-  margin: 0 auto;
-  padding-bottom: 95px;
-  width: 50%; }
-
-/* Add Set END */
 @media only screen and (max-width: 1024px) {
   .inner-wrapper {
     width: 100%; }
@@ -1060,17 +1030,8 @@ footer > ul > li:nth-child(3) {
   .search {
     box-shadow: none;
     border-bottom: 1px solid #e7e7e7; }
-<<<<<<< HEAD
-  body.AccountManagement .inner-wrapper {
-    padding-top: 185px; }
-  .AccountManagement .profile-container {
-    margin-top: 0; }
-  .AddSet .content-container section {
-    width: 100%; } }
-=======
   .inner-wrapper {
     padding: 20px; } }
->>>>>>> origin/master
 
 @media only screen and (max-width: 768px) {
   h1 {
@@ -1080,11 +1041,7 @@ footer > ul > li:nth-child(3) {
   .gallery .content-container, .about .content-container {
     padding-top: 94px; }
   .profile-container {
-    margin-top: 120px; }
-  body.AccountManagement .inner-wrapper {
-    padding-top: 120px; }
-  .AccountManagement .profile-container {
-    margin: 0; } }
+    margin-top: 120px; } }
 
 @media only screen and (max-width: 480px) {
   h1 {
@@ -1141,7 +1098,9 @@ footer > ul > li:nth-child(3) {
 .drop-zone, .drag-zone {
   position: relative;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  max-width: 720px;
+  max-height: 720px; }
 
 .drag-zone {
   height: 100%; }
@@ -1149,8 +1108,9 @@ footer > ul > li:nth-child(3) {
 .dragbox-wrapper {
   display: inline-block;
   float: left;
-  width: 200px;
-  height: 200px; }
+  width: 100px;
+  height: 100px;
+  padding: 5px; }
 
 .drag-zone img {
   width: 100%;
@@ -1165,7 +1125,7 @@ footer > ul > li:nth-child(3) {
   left: 0;
   width: 0;
   height: 0;
-  border-top: 30px solid  #FF740B;
+  border-top: 30px solid #ff740b;
   border-right: 30px solid transparent; }
 
 #top-right {
@@ -1173,7 +1133,7 @@ footer > ul > li:nth-child(3) {
   right: 0;
   width: 0;
   height: 0;
-  border-top: 30px solid  #FF740B;
+  border-top: 30px solid #ff740b;
   border-left: 30px solid transparent; }
 
 #bottom-left {
@@ -1181,7 +1141,7 @@ footer > ul > li:nth-child(3) {
   left: 0;
   width: 0;
   height: 0;
-  border-bottom: 30px solid  #FF740B;
+  border-bottom: 30px solid #ff740b;
   border-right: 30px solid transparent; }
 
 #bottom-right {
@@ -1189,22 +1149,26 @@ footer > ul > li:nth-child(3) {
   right: 0;
   width: 0;
   height: 0;
-  border-bottom: 30px solid  #FF740B;
+  border-bottom: 30px solid #ff740b;
   border-left: 30px solid transparent; }
 
 .dropbox-wrapper {
   float: left;
-  position: relative; }
+  position: relative;
+  background-color: #FFF; }
 
 .dropbox {
-  border: 1px dashed #000; }
+  border: 1px dashed #363636; }
 
 .dropbox-wrapper .rotator {
   display: none;
   position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 20000; }
+  top: 15px;
+  right: 15px;
+  z-index: 20000;
+  padding: 2.5px;
+  background-color: #FFF;
+  border: 1px solid #363636; }
 
 .gutter {
   padding: 10px !important; }
@@ -1213,8 +1177,28 @@ footer > ul > li:nth-child(3) {
   position: relative;
   width: 100%;
   height: auto;
-  border: 1px solid #000;
+  border: 1px solid #363636;
   z-index: 10000; }
+
+.designer-comp-title {
+  font-size: 48px;
+  font-weight: 100;
+  margin-bottom: 10px; }
+
+.designer-comp-artist {
+  font-size: 30px;
+  font-weight: 100;
+  margin-bottom: 30px; }
+
+.designer-comp-description-title {
+  margin-top: 20px; }
+
+.designer-comp-description {
+  margin: 20px 0; }
+
+.designer-comp-order {
+  float: left;
+  margin-top: 20px; }
 
 /*
     DESIGNER COMPONENT END

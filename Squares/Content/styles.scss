@@ -287,12 +287,18 @@ h2 {
 /* Index most popular END */
 
 /* Designer START */
+
 .designer .inner-wrapper {
+    width: 80%;
     padding: 200px 0;
 }
 
 .designer .content-container {
   margin-top: 20px; }
+
+/*
+
+
 
 .designer-container {
   width: 100%;
@@ -418,6 +424,8 @@ h2 {
 
 .preview .preview-wall {
   background-position: -114px -686px; }
+
+*/
 
 /* Designer END */
 
@@ -871,29 +879,6 @@ footer > ul > li:nth-child(3) {
         font-size: 36px;
     }
 
-<<<<<<< HEAD
-    body.AddSet .content-container section {
-        width: 100%;
-    }
-
-    body.AccountManagement .inner-wrapper {
-        padding-top: 180px;
-    }
-
-    body.AddSet .inner-wrapper {
-        padding-top: 200px;
-    }
-}
-
-/* Account Management START */
-
-.AccountManagement .inner-wrapper {
-    padding-top: 120px;
-}
-
-.AccountManagement .profile-container {
-    margin-top: 20px;
-=======
     .designer-container {
         display: block;
     }
@@ -918,47 +903,7 @@ footer > ul > li:nth-child(3) {
 
 
 
->>>>>>> origin/master
 }
-
-.AccountManagement .btn {
-    width: 100%;
-    margin-top: 20px;
-    line-height: 55px;
-}
-
-.AccountManagement .btn:hover {
-    color: $color-clear;
-}
-
-/* Account Management END */
-
-/* Add Set START */
-.AddSet .inner-wrapper {
-    padding-top: 120px;
-}
-
-.add-set {
-    float: left;
-    width: 100%;
-
-    form, input, textarea {
-        width: 100%;
-    }
-
-    input {
-        width: 100%;
-    }
-}
-
-.AddSet .content-container section {
-    float: none;
-    margin: 0 auto;
-    padding-bottom: 95px;
-    width: 50%;
-}
-
-/* Add Set END */
 
 @media only screen and (max-width : 1024px) {
     
@@ -1069,24 +1014,10 @@ footer > ul > li:nth-child(3) {
         border-bottom: 1px solid #e7e7e7;
     }
 
-<<<<<<< HEAD
-    body.AccountManagement .inner-wrapper {
-        padding-top: 185px;
-    }
-
-    .AccountManagement .profile-container {
-        margin-top: 0;
-    }
-
-    .AddSet .content-container section {
-        width: 100%;
-    }
-=======
     .inner-wrapper {
         padding: 20px;
     }
 
->>>>>>> origin/master
 }
 
 @media only screen and (max-width : 768px) {
@@ -1103,14 +1034,6 @@ footer > ul > li:nth-child(3) {
 
     .profile-container {
         margin-top: 120px;
-    }
-
-    body.AccountManagement .inner-wrapper {
-        padding-top: 120px;
-    }
-
-    .AccountManagement .profile-container {
-        margin: 0;
     }
 }
 
@@ -1184,6 +1107,9 @@ footer > ul > li:nth-child(3) {
   position: relative;
   width: 100%;
   height: 100%;
+  max-width: 720px;
+  max-height: 720px;
+  @extend %clearfix;
 }
 
 .drag-zone {
@@ -1193,8 +1119,9 @@ footer > ul > li:nth-child(3) {
 .dragbox-wrapper {
     display: inline-block;
     float: left;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
+    padding: 5px;
 }
 
 .drag-zone img {
@@ -1212,7 +1139,7 @@ footer > ul > li:nth-child(3) {
   left: 0;
   width: 0;
   height: 0;
-  border-top: 30px solid  #FF740B;
+  border-top: 30px solid  $complementary-color;
   border-right: 30px solid transparent;
 }
 
@@ -1221,7 +1148,7 @@ footer > ul > li:nth-child(3) {
   right: 0;
   width: 0;
   height: 0;
-  border-top: 30px solid  #FF740B;
+  border-top: 30px solid  $complementary-color;
   border-left: 30px solid transparent;
 }
 
@@ -1230,7 +1157,7 @@ footer > ul > li:nth-child(3) {
   left: 0;
   width: 0;
   height: 0;
-  border-bottom: 30px solid  #FF740B;
+  border-bottom: 30px solid  $complementary-color;
   border-right: 30px solid transparent;
 }
 
@@ -1239,25 +1166,29 @@ footer > ul > li:nth-child(3) {
   right: 0;
   width: 0;
   height: 0;
-  border-bottom: 30px solid  #FF740B;
+  border-bottom: 30px solid  $complementary-color;
   border-left: 30px solid transparent;
 }
 
 .dropbox-wrapper {
   float: left;
   position: relative;
+  background-color: $secondary-color;
 }
 
 .dropbox {
-  border: 1px dashed #000;
+  border: 1px dashed $primary-color;
 }
 
 .dropbox-wrapper .rotator {
   display: none;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   z-index: 20000;
+  padding: 2.5px;
+  background-color: $secondary-color;
+  border: 1px solid $primary-color;
 }
 
 .gutter {
@@ -1268,8 +1199,34 @@ footer > ul > li:nth-child(3) {
   position: relative;
   width: 100%;
   height: auto;
-  border: 1px solid #000;
+  border: 1px solid $primary-color;
   z-index: 10000;
+}
+
+.designer-comp-title {
+    font-size: 48px;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+.designer-comp-artist {
+    font-size: 30px;
+    font-weight: 100;
+    margin-bottom: 30px;
+}
+
+
+.designer-comp-description-title {
+    margin-top: 20px;
+}
+
+.designer-comp-description {
+    margin: 20px 0;
+}
+
+.designer-comp-order {
+    float: left;
+    margin-top: 20px;
 }
 
 /*

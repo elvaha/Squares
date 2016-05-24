@@ -88,7 +88,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -225,6 +228,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\about-image.png" />
     <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\favico.png" />
     <Content Include="Content\images\imageBlank.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logoff.png" />
@@ -379,6 +383,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

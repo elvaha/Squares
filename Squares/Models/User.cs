@@ -15,6 +15,7 @@ namespace Squares.Models
         public bool IsArtist { get; set; }
         public String Alias { get; set; }
         public String Description { get; set; }
+        public List<Set> sets { get; set; }
 
         public User()
         {
@@ -55,6 +56,7 @@ namespace Squares.Models
 
                 CurrentUser.Alias = alias;
                 CurrentUser.Description = Description;
+                CurrentUser.sets = artist.Sets.ToList();
             }
 
             return CurrentUser;

@@ -10,11 +10,8 @@
         we hate circles
     </h1>
     <p>
-        Description of the what the website is all about. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-        suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
-        Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-        quam nihil molestiae consequatur, vel illum qui dolorem eum
-        fugiat quo voluptas nulla pariatur
+        We have made it possible for you to be your own designer, Artist provide the pictures and you do the rest.
+        Let you inner designer take a hold of you and let go!
     </p>
     <span><a href="#">Click here</a> to find out how to use our designer.</span>
 </section>
@@ -22,64 +19,38 @@
     <h2>Most popular sets</h2>
     <section>
         <ul>
-
             @{
-
                 foreach (var set in Model.getIndexGallery())
                 {
                     <li class="set-item">
                         <h3 class="set-title">@set.Title</h3>
-                        <span class="artist-name">@set.Artist.Alias</span>
+                        @Html.ActionLink(set.Artist.Alias, "Profile", "Home", new { artistId = set.ArtistId }, new { @class = "artist-name" })
                         <p class="set-description">
                            @set.Description
                         </p>
                         <dl class="rating-container">
-                            <dt class="rating-on"></dt>
-                            <dt class="rating-on"></dt>
-                            <dt class="rating-on"></dt>
-                            <dt class="rating-on"></dt>
-                            <dt class="rating-off"></dt>
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                if (i <= set.Rating)
+                                {
+                                    <dt class="rating-on"></dt>
+                                }
+                                else
+                                {
+                                    <dt class="rating-off"></dt>
+                                }
+                            }
                         </dl>
                         <ol class="set-preview">
                             @for(int i = 0; i < 5; i++)
                             {
-                                <li><a href="#"><img src="~/Content/images/squares/1.jpg"></a></li>
+                                <li><a href="#"><img src="@set.SetPieces[i].Url.ToString()"></a></li>
                             }
                             
                         </ol>
-                        <button class="btn">Customize</button>
+                        @Html.ActionLink("Customize", "Designer", "Home", new { setId = set.SetId }, new { @class = "btn" })
                     </li>
                 }
-
-                @*for (var i = 0; i < 6; i++)
-                {
-                    <li class="set-item">
-                        <h3 class="set-title">Title</h3>
-                        <span class="artist-name">Artist Name</span>
-                        <p class="set-description">
-                            Description Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat.
-                        </p>
-                        <dl class="rating-container">
-                            <dt class="rating-on"></dt>
-                            <dt class="rating-on"></dt>
-                            <dt class="rating-on"></dt>
-                            <dt class="rating-on"></dt>
-                            <dt class="rating-off"></dt>
-                        </dl>
-                        <ol class="set-preview">
-                            <li><a href="#"><img src="~/Content/images/squares/1.jpg"></a></li>
-                            <li><a href="#"><img src="~/Content/images/squares/2.jpg"></a></li>
-                            <li><a href="#"><img src="~/Content/images/squares/3.jpg"></a></li>
-                            <li><a href="#"><img src="~/Content/images/squares/4.jpg"></a></li>
-                            <li><a href="#"><img src="~/Content/images/squares/5.jpg"></a></li>
-                        </ol>
-                        <button class="btn">Customize</button>
-                    </li>
-                }*@
 
             }
 

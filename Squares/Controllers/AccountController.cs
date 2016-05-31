@@ -491,54 +491,55 @@ namespace Squares.Controllers
         public ActionResult AddSet(CreateSetModel model)
         {
             ViewBag.Class = "AddSet";
-
-            SquaresDataContext db = new SquaresDataContext();
-            List<String> urls = new List<String>();
             var user = UserManager.FindById(User.Identity.GetUserId());
-            Guid SetId = Guid.NewGuid();
-
-            Artist artist = db.Artists.Where(x => x.UserId == user.Id.ToString()).FirstOrDefault();
 
             try
             {
-                Set set = new Set()
+                using (var db = new SquaresDataContext())
                 {
-                    Title = model.Title,
-                    Description = model.Description,
-                    isDisabled = false,
-                    Rating = 0,
-                    Date = DateTime.Now,
-                    SetId = SetId.ToString(),
-                    ArtistId = artist.ArtistId,
-                    ViewCount = 0
-                };
 
-                db.Sets.InsertOnSubmit(set);
+                    Guid SetId = Guid.NewGuid();
+                    Artist artist = db.Artists.Where(x => x.UserId == user.Id.ToString()).FirstOrDefault();
 
-                foreach (var file in model.Images)
-                {
-                    Guid pieceId = Guid.NewGuid();
-                    string path = Path.Combine(Server.MapPath("~/App_Data/uploads"), pieceId + Path.GetExtension(file.FileName));
-                    string url = "~/App_Data/uploads/" + pieceId + Path.GetExtension(file.FileName);
-                    SetPiece setPiece = new SetPiece()
+                    Set set = new Set()
                     {
-                        PieceId = pieceId.ToString(),
                         SetId = SetId.ToString(),
-                        Url = url
+                        Title = model.Title,
+                        Description = model.Description,
+                        Date = DateTime.Now,
+                        Rating = 0,
+                        ViewCount = 0,
+                        ArtistId = artist.ArtistId,
+                        isDisabled = false
                     };
 
-                    db.SetPieces.InsertOnSubmit(setPiece);
-                    file.SaveAs(path);
+                    db.Sets.InsertOnSubmit(set);
+
+                    foreach (var file in model.Images)
+                    {
+                        Guid pieceId = Guid.NewGuid();
+                        string path = Path.Combine(Server.MapPath("~/uploads"), pieceId + Path.GetExtension(file.FileName));
+                        string url = "/Uploads/" + pieceId + Path.GetExtension(file.FileName);
+                        SetPiece setPiece = new SetPiece()
+                        {
+                            PieceId = pieceId.ToString(),
+                            SetId = SetId.ToString(),
+                            Url = url
+                        };
+
+                        db.SetPieces.InsertOnSubmit(setPiece);
+                        file.SaveAs(path);
+                    }
+                    //TODO! sommething somehting
+                    db.SubmitChanges();
+                    return View();
                 }
-                //TODO! sommething somehting
-                db.SubmitChanges();
-                return View();
             }
             catch
             {
                 return RedirectToAction("Index", "Home");
             }
-            
+
         }
 
 

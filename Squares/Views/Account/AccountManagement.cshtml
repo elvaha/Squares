@@ -5,29 +5,58 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <h2>Welcome: @Model.UserName</h2>
+@{
+    Squares.Models.ArtistUser artist = new Squares.Models.ArtistUser();
+}
 
-    @{
-        Squares.Models.ArtistUser artist = new Squares.Models.ArtistUser();   
-    }
+@if (!Model.IsArtist)
+{
+    @Html.Partial("UserArtist", artist)
+}
 
-    @if (!Model.IsArtist)
-    {
-        @Html.Partial("UserArtist", artist)
-    }
+<section class="profile-container">
+    <div class="profile-image-container">
+        <img src="https://lh3.googleusercontent.com/-OVWapa1cMi8/AAAAAAAAAAI/AAAAAAAAAAA/QcfUy0l4Luw/photo.jpg" />
+    </div>
+    <div class="profile-info-container">
+        <h3>@Model.FirstName @Model.LastName</h3>
+        @if (Model.IsArtist)
+            {
+            <p>Alias: @Model.Alias</p>
+                <p>Description: @Model.Description</p>
+                @Html.ActionLink("Add Set", "AddSet", "Account", new { @class = "btn" })
+                
+                foreach (var item in Model.sets)
+                {
+                    <div class="profile-sets-wrapper">
+                        <h3>@item.Title</h3>
+                        <dl class="rating-container">
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                if (i <= item.Rating)
+                                {
+                                    <dt class="rating-on"></dt>
+                                }
+                                else
+                                {
+                                    <dt class="rating-off"></dt>
+                                }
+                            }
+                        </dl>
+                        <ul>
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                <li><img src="@item.SetPieces[i].Url.ToString()" /></li>
+                            }
+                        </ul>
+                        <p class="set-description">
+                            @item.Description
+                        </p>
+                        <button class="btn">Edit</button>
+                    </div>
+                }
+        }
+    </div>
+</section>
 
-    <section class="profile-container">
-        <div class="profile-image-container">
-            <img src="https://lh3.googleusercontent.com/-OVWapa1cMi8/AAAAAAAAAAI/AAAAAAAAAAA/QcfUy0l4Luw/photo.jpg" />
-        </div>
-        <div class="profile-info-container">
-            <h3>Alias Name Last Name</h3>
-            <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-            </p>
-        </div>
-        @Html.ActionLink("Add Set", "AddSet", "Account", new { @class = "btn" })
-    </section>
 
-    

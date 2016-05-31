@@ -1,0 +1,915 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SquaresModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="ArtistId" />
+          </Key>
+          <Property Name="ArtistId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="Alias" Type="varchar(max)" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ZipcodeId" Type="nvarchar" MaxLength="128" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Orginization" Type="nvarchar(max)" />
+          <Property Name="RegistrationDate" Type="datetime" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="IsArtist" Type="bit" />
+          <Property Name="HasAccess" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Collection">
+          <Key>
+            <PropertyRef Name="CollectionId" />
+          </Key>
+          <Property Name="CollectionId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="SetId" Type="nvarchar" MaxLength="128" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Squares.dbo.CollectionPiece' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CollectionPiece">
+          <Key>
+            <PropertyRef Name="CollectionId" />
+            <PropertyRef Name="PieceId" />
+          </Key>
+          <Property Name="CollectionId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PieceId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Set">
+          <Key>
+            <PropertyRef Name="SetId" />
+          </Key>
+          <Property Name="SetId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Title" Type="varchar(max)" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Rating" Type="int" />
+          <Property Name="ViewCount" Type="int" />
+          <Property Name="ArtistId" Type="nvarchar" MaxLength="128" />
+          <Property Name="isDisabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="SetPiece">
+          <Key>
+            <PropertyRef Name="PieceId" />
+          </Key>
+          <Property Name="PieceId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="SetId" Type="nvarchar" MaxLength="128" />
+          <Property Name="Url" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Squares.dbo.SetTag' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SetTag">
+          <Key>
+            <PropertyRef Name="SetId" />
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="SetId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="TagId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="tagId" />
+          </Key>
+          <Property Name="tagId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="name" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Zipcode">
+          <Key>
+            <PropertyRef Name="ZipcodeId" />
+          </Key>
+          <Property Name="ZipcodeId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Zipcode" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Squares.dbo.vTopArtists' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vTopArtists">
+          <Key>
+            <PropertyRef Name="ArtistId" />
+          </Key>
+          <Property Name="ArtistId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Alias" Type="varchar(max)" />
+          <Property Name="SetNumber" Type="int" />
+          <Property Name="AverageRating" Type="int" />
+          <Property Name="TotalViews" Type="int" />
+        </EntityType>
+        <Association Name="CollectionFK">
+          <End Role="Collection" Type="Self.Collection" Multiplicity="1" />
+          <End Role="CollectionPiece" Type="Self.CollectionPiece" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collection">
+              <PropertyRef Name="CollectionId" />
+            </Principal>
+            <Dependent Role="CollectionPiece">
+              <PropertyRef Name="CollectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artist__UserId__0697FACD">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Artist" Type="Self.Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artist">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Zipco__5812160E">
+          <End Role="Zipcode" Type="Self.Zipcode" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zipcode">
+              <PropertyRef Name="ZipcodeId" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="ZipcodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Collectio__SetId__1209AD79">
+          <End Role="Set" Type="Self.Set" Multiplicity="0..1" />
+          <End Role="Collection" Type="Self.Collection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Set">
+              <PropertyRef Name="SetId" />
+            </Principal>
+            <Dependent Role="Collection">
+              <PropertyRef Name="SetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Collectio__UserI__12FDD1B2">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Collection" Type="Self.Collection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Collection">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Set__ArtistId__09746778">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Set" Type="Self.Set" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ArtistId" />
+            </Principal>
+            <Dependent Role="Set">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SetPiece__SetId__0F2D40CE">
+          <End Role="Set" Type="Self.Set" Multiplicity="0..1" />
+          <End Role="SetPiece" Type="Self.SetPiece" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Set">
+              <PropertyRef Name="SetId" />
+            </Principal>
+            <Dependent Role="SetPiece">
+              <PropertyRef Name="SetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PieceFK">
+          <End Role="SetPiece" Type="Self.SetPiece" Multiplicity="1" />
+          <End Role="CollectionPiece" Type="Self.CollectionPiece" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SetPiece">
+              <PropertyRef Name="PieceId" />
+            </Principal>
+            <Dependent Role="CollectionPiece">
+              <PropertyRef Name="PieceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SetFK">
+          <End Role="Set" Type="Self.Set" Multiplicity="1" />
+          <End Role="SetTag" Type="Self.SetTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Set">
+              <PropertyRef Name="SetId" />
+            </Principal>
+            <Dependent Role="SetTag">
+              <PropertyRef Name="SetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TagFK">
+          <End Role="Tag" Type="Self.Tag" Multiplicity="1" />
+          <End Role="SetTag" Type="Self.SetTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="tagId" />
+            </Principal>
+            <Dependent Role="SetTag">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SquaresModelStoreContainer">
+          <EntitySet Name="Artist" EntityType="Self.Artist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Collection" EntityType="Self.Collection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Set" EntityType="Self.Set" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SetPiece" EntityType="Self.SetPiece" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zipcode" EntityType="Self.Zipcode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CollectionPiece" EntityType="Self.CollectionPiece" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CollectionPiece].[CollectionId] AS [CollectionId], 
+    [CollectionPiece].[PieceId] AS [PieceId]
+    FROM [dbo].[CollectionPiece] AS [CollectionPiece]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SetTag" EntityType="Self.SetTag" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SetTag].[SetId] AS [SetId], 
+    [SetTag].[TagId] AS [TagId]
+    FROM [dbo].[SetTag] AS [SetTag]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vTopArtists" EntityType="Self.vTopArtists" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vTopArtists].[ArtistId] AS [ArtistId], 
+    [vTopArtists].[Alias] AS [Alias], 
+    [vTopArtists].[SetNumber] AS [SetNumber], 
+    [vTopArtists].[AverageRating] AS [AverageRating], 
+    [vTopArtists].[TotalViews] AS [TotalViews]
+    FROM [dbo].[vTopArtists] AS [vTopArtists]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="CollectionFK" Association="Self.CollectionFK">
+            <End Role="Collection" EntitySet="Collection" />
+            <End Role="CollectionPiece" EntitySet="CollectionPiece" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artist__UserId__0697FACD" Association="Self.FK__Artist__UserId__0697FACD">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Artist" EntitySet="Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Zipco__5812160E" Association="Self.FK__AspNetUse__Zipco__5812160E">
+            <End Role="Zipcode" EntitySet="Zipcode" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Collectio__SetId__1209AD79" Association="Self.FK__Collectio__SetId__1209AD79">
+            <End Role="Set" EntitySet="Set" />
+            <End Role="Collection" EntitySet="Collection" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Collectio__UserI__12FDD1B2" Association="Self.FK__Collectio__UserI__12FDD1B2">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Collection" EntitySet="Collection" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Set__ArtistId__09746778" Association="Self.FK__Set__ArtistId__09746778">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="Set" EntitySet="Set" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SetPiece__SetId__0F2D40CE" Association="Self.FK__SetPiece__SetId__0F2D40CE">
+            <End Role="Set" EntitySet="Set" />
+            <End Role="SetPiece" EntitySet="SetPiece" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="PieceFK" Association="Self.PieceFK">
+            <End Role="SetPiece" EntitySet="SetPiece" />
+            <End Role="CollectionPiece" EntitySet="CollectionPiece" />
+          </AssociationSet>
+          <AssociationSet Name="SetFK" Association="Self.SetFK">
+            <End Role="Set" EntitySet="Set" />
+            <End Role="SetTag" EntitySet="SetTag" />
+          </AssociationSet>
+          <AssociationSet Name="TagFK" Association="Self.TagFK">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="SetTag" EntitySet="SetTag" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SquaresModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="ArtistId" />
+          </Key>
+          <Property Name="ArtistId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Artist__UserId__0697FACD" FromRole="Artist" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Sets" Relationship="Self.FK__Set__ArtistId__09746778" FromRole="Artist" ToRole="Set" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ZipcodeId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Orginization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="IsArtist" Type="Boolean" />
+          <NavigationProperty Name="Artists" Relationship="Self.FK__Artist__UserId__0697FACD" FromRole="AspNetUsers" ToRole="Artist" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="Zipcode" Relationship="Self.FK__AspNetUse__Zipco__5812160E" FromRole="AspNetUsers" ToRole="Zipcode" />
+          <NavigationProperty Name="Collections" Relationship="Self.FK__Collectio__UserI__12FDD1B2" FromRole="AspNetUsers" ToRole="Collection" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <Property Name="HasAccess" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Collection">
+          <Key>
+            <PropertyRef Name="CollectionId" />
+          </Key>
+          <Property Name="CollectionId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SetId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Collectio__UserI__12FDD1B2" FromRole="Collection" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Set" Relationship="Self.FK__Collectio__SetId__1209AD79" FromRole="Collection" ToRole="Set" />
+          <NavigationProperty Name="SetPieces" Relationship="SquaresModel.CollectionPiece" FromRole="Collection" ToRole="SetPiece" />
+        </EntityType>
+        <EntityType Name="Set">
+          <Key>
+            <PropertyRef Name="SetId" />
+          </Key>
+          <Property Name="SetId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="ViewCount" Type="Int32" />
+          <Property Name="ArtistId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="isDisabled" Type="Boolean" />
+          <NavigationProperty Name="Artist" Relationship="Self.FK__Set__ArtistId__09746778" FromRole="Set" ToRole="Artist" />
+          <NavigationProperty Name="Collections" Relationship="Self.FK__Collectio__SetId__1209AD79" FromRole="Set" ToRole="Collection" />
+          <NavigationProperty Name="SetPieces" Relationship="Self.FK__SetPiece__SetId__0F2D40CE" FromRole="Set" ToRole="SetPiece" />
+          <NavigationProperty Name="Tags" Relationship="SquaresModel.SetTag" FromRole="Set" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="SetPiece">
+          <Key>
+            <PropertyRef Name="PieceId" />
+          </Key>
+          <Property Name="PieceId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SetId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Set" Relationship="Self.FK__SetPiece__SetId__0F2D40CE" FromRole="SetPiece" ToRole="Set" />
+          <NavigationProperty Name="Collections" Relationship="SquaresModel.CollectionPiece" FromRole="SetPiece" ToRole="Collection" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="tagId" />
+          </Key>
+          <Property Name="tagId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sets" Relationship="SquaresModel.SetTag" FromRole="Tag" ToRole="Set" />
+        </EntityType>
+        <EntityType Name="Zipcode">
+          <Key>
+            <PropertyRef Name="ZipcodeId" />
+          </Key>
+          <Property Name="ZipcodeId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Zipcode1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__AspNetUse__Zipco__5812160E" FromRole="Zipcode" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="vTopArtist">
+          <Key>
+            <PropertyRef Name="ArtistId" />
+          </Key>
+          <Property Name="ArtistId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SetNumber" Type="Int32" />
+          <Property Name="AverageRating" Type="Int32" />
+          <Property Name="TotalViews" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__Artist__UserId__0697FACD">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Artist" Type="Self.Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artist">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Set__ArtistId__09746778">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Set" Type="Self.Set" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ArtistId" />
+            </Principal>
+            <Dependent Role="Set">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Zipco__5812160E">
+          <End Role="Zipcode" Type="Self.Zipcode" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zipcode">
+              <PropertyRef Name="ZipcodeId" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="ZipcodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Collectio__UserI__12FDD1B2">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Collection" Type="Self.Collection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Collection">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Collectio__SetId__1209AD79">
+          <End Role="Set" Type="Self.Set" Multiplicity="0..1" />
+          <End Role="Collection" Type="Self.Collection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Set">
+              <PropertyRef Name="SetId" />
+            </Principal>
+            <Dependent Role="Collection">
+              <PropertyRef Name="SetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SetPiece__SetId__0F2D40CE">
+          <End Role="Set" Type="Self.Set" Multiplicity="0..1" />
+          <End Role="SetPiece" Type="Self.SetPiece" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Set">
+              <PropertyRef Name="SetId" />
+            </Principal>
+            <Dependent Role="SetPiece">
+              <PropertyRef Name="SetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="SquaresEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Artists" EntityType="Self.Artist" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Collections" EntityType="Self.Collection" />
+          <EntitySet Name="Sets" EntityType="Self.Set" />
+          <EntitySet Name="SetPieces" EntityType="Self.SetPiece" />
+          <EntitySet Name="Tags" EntityType="Self.Tag" />
+          <EntitySet Name="Zipcodes" EntityType="Self.Zipcode" />
+          <EntitySet Name="vTopArtists" EntityType="Self.vTopArtist" />
+          <AssociationSet Name="FK__Artist__UserId__0697FACD" Association="Self.FK__Artist__UserId__0697FACD">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Artist" EntitySet="Artists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Set__ArtistId__09746778" Association="Self.FK__Set__ArtistId__09746778">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="Set" EntitySet="Sets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Zipco__5812160E" Association="Self.FK__AspNetUse__Zipco__5812160E">
+            <End Role="Zipcode" EntitySet="Zipcodes" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Collectio__UserI__12FDD1B2" Association="Self.FK__Collectio__UserI__12FDD1B2">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Collection" EntitySet="Collections" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Collectio__SetId__1209AD79" Association="Self.FK__Collectio__SetId__1209AD79">
+            <End Role="Set" EntitySet="Sets" />
+            <End Role="Collection" EntitySet="Collections" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SetPiece__SetId__0F2D40CE" Association="Self.FK__SetPiece__SetId__0F2D40CE">
+            <End Role="Set" EntitySet="Sets" />
+            <End Role="SetPiece" EntitySet="SetPieces" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="SetTag" Association="SquaresModel.SetTag">
+            <End Role="Set" EntitySet="Sets" />
+            <End Role="Tag" EntitySet="Tags" />
+          </AssociationSet>
+          <AssociationSet Name="CollectionPiece" Association="SquaresModel.CollectionPiece">
+            <End Role="Collection" EntitySet="Collections" />
+            <End Role="SetPiece" EntitySet="SetPieces" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="SetTag">
+          <End Type="SquaresModel.Set" Role="Set" Multiplicity="*" />
+          <End Type="SquaresModel.Tag" Role="Tag" Multiplicity="*" />
+        </Association>
+        <Association Name="CollectionPiece">
+          <End Type="SquaresModel.Collection" Role="Collection" Multiplicity="*" />
+          <End Type="SquaresModel.SetPiece" Role="SetPiece" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SquaresModelStoreContainer" CdmEntityContainer="SquaresEntities">
+          <EntitySetMapping Name="Artists">
+            <EntityTypeMapping TypeName="SquaresModel.Artist">
+              <MappingFragment StoreEntitySet="Artist">
+                <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="SquaresModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="SquaresModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="SquaresModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="SquaresModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="HasAccess" ColumnName="HasAccess" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ZipcodeId" ColumnName="ZipcodeId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Orginization" ColumnName="Orginization" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="IsArtist" ColumnName="IsArtist" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Collections">
+            <EntityTypeMapping TypeName="SquaresModel.Collection">
+              <MappingFragment StoreEntitySet="Collection">
+                <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
+                <ScalarProperty Name="SetId" ColumnName="SetId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sets">
+            <EntityTypeMapping TypeName="SquaresModel.Set">
+              <MappingFragment StoreEntitySet="Set">
+                <ScalarProperty Name="SetId" ColumnName="SetId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+                <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+                <ScalarProperty Name="isDisabled" ColumnName="isDisabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SetPieces">
+            <EntityTypeMapping TypeName="SquaresModel.SetPiece">
+              <MappingFragment StoreEntitySet="SetPiece">
+                <ScalarProperty Name="PieceId" ColumnName="PieceId" />
+                <ScalarProperty Name="SetId" ColumnName="SetId" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="SquaresModel.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="tagId" ColumnName="tagId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zipcodes">
+            <EntityTypeMapping TypeName="SquaresModel.Zipcode">
+              <MappingFragment StoreEntitySet="Zipcode">
+                <ScalarProperty Name="ZipcodeId" ColumnName="ZipcodeId" />
+                <ScalarProperty Name="Zipcode1" ColumnName="Zipcode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vTopArtists">
+            <EntityTypeMapping TypeName="SquaresModel.vTopArtist">
+              <MappingFragment StoreEntitySet="vTopArtists">
+                <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="SetNumber" ColumnName="SetNumber" />
+                <ScalarProperty Name="AverageRating" ColumnName="AverageRating" />
+                <ScalarProperty Name="TotalViews" ColumnName="TotalViews" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="SquaresModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SetTag" TypeName="SquaresModel.SetTag" StoreEntitySet="SetTag">
+            <EndProperty Name="Tag">
+              <ScalarProperty Name="tagId" ColumnName="TagId" />
+            </EndProperty>
+            <EndProperty Name="Set">
+              <ScalarProperty Name="SetId" ColumnName="SetId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="CollectionPiece" TypeName="SquaresModel.CollectionPiece" StoreEntitySet="CollectionPiece">
+            <EndProperty Name="SetPiece">
+              <ScalarProperty Name="PieceId" ColumnName="PieceId" />
+            </EndProperty>
+            <EndProperty Name="Collection">
+              <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

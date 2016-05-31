@@ -5,8 +5,6 @@
     var rowSize = 0;
     var colSize = 0;
 
-
-
     var minRowSize = minColSize = options.minGridSize !== undefined ? options.minGridSize : 2;
     var maxRowSize = maxColSize = options.maxGridSize !== undefined ? options.maxGridSize : 5;
     var gridSize = options.initialGridSize !== undefined ? options.initialGridSize : 3;
@@ -26,17 +24,11 @@
 
     function initializeSquareGrid() {
 
-        if (options.debugMode)
-            var COLOR = getRandomColor();
-
         rowSize = colSize = gridSize;
 
         for (var i = 0; i < (rowSize * colSize) ; i++) {
 
             newElem = newDropBox();
-
-            if (options.debugMode)
-                $(newElem).find(options.dropbox).css('background-color', COLOR);
 
             dropZone.append(newElem);
 
@@ -98,8 +90,8 @@
         newGutterWrapper
 			.addClass('dropbox-wrapper');
 
-        var rotatorBtn = $('<button>R</button>');
-        $(rotatorBtn).addClass('rotator');
+        var rotatorBtn = $('<button></button>');
+        $(rotatorBtn).addClass('rotator').addClass('ion-refresh');
 
         $(rotatorBtn).click(function () {
 
@@ -166,15 +158,9 @@
         if (rowSize === maxRowSize)
             return this;
 
-        if (options.debugMode)
-            var COLOR = getRandomColor();
-
         for (var i = 0; i < colSize; i++) {
 
             newElem = newDropBox();
-
-            if (options.debugMode)
-                $(newElem).find(options.dropbox).css('background-color', COLOR);
 
             if (position)
                 dropZone.append(newElem);
@@ -231,9 +217,6 @@
         if (maxColSize === colSize)
             return this;
 
-        if (options.debugMode)
-            var COLOR = getRandomColor();
-
         colSize++;
         var itemArray = $(dropZone).children(options.dropboxWrapper);
         var newElem;
@@ -246,9 +229,6 @@
             if ((i + 1) % (colSize - 1) === 0) {
 
                 newElem = newDropBox();
-
-                if (options.debugMode)
-                    $(newElem).find(options.dropbox).css('background-color', COLOR);
 
                 $(newElem).insertAfter(e);
 
@@ -304,19 +284,6 @@
 
     }
 
-    var getRandomColor = function () {
-
-        var letters = '0123456789ABCDEF'.split('');
-        var color = '#';
-
-        for (var i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-
-        return color;
-
-    }
-
     return {
         getBoxSize: getBoxSize,
         initializeSquareGrid: initializeSquareGrid,
@@ -342,8 +309,7 @@ var myCC = new cc({
     gridbutton: '.grid-button',
     initialGridSize: 3,
     minGridSize: 2,
-    maxGridSize: 5,
-    debugMode: false,
+    maxGridSize: 5
 
 }, []);
 

@@ -6,6 +6,10 @@ $primary-color: #363636;
 $secondary-color: #FFF;
 $complementary-color: #ff740b;
 
+* {
+    box-sizing: border-box;
+}
+
 .hidden {
     display: none !important;
 }
@@ -24,4 +28,8 @@ $complementary-color: #ff740b;
         clear: both;
     }
 
+}
+
+.row {
+    @extend %clearfix;
 }

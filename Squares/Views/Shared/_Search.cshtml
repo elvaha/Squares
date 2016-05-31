@@ -9,9 +9,10 @@
     SelectList searchPlaces = new SelectList(dropdownOptions);
 }
 <div id="search-widget" class="search bring-to-front">
-    @using (Html.BeginForm("Gallery", "Home", FormMethod.Post)) {
+    @using (Html.BeginForm("Gallery", "Home", FormMethod.Post, new { @class = "search__form" })) {
         <div class="search__type hidden-sm-down">
-            @Html.DropDownListFor(x => x.searchPlace, searchPlaces)
+            @*@Html.DropDownListFor(x => x.searchPlace, searchPlaces)*@
+            <p class="search__type-text">Artist</p>
         </div>
         <div class="search__searchbar-wrapper">
             @Html.TextBoxFor(x => x.searchParam, new { @id = "searchParam", @name = "searchParam", @class = "search__searchbar", @placeholder = "Search our gallery" })

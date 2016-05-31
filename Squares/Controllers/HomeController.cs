@@ -63,7 +63,7 @@ namespace Squares.Controllers
             return View(set);
         }
 
-        [HttpGet]
+
         public ActionResult Profile(string artistId)
         {
             SquaresDataContext db = new SquaresDataContext();

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 
@@ -122,6 +123,7 @@ namespace Squares.Models
         public string Description { get; set; }
 
         [Required]
+        [EnsureMinimumElements(5, 25, ErrorMessage = "There should be atleast five elements in the list")]
         [Display(Name = "Images")]
         public IEnumerable<HttpPostedFileBase> Images { get; set; }
     }
@@ -143,4 +145,28 @@ namespace Squares.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+
+
+    public class EnsureMinimumElementsAttribute : ValidationAttribute
+    {
+        private readonly int _minElements;
+        private readonly int _maxElements;
+        public EnsureMinimumElementsAttribute(int minElements, int maxElements)
+        {
+            _minElements = minElements;
+            _maxElements = maxElements;
+        }
+
+        public override bool IsValid(object value)
+        {
+            var list = value as IList;
+            if (list != null)
+            {
+                return list.Count >= _minElements && list.Count <= _maxElements;
+            }
+            return false;
+        }
+    }
+
 }

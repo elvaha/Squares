@@ -226,6 +226,7 @@
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\left-arrow.png" />
     <Content Include="Content\images\about-image.png" />
     <Content Include="Content\images\bg.jpg" />
     <Content Include="Content\images\favico.png" />

@@ -17,7 +17,7 @@
         <div class="search__searchbar-wrapper">
             @Html.TextBoxFor(x => x.searchParam, new { @id = "searchParam", @name = "searchParam", @class = "search__searchbar", @placeholder = "Search our gallery" })
         </div>
-        <input type="submit" src="~/Content/images/search-ico.png" class="search__submit"/>
+        <input type="image" src="~/Content/images/search-ico.png" class="search__submit"/>
         @*<img class="search__submit src="~/Content/images/search-ico.png" />*@ 
     }
     <div class="hidden-sm-down search__sort @if (ViewBag.Class == "index" || ViewBag.Class == "about") { @Html.Raw("hidden") }">

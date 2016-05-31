@@ -84,7 +84,7 @@ namespace Squares.Models
         {
             SquaresDataContext db = new SquaresDataContext();
             List<Set> searchSet = new List<Set>();
-
+            
             switch (searchPlace)
             {
 

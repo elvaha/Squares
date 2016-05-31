@@ -196,8 +196,8 @@ input, select {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
 
 .search__arrow {
-  width: 49px;
-  height: auto;
+  width: 50px;
+  height: 50px;
   padding: 5px;
   cursor: pointer; }
 
@@ -240,7 +240,8 @@ input, select {
   top: 0;
   right: 0;
   padding: 10px;
-  cursor: pointer; }
+  cursor: pointer;
+  border: none; }
 
 .search__sort {
   position: absolute;
@@ -356,6 +357,9 @@ h1 {
 
 /* Index page header END */
 /* Index - Most popular START */
+.about .inner-wrapper {
+  padding-top: 150px; }
+
 .index .content-container {
   float: left;
   margin-top: -100px;
@@ -941,7 +945,6 @@ footer > ul > li:nth-child(3) {
     font-size: 22px; }
   .gallery .content-container,
   .about .content-container {
-    padding-top: 220px;
     width: 100%; }
   .content-container section ol.set-preview {
     margin-bottom: 10px; }

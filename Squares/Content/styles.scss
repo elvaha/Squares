@@ -176,6 +176,10 @@ h1 {
 
 /* Index - Most popular START */
 
+.about .inner-wrapper {
+    padding-top: 150px;
+}
+
 .index .content-container {
     float: left;
     margin-top: -100px;
@@ -859,7 +863,6 @@ footer > ul > li:nth-child(3) {
            
     .gallery .content-container,
     .about .content-container {
-        padding-top: 220px;
         width: 100%;           
     }
     

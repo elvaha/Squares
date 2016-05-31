@@ -35,30 +35,6 @@
             Squares.Models.searchModel searchModel = new Squares.Models.searchModel();
         }
         @Html.Partial("_Search", searchModel)
-
-        @*<div id="search-widget" class="search bring-to-front">
-            <form class="search__form">
-                <div class="search__type hidden-sm-down">
-                    <p class="search__type-text">artist</p>
-                </div>
-                <div class="search__searchbar-wrapper">
-                    <input class="search__searchbar" placeholder="Search our collection" type="text" />
-                </div>
-                @Html.Action("Gallery", "Home")
-                <img class="search__submit" src="~/Content/images/search-ico.png" />
-                <div class="hidden-sm-down search__sort @if (ViewBag.Class == "index" || ViewBag.Class == "about") { @Html.Raw("hidden") }">
-                    <div class="">
-                        @Html.ActionLink("Top Rated", "Gallery", "Home", new { sort = "RATING" }, new { @class = "search__sort-item" })
-                    </div>
-                    <div class="">
-                        @Html.ActionLink("Most Viewed", "Gallery", "Home", new { sort = "VIEWS" }, new { @class = "search__sort-item" })
-                    </div>
-                    <div class="">
-                        @Html.ActionLink("Newest", "Gallery", "Home", new { sort = "NEW" }, new { @class = "search__sort-item" })
-                    </div>
-                </div>
-            </form>
-        </div>*@
     </nav>
 
     <div class="wrapper">

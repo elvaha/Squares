@@ -34,31 +34,27 @@
                         </dl>
                         <ol class="set-preview">
                             @if (set.SetPieces.Count > 0)
-                        {
-                            int counter = 0;
-                            if (set.SetPieces.Count > 5)
                             {
-                                counter = 5;
-                            }
-                            else
-                            {
-                                counter = set.SetPieces.Count;
-                            }
+                                int counter = 0;
+                                if (set.SetPieces.Count > 5)
+                                {
+                                    counter = 5;
+                                }
+                                else
+                                {
+                                    counter = set.SetPieces.Count;
+                                }
 
-<<<<<<< HEAD
+
                                 for (int i = 0; i < counter; i++)
                                 {
-                                    <li><a href="#"><img src="@set.SetPieces[i].Url + ".png"></a></li>
-=======
-                            for (int i = 0; i < counter; i++)
-                            {
                                     <li><a href="#"><img src="@set.SetPieces[i].Url.ToString()"></a></li>
->>>>>>> origin/master
+
                                 }
-                        }
+                            }
                             else
                             {
-                                <li><a href="#">No images added</li>
+                                <li><a href = "#"> No images added</a></li>
                             }
 
 

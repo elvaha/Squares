@@ -639,6 +639,9 @@ h2 {
 .about-list li:last-child {
   border: none; }
 
+.about .content-container section {
+  margin-top: 120px; }
+
 /* About END */
 /* Form START */
 .form-container {
@@ -810,6 +813,25 @@ input:focus, textarea:focus {
       margin: 0; }
 
 /* Accout Page END */
+/* Acc Management START */
+.AccountManagement h2 {
+  float: left;
+  width: 100%;
+  margin-top: 10px; }
+
+.AccountManagement .btn {
+  clear: both;
+  float: left;
+  margin-top: 10px;
+  line-height: 55px; }
+
+.AccountManagement .btn:hover {
+  color: #fff; }
+
+.AccountManagement .feedback-input {
+  margin: 10px 0 0 0; }
+
+/* Acc Management END */
 /* Footer START */
 footer {
   position: absolute;

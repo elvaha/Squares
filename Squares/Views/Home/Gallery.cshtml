@@ -15,7 +15,7 @@
                 {
                     <li class="set-item">
                         <h3 class="set-title">@set.Title</h3>
-                        <span class="artist-name">@Html.ActionLink(set.Artist.Alias, "Profile", "Home", new { artistId = set.ArtistId })</span>
+                        <span class="artist-name">@Html.ActionLink(set.Artist.Alias, "Profile", "Home", new { artistId = set.ArtistId }, null)</span>
                         <p class="set-description">
                             @set.Description
                         </p>
@@ -47,12 +47,12 @@
 
                             for (int i = 0; i < counter; i++)
                             {
-                                    <li><a href="#"><img src="@set.SetPieces[i].Url.ToString()"></a></li>
+                                    <li><a href="#"><img src="@set.SetPieces[i].Url.ToString()" alt="~/Content/images/imageBlank.jpg"></a></li>
                                 }
                         }
                             else
                             {
-                                <li><a href="#">No images added</li>
+                                <li><a href="#">No images added</a></li>
                             }
 
 

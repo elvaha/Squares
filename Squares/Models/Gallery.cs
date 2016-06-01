@@ -84,24 +84,31 @@ namespace Squares.Models
         {
             SquaresDataContext db = new SquaresDataContext();
             List<Set> searchSet = new List<Set>();
-            
-            switch (searchPlace)
+            try
             {
 
-                case "ARTIST":
-                    searchSet = db.Sets.Where(x => x.Artist.Alias.Contains(searchParam)).ToList();
+                switch (searchPlace)
+                {
 
-                    break;
-                case "SET":
-                    searchSet = db.Sets.Where(x => x.Title.Contains(searchParam) || x.Description.Contains(searchParam)).ToList();
-                    break;
+                    case "ARTIST":
+                        searchSet = db.Sets.Where(x => x.Artist.Alias.Contains(searchParam)).ToList();
 
-                default:
-                    searchSet = WholeGallery();
-                    break;
+                        break;
+                    case "SET":
+                        searchSet = db.Sets.Where(x => x.Title.Contains(searchParam) || x.Description.Contains(searchParam)).ToList();
+                        break;
+
+                    default:
+                        searchSet = WholeGallery();
+                        break;
+                }
+
+                return searchSet;
             }
-
-            return searchSet;
+            catch
+            {
+                return searchSet;
+            }
         }
 
     }

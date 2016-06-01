@@ -47,9 +47,19 @@ namespace Squares.Controllers
         public ActionResult Gallery(searchModel model)
         {
             ViewBag.Class = "gallery";
-
             Gallery gal = new Gallery();
-            return View(gal.SearchGallery(model.searchParam, "ARTIST"));
+            List<Set> searchSet = gal.SearchGallery(model.searchParam, "ARTIST");
+
+            if (searchSet == null || searchSet.Count == 0)
+            {
+                ViewBag.Error = "There is no matching Sets or Artist with your search Parameter";
+                return View();
+            }else
+            {
+                return View(searchSet);
+            }
+
+            
         }
 
         public ActionResult Designer(String SetId)

@@ -208,7 +208,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\HomeViewModels.cs" />
     <Compile Include="Models\Squares.designer.cs">
       <AutoGen>True</AutoGen>

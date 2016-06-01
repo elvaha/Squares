@@ -34,17 +34,19 @@
                                 if (i <= set.Rating)
                                 {
                                     <dt class="rating-on"></dt>
+                                    <dd></dd>
                                 }
                                 else
                                 {
                                     <dt class="rating-off"></dt>
+                                    <dd></dd>
                                 }
                             }
                         </dl>
                         <ol class="set-preview">
                             @for(int i = 0; i < 5; i++)
                             {
-                                <li><a href="#"><img src="@set.SetPieces[i].Url.ToString()"></a></li>
+                                <li><a href="#"><img alt="set piece" src="@set.SetPieces[i].Url.ToString()"></a></li>
                             }
                             
                         </ol>

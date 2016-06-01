@@ -2,13 +2,15 @@
   font-family: 'SimplySquare';
   src: url("../fonts/SimplySquare.ttf");
   /* IE9 Compat Modes */
-  src: url("../fonts/SimplySquare.woff2") format("woff2"), url("../fonts/SimplySquare.woff") format("woff"), url("../fonts/SimplySquare.ttf") format("truetype"); }
+  src: url("../fonts/SimplySquare.woff2") format("woff2");
+  /* Super Modern Browsers */ }
 
 @font-face {
   font-family: 'LatoRegular';
   src: url("../fonts/LatoRegular.ttf");
   /* IE9 Compat Modes */
-  src: url("../fonts/LatoRegular.woff2") format("woff2"), url("../fonts/LatoRegular.woff") format("woff"), url("../fonts/LatoRegular.ttf") format("truetype"); }
+  src: url("../fonts/LatoRegular.woff2") format("woff2");
+  /* Super Modern Browsers */ }
 
 /* SASS START*/
 .row, .inner-wrapper:before, .inner-wrapper:after, .drop-zone, .drag-zone {
@@ -420,6 +422,9 @@ h2 {
 .rating-container dt.rating-off {
   background: 0 -28px url("/Content/images/star.png") no-repeat; }
 
+.rating-container dd {
+  display: none; }
+
 .content-container section ol.set-preview {
   display: flex;
   float: left;
@@ -643,9 +648,6 @@ h2 {
 .about-list li:last-child {
   border: none; }
 
-.about .content-container section {
-  margin-top: 120px; }
-
 /* About END */
 /* Form START */
 .form-container {
@@ -674,7 +676,7 @@ h2 {
 
 .feedback-input:focus {
   background: #fff;
-  box-shadow: 0;
+  box-shadow: none;
   border: 3px solid #ff740b;
   color: #363636;
   outline: none;
@@ -759,7 +761,7 @@ input:focus, textarea:focus {
 .profile-container {
   float: left;
   width: 100%;
-  margin-top: 200px;
+  margin-top: 150px;
   background: #fff;
   padding: 20px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
@@ -942,8 +944,8 @@ footer > ul > li:nth-child(3) {
   h2 {
     font-size: 50px; }
   .main-navigation .nav-gallery {
-    background-size: 92px;
-    background-position: -37px -218px; }
+    background-size: 135px;
+    background-position: -74px -460px; }
     .main-navigation .nav-gallery:hover {
       background-color: #ff740b;
       -webkit-transition: ease 0.3s;
@@ -1063,8 +1065,12 @@ footer > ul > li:nth-child(3) {
     margin-top: 26vh; }
   .index-slogan p {
     width: 90%; }
-  .gallery .content-container, .about .content-container {
+  .gallery .content-container {
     padding-top: 94px; }
+  .about .content-container {
+    padding-top: 0; }
+  .about .content-container section {
+    margin-top: 0; }
   .profile-container {
     margin-top: 120px; } }
 

@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="gallery-hook" class="content-container">
+<div id="transify" class="content-container">
     <section>
         <ul>
             @{
@@ -34,25 +34,30 @@
                         </dl>
                         <ol class="set-preview">
                             @if (set.SetPieces.Count > 0)
-                        {
-                            int counter = 0;
-                            if (set.SetPieces.Count > 5)
                             {
-                                counter = 5;
-                            }
-                            else
-                            {
-                                counter = set.SetPieces.Count;
-                            }
+                                int counter = 0;
+                                if (set.SetPieces.Count > 5)
+                                {
+                                    counter = 5;
+                                }
+                                else
+                                {
+                                    counter = set.SetPieces.Count;
+                                }
 
                             for (int i = 0; i < counter; i++)
                             {
                                     <li><a href="#"><img src="@set.SetPieces[i].Url.ToString()" alt="~/Content/images/imageBlank.jpg"></a></li>
+
+                                for (int i = 0; i < counter; i++)
+                                {
+                                    <li><a href="#"><img src="@set.SetPieces[i].Url.ToString()"></a></li>
                                 }
-                        }
+                            }
                             else
                             {
                                 <li><a href="#">No images added</a></li>
+                                <li><a href = "#"> No images added</a></li>
                             }
 
 

@@ -176,6 +176,10 @@ h1 {
 
 /* Index - Most popular START */
 
+.about .inner-wrapper {
+    padding-top: 150px;
+}
+
 .index .content-container {
     float: left;
     margin-top: -100px;
@@ -477,6 +481,10 @@ h2 {
     border: none;
 }
 
+.about .content-container section {
+    margin-top: 120px;
+}
+
 /* About END */
 
 /* Form START */
@@ -677,6 +685,33 @@ input:focus, textarea:focus {
 }
 /* Accout Page END */
 
+/* Acc Management START */
+
+.AccountManagement h2 {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.AccountManagement .btn {
+    clear: both;
+    float: left;
+    margin-top: 10px;
+    line-height: 55px;
+}
+
+.AccountManagement .btn:hover {
+    color: #fff;
+}
+
+.AccountManagement .feedback-input {
+    margin: 10px 0 0 0;
+}
+
+/* Acc Management END */
+
+
+
 /* Footer START */
 
 footer {    
@@ -859,7 +894,6 @@ footer > ul > li:nth-child(3) {
            
     .gallery .content-container,
     .about .content-container {
-        padding-top: 220px;
         width: 100%;           
     }
     

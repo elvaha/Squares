@@ -200,10 +200,10 @@ namespace Squares.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Search")]
-		public ISingleResult<SearchResult> Search([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchParameter", DbType="NVarChar(MAX)")] string searchParameter, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchText", DbType="NVarChar(MAX)")] string searchText)
+		public ISingleResult<SearchResult1> Search1([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchPlace", DbType="NVarChar(MAX)")] string searchPlace, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchParam", DbType="NVarChar(MAX)")] string searchParam)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchParameter, searchText);
-			return ((ISingleResult<SearchResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchPlace, searchParam);
+			return ((ISingleResult<SearchResult1>)(result.ReturnValue));
 		}
 	}
 	
@@ -2797,7 +2797,7 @@ namespace Squares.Models
 		}
 	}
 	
-	public partial class SearchResult
+	public partial class SearchResult1
 	{
 		
 		private string _SetId;
@@ -2816,7 +2816,7 @@ namespace Squares.Models
 		
 		private System.Nullable<bool> _isDisabled;
 		
-		public SearchResult()
+		public SearchResult1()
 		{
 		}
 		

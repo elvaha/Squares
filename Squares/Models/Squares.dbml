@@ -142,10 +142,10 @@
       <Association Name="Zipcode_AspNetUser" Member="AspNetUsers" ThisKey="ZipcodeId" OtherKey="ZipcodeId" Type="AspNetUser" />
     </Type>
   </Table>
-  <Function Name="dbo.Search" Method="Search">
-    <Parameter Name="SearchParameter" Parameter="searchParameter" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="SearchText" Parameter="searchText" Type="System.String" DbType="NVarChar(MAX)" />
-    <ElementType Name="SearchResult">
+  <Function Name="dbo.Search" Method="Search1">
+    <Parameter Name="SearchPlace" Parameter="searchPlace" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="SearchParam" Parameter="searchParam" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType Name="SearchResult1">
       <Column Name="SetId" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
       <Column Name="Title" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
